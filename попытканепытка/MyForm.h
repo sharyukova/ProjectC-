@@ -9,17 +9,41 @@ namespace попытканепытка {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// —водка дл€ MyForm
-	/// </summary>
+	
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
 		MyForm(void)
 		{
 			InitializeComponent();
+			LoadBackground();
+
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->DoubleBuffered = true;
+
+			this->SetStyle(
+				ControlStyles::ResizeRedraw |
+				ControlStyles::AllPaintingInWmPaint |
+				ControlStyles::UserPaint |
+				ControlStyles::OptimizedDoubleBuffer,
+				true
+			);
+
+			Application::EnableVisualStyles();
+
+			this->Paint += gcnew PaintEventHandler(this, &MyForm::MyForm_Paint);
+			this->Load += gcnew EventHandler(this, &MyForm::MyForm_Load);
+
+		}
+	private: System::Void MyForm_Paint(System::Object^ sender, PaintEventArgs^ e) {
+		e->Graphics->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::AntiAlias;
+	}
+	private:
+		System::Drawing::Image^ bgImage;
+
+		void LoadBackground() {
+			
 		}
 
 	protected:
@@ -28,6 +52,10 @@ namespace попытканепытка {
 			if (components)
 			{
 				delete components;
+			}
+			if (bgImage)
+			{
+				delete bgImage;
 			}
 		}
 	private: System::Windows::Forms::Button^ start;

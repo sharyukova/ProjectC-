@@ -18,10 +18,32 @@ namespace попытканепытка {
 		FirstMenu(void)
 		{
 			InitializeComponent();
+			LoadBackground();
+
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-		}
+			this->SetStyle(
+				ControlStyles::ResizeRedraw |
+				ControlStyles::AllPaintingInWmPaint |
+				ControlStyles::UserPaint |
+				ControlStyles::OptimizedDoubleBuffer,
+				true
+			);
 
+			Application::EnableVisualStyles();
+			this->Paint += gcnew PaintEventHandler(this, &FirstMenu::FirstMenu_Paint);
+			this->Load += gcnew EventHandler(this, &FirstMenu::FirstMenu_Load);
+		}
+	private: System::Void FirstMenu_Paint(System::Object^ sender, PaintEventArgs^ e) {
+		e->Graphics->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::AntiAlias;
+	}
+	private:
+		System::Drawing::Image^ bgImage2;
+
+		void LoadBackground() {
+
+		}
+	
 	protected:
 		~FirstMenu()
 		{
@@ -29,21 +51,20 @@ namespace попытканепытка {
 			{
 				delete components;
 			}
+			if (bgImage2)
+			{
+				delete bgImage2;
+			}
 		}
 	private: System::Windows::Forms::Button^ exit;
 	protected:
 
 	private:
-		/// <summary>
-		/// ќб€зательна€ переменна€ конструктора.
-		/// </summary>
+		
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// “ребуемый метод дл€ поддержки конструктора Ч не измен€йте 
-		/// содержимое этого метода с помощью редактора кода.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FirstMenu::typeid));
