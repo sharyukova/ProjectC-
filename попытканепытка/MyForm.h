@@ -1,146 +1,188 @@
-#pragma once
+#pragma one
 #include "FirstMenu.h"
+#include <thread>
+#include <msclr/marshal.h>
+#include <msclr/marshal_cppstd.h>
+#include "sqlite3.h"
+#include <stdlib.h>
+#include <windows.h>
+#include <shlwapi.h>
+#pragma comment(lib, "shlwapi.lib")
+#include <msclr/marshal_cppstd.h>  
+
+using namespace System;
+using namespace System::IO;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
+using namespace System::Threading;
+using namespace System::Runtime::InteropServices;
+
 namespace попытканепытка {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
+    public ref class MyForm : public System::Windows::Forms::Form
+    {
+    public:
+        MyForm(void)
+        {
+            InitializeComponent();
+            String^ dbPath = Path::Combine(Environment::GetFolderPath(Environment::SpecialFolder::MyDocuments), "test.db");
 
-	
-	public ref class MyForm : public System::Windows::Forms::Form
-	{
-	public:
-		MyForm(void)
-		{
-			InitializeComponent();
-			LoadBackground();
+            sqlite3* db;
+            msclr::interop::marshal_context context;
+            const char* dbPathNative = context.marshal_as<const char*>(dbPath);
 
-			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->DoubleBuffered = true;
+            int rc = sqlite3_open(dbPathNative, &db);
 
-			this->SetStyle(
-				ControlStyles::ResizeRedraw |
-				ControlStyles::AllPaintingInWmPaint |
-				ControlStyles::UserPaint |
-				ControlStyles::OptimizedDoubleBuffer,
-				true
-			);
+            if (rc == SQLITE_OK)
+            {
+                const char* sql = "CREATE TABLE IF NOT EXISTS test (id INTEGER);";
+                rc = sqlite3_exec(db, sql, NULL, NULL, NULL);
 
-			Application::EnableVisualStyles();
+                if (rc == SQLITE_OK)
+                {
+                    MessageBox::Show("БД создана здесь:\n" + dbPath);
+                }
+                else
+                {
+                    MessageBox::Show("Ошибка создания таблицы!");
+                }
+                sqlite3_close(db);
+            }
+            else
+            {
+                MessageBox::Show("Ошибка создания БД!\nКод: " + rc.ToString());
+            }
 
-			this->Paint += gcnew PaintEventHandler(this, &MyForm::MyForm_Paint);
-			this->Load += gcnew EventHandler(this, &MyForm::MyForm_Load);
+            this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+            this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            this->DoubleBuffered = true;
 
-		}
-	private: System::Void MyForm_Paint(System::Object^ sender, PaintEventArgs^ e) {
-		e->Graphics->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::AntiAlias;
-	}
-	private:
-		System::Drawing::Image^ bgImage;
+            this->SetStyle(
+                ControlStyles::ResizeRedraw |
+                ControlStyles::AllPaintingInWmPaint |
+                ControlStyles::UserPaint |
+                ControlStyles::OptimizedDoubleBuffer,
+                true
+            );
+            firstMenu = gcnew FirstMenu();
+            firstMenu->FormClosed += gcnew FormClosedEventHandler(this, &MyForm::OnFirstMenuClosed);
+            Application::EnableVisualStyles();
 
-		void LoadBackground() {
-			
-		}
+            this->Paint += gcnew PaintEventHandler(this, &MyForm::MyForm_Paint);
+            this->Load += gcnew EventHandler(this, &MyForm::MyForm_Load);
+        }
 
-	protected:
-		~MyForm()
-		{
-			if (components)
-			{
-				delete components;
-			}
-			if (bgImage)
-			{
-				delete bgImage;
-			}
-		}
-	private: System::Windows::Forms::Button^ start;
-	private: System::Windows::Forms::Button^ exit;
-	protected:
+    private:
+        System::Void MyForm_Paint(System::Object^ sender, PaintEventArgs^ e) {
+            e->Graphics->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::AntiAlias;
+        }
 
-	protected:
+    private:
+        System::Drawing::Image^ bgImage;
+    private: System::Windows::Forms::Button^ exit;
+           FirstMenu^ firstMenu;
 
-	private:
-		/// <summary>
-		/// Обязательная переменная конструктора.
-		/// </summary>
-		System::ComponentModel::Container^ components;
+        void InitializeFirstMenu()
+        {
+            firstMenu = gcnew FirstMenu();
+            firstMenu->FormClosed += gcnew FormClosedEventHandler(this, &MyForm::OnFirstMenuClosed);
+        }
+
+
+    protected:
+        ~MyForm()
+        {
+            if (components) { delete components; }
+            if (bgImage) { delete bgImage; }
+            if (firstMenu) { delete firstMenu; }  
+        }
+
+    private:
+        System::Windows::Forms::Button^ start;
+
+
+    private:
+        System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		void InitializeComponent(void)
-		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			this->start = (gcnew System::Windows::Forms::Button());
-			this->exit = (gcnew System::Windows::Forms::Button());
-			this->SuspendLayout();
-			// 
-			// start
-			// 
-			this->start->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->start->BackColor = System::Drawing::Color::Black;
-			this->start->Font = (gcnew System::Drawing::Font(L"Soledago", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->start->Location = System::Drawing::Point(586, 569);
-			this->start->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->start->Name = L"start";
-			this->start->Size = System::Drawing::Size(273, 87);
-			this->start->TabIndex = 0;
-			this->start->Text = L"МЕНЮ";
-			this->start->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
-			this->start->UseVisualStyleBackColor = false;
-			this->start->Click += gcnew System::EventHandler(this, &MyForm::start_Click);
-			// 
-			// exit
-			// 
-			this->exit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->exit->BackColor = System::Drawing::SystemColors::ControlLightLight;
-			this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->exit->ForeColor = System::Drawing::Color::IndianRed;
-			this->exit->Location = System::Drawing::Point(1370, 0);
-			this->exit->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->exit->Name = L"exit";
-			this->exit->Size = System::Drawing::Size(56, 56);
-			this->exit->TabIndex = 1;
-			this->exit->Text = L"Х";
-			this->exit->UseVisualStyleBackColor = false;
-			this->exit->Click += gcnew System::EventHandler(this, &MyForm::exit_Click);
-			// 
-			// MyForm
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1429, 847);
-			this->Controls->Add(this->exit);
-			this->Controls->Add(this->start);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->Name = L"MyForm";
-			this->Text = L"MyForm";
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
-			this->ResumeLayout(false);
+        void InitializeComponent(void)
+        {
+            System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+            this->start = (gcnew System::Windows::Forms::Button());
+            this->exit = (gcnew System::Windows::Forms::Button());
+            this->SuspendLayout();
+            // 
+            // start
+            // 
+            this->start->Anchor = System::Windows::Forms::AnchorStyles::None;
+            this->start->BackColor = System::Drawing::Color::Transparent;
+            this->start->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"start.BackgroundImage")));
+            this->start->Cursor = System::Windows::Forms::Cursors::Hand;
+            this->start->Font = (gcnew System::Drawing::Font(L"Soledago", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(204)));
+            this->start->ForeColor = System::Drawing::SystemColors::ControlLight;
+            this->start->Location = System::Drawing::Point(586, 569);
+            this->start->Margin = System::Windows::Forms::Padding(2);
+            this->start->Name = L"start";
+            this->start->Size = System::Drawing::Size(273, 87);
+            this->start->TabIndex = 0;
+            this->start->Text = L"МЕНЮ";
+            this->start->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
+            this->start->UseVisualStyleBackColor = false;
+            this->start->Click += gcnew System::EventHandler(this, &MyForm::start_Click);
+            // 
+            // exit
+            // 
+            this->exit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->exit->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->exit->Cursor = System::Windows::Forms::Cursors::Hand;
+            this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(204)));
+            this->exit->ForeColor = System::Drawing::Color::IndianRed;
+            this->exit->Location = System::Drawing::Point(1377, 11);
+            this->exit->Margin = System::Windows::Forms::Padding(2);
+            this->exit->Name = L"exit";
+            this->exit->Size = System::Drawing::Size(56, 56);
+            this->exit->TabIndex = 3;
+            this->exit->Text = L"Х";
+            this->exit->UseVisualStyleBackColor = false;
+            this->exit->Click += gcnew System::EventHandler(this, &MyForm::exit_Click);
+            // 
+            // MyForm
+            // 
+            this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+            this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+            this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+            this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+            this->ClientSize = System::Drawing::Size(1444, 981);
+            this->Controls->Add(this->exit);
+            this->Controls->Add(this->start);
+            this->DoubleBuffered = true;
+            this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            this->Margin = System::Windows::Forms::Padding(2);
+            this->Name = L"MyForm";
+            this->Text = L"MyForm";
+            this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+            this->ResumeLayout(false);
 
-		}
+        }
 #pragma endregion
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		start->BackColor = System::Drawing::Color::FromArgb(128, 0, 0, 0);
-		start->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-		start->FlatAppearance->BorderSize = 0;
 
-		start->ForeColor = System::Drawing::Color::White;
-		}
-	private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
-		Application::Exit();
-	}
-	private: System::Void start_Click(System::Object^ sender, System::EventArgs^ e) {
-		FirstMenu^ firstMenu = gcnew FirstMenu();
-		firstMenu->Show();
-		this->Hide();
-	}
-	};
+    private:
+        System::Void OnFirstMenuClosed(System::Object^ sender, FormClosedEventArgs^ e) { }
+
+    private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+    }
+    private: System::Void start_Click(System::Object^ sender, System::EventArgs^ e) {
+        FirstMenu^ firstMenu = gcnew FirstMenu;
+        firstMenu->Show();
+        this->Hide();
+    }
+    private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
+        Application::Exit();
+    }
+    };
 }

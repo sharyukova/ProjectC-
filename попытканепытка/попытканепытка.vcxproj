@@ -78,9 +78,12 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\source\repos\попытканепытка\попытканепытка;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link />
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>D:\source\repos\попытканепытка\sqlite3.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\source\repos\попытканепытка;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -120,6 +123,9 @@
   <ItemGroup>
     <ClCompile Include="FirstMenu.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="sqlite3.c">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstMenu.h">
@@ -128,6 +134,7 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FirstMenu.resx">
