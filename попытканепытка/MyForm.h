@@ -30,11 +30,28 @@ namespace попытканепытка {
             InitializeComponent();
             String^ dbPath = Path::Combine(Environment::GetFolderPath(Environment::SpecialFolder::MyDocuments), "test.db");
 
-            sqlite3* db;
             msclr::interop::marshal_context context;
             const char* dbPathNative = context.marshal_as<const char*>(dbPath);
 
-            int rc = sqlite3_open(dbPathNative, &db);
+            sqlite3* db;
+            char* zErrMsg =
+                0;
+            int rc;
+            rc = sqlite3_open("test.db", &db);
+            if (rc) 
+            {
+                fprintf(stderr, "ErrorBlat: %s\n", sqlite3_errmsg(db));
+                MessageBox::Show("huita:\n");
+
+                std::exit(0);
+            }
+            else
+            {
+                MessageBox::Show("NOEM:\n");
+            }
+
+            sqlite3_close(db);
+
 
             if (rc == SQLITE_OK)
             {
@@ -55,6 +72,8 @@ namespace попытканепытка {
             {
                 MessageBox::Show("Ошибка создания БД!\nКод: " + rc.ToString());
             }
+
+
 
             this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;

@@ -122,19 +122,31 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FirstMenu.cpp" />
+    <ClCompile Include="MatrixOfFate.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Numerology.cpp" />
     <ClCompile Include="sqlite3.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
     </ClCompile>
+    <ClCompile Include="Taro.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstMenu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MatrixOfFate.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Numerology.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="Taro.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FirstMenu.resx">
@@ -142,6 +154,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Numerology.resx">
+      <DependentUpon>Numerology.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Taro.resx">
+      <DependentUpon>Taro.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

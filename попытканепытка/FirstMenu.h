@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Taro.h"
 namespace попытканепытка {
 
 	using namespace System;
@@ -89,7 +89,7 @@ namespace попытканепытка {
 			this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->exit->ForeColor = System::Drawing::Color::IndianRed;
-			this->exit->Location = System::Drawing::Point(1372, 1);
+			this->exit->Location = System::Drawing::Point(1387, 1);
 			this->exit->Margin = System::Windows::Forms::Padding(2);
 			this->exit->Name = L"exit";
 			this->exit->Size = System::Drawing::Size(56, 56);
@@ -106,7 +106,7 @@ namespace попытканепытка {
 			this->menu1->Font = (gcnew System::Drawing::Font(L"Soledago", 59.99999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->menu1->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->menu1->Location = System::Drawing::Point(409, 73);
+			this->menu1->Location = System::Drawing::Point(417, 73);
 			this->menu1->Name = L"menu1";
 			this->menu1->Size = System::Drawing::Size(712, 103);
 			this->menu1->TabIndex = 3;
@@ -121,9 +121,9 @@ namespace попытканепытка {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button1->ForeColor = System::Drawing::Color::WhiteSmoke;
-			this->button1->Location = System::Drawing::Point(271, 249);
+			this->button1->Location = System::Drawing::Point(279, 249);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(406, 178);
+			this->button1->Size = System::Drawing::Size(406, 312);
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"–асклад на таро";
 			this->button1->UseVisualStyleBackColor = false;
@@ -137,9 +137,9 @@ namespace попытканепытка {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button2->ForeColor = System::Drawing::SystemColors::ControlLight;
-			this->button2->Location = System::Drawing::Point(859, 249);
+			this->button2->Location = System::Drawing::Point(867, 249);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(406, 178);
+			this->button2->Size = System::Drawing::Size(406, 312);
 			this->button2->TabIndex = 5;
 			this->button2->Text = L"ћатрица судьбы";
 			this->button2->UseVisualStyleBackColor = true;
@@ -152,9 +152,9 @@ namespace попытканепытка {
 			this->button3->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button3->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->button3->Location = System::Drawing::Point(271, 628);
+			this->button3->Location = System::Drawing::Point(279, 628);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(406, 178);
+			this->button3->Size = System::Drawing::Size(406, 312);
 			this->button3->TabIndex = 6;
 			this->button3->Text = L"Ќумерологи€";
 			this->button3->UseVisualStyleBackColor = true;
@@ -168,9 +168,9 @@ namespace попытканепытка {
 			this->button4->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button4->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->button4->Location = System::Drawing::Point(859, 628);
+			this->button4->Location = System::Drawing::Point(867, 628);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(406, 178);
+			this->button4->Size = System::Drawing::Size(406, 312);
 			this->button4->TabIndex = 7;
 			this->button4->Text = L"√ороскоп";
 			this->button4->UseVisualStyleBackColor = true;
@@ -181,13 +181,14 @@ namespace попытканепытка {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1429, 847);
+			this->ClientSize = System::Drawing::Size(1444, 981);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->menu1);
 			this->Controls->Add(this->exit);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"FirstMenu";
 			this->Text = L"FirstMenu";
@@ -203,6 +204,9 @@ namespace попытканепытка {
 		Application::Exit();
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		Taro^ taro = gcnew Taro;
+		taro->Show();
+		this->Hide();
 	}
 };
 }
