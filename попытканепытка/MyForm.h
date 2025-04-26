@@ -172,7 +172,28 @@ namespace попытканепытка {
 
         }
 #pragma endregion
+    private: System::Collections::Generic::List<String^>^ GetAllTarotCards(sqlite3* db)
+    {
+        System::Collections::Generic::List<String^>^ cards = gcnew System::Collections::Generic::List<String^>();
 
+        const char* sql = "SELECT image_path FROM tarot_cards";
+        sqlite3_stmt* stmt;
+
+        if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) != SQLITE_OK) {
+            MessageBox::Show("Ошибка подготовки запроса: " + gcnew String(sqlite3_errmsg(db)));
+            return cards;
+        }
+
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            const unsigned char* imagePath = sqlite3_column_text(stmt, 0);
+            if (imagePath != NULL) {
+                cards->Add(gcnew String((const char*)imagePath));
+            }
+        }
+
+        sqlite3_finalize(stmt);
+        return cards;
+    }
     private:
         System::Void OnFirstMenuClosed(System::Object^ sender, FormClosedEventArgs^ e) { }
 
@@ -188,8 +209,7 @@ namespace попытканепытка {
     }
            void LoadTarotCardImage()
            {
-
-               String^ dbPath = ("D:\\source\\repos\\попытканепытка\\попытканепытка\\test.db");
+               String^ dbPath = "D:\\source\\repos\\попытканепытка\\попытканепытка\\test.db";
 
                if (!File::Exists(dbPath)) {
                    MessageBox::Show("Файл БД не найден!");
@@ -204,42 +224,36 @@ namespace попытканепытка {
                    MessageBox::Show("Ошибка открытия БД: " + gcnew String(sqlite3_errmsg(db)));
                    return;
                }
+               System::Collections::Generic::List<String^>^ cards = GetAllTarotCards(db);
 
-               const char* sql = "SELECT image_path FROM tarot_cards WHERE id = 1";
-               sqlite3_stmt* stmt;
-
-               if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) != SQLITE_OK) {
-                   MessageBox::Show("Ошибка подготовки запроса: " + gcnew String(sqlite3_errmsg(db)));
+               if (cards->Count == 0) {
+                   MessageBox::Show("В БД не найдено ни одной карты!");
                    sqlite3_close(db);
                    return;
                }
 
-               sqlite3_bind_text(stmt, 1, "Шут", -1, SQLITE_STATIC);
+               Random^ random = gcnew Random();
+               int randomIndex = random->Next(0, cards->Count);
+               String^ randomCardPath = cards[randomIndex];
 
-               if (sqlite3_step(stmt) == SQLITE_ROW) {
-                   const unsigned char* imagePath = sqlite3_column_text(stmt, 0);
-                   if (imagePath != NULL) {
-                       String^ dbFolder = Path::GetDirectoryName(Application::ExecutablePath);
-                       String^ path = dbFolder + "\\" + gcnew String((const char*)imagePath);
-                       if (File::Exists(path)) {
-                           try {
-                               pictureBox1->Image = Image::FromFile(path);
-                           }
-                           catch (Exception^ e) {
-                               MessageBox::Show("Ошибка загрузки изображения: " + e->Message);
-                           }
-                       }
-                       else {
-                           MessageBox::Show("Изображение не найдено по пути: " + path);
-                       }
+               String^ dbFolder = Path::GetDirectoryName(Application::ExecutablePath);
+               String^ path = dbFolder + "\\" + randomCardPath;
+
+               if (File::Exists(path)) {
+                   try {
+                       pictureBox1->Image = Image::FromFile(path);
+                       pictureBox1->SizeMode = PictureBoxSizeMode::Zoom; // Добавляем для правильного отображения
+                   }
+                   catch (Exception^ e) {
+                       MessageBox::Show("Ошибка загрузки изображения: " + e->Message);
                    }
                }
                else {
-                   MessageBox::Show("Карта 'Шут' не найдена в БД!");
+                   MessageBox::Show("Изображение не найдено по пути: " + path);
                }
 
-               sqlite3_finalize(stmt);
                sqlite3_close(db);
            }
     };
+
 }

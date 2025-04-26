@@ -122,6 +122,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CardOfDay.cpp" />
     <ClCompile Include="FirstMenu.cpp" />
     <ClCompile Include="MatrixOfFate.cpp" />
     <ClCompile Include="MyForm.cpp" />
@@ -130,8 +131,12 @@
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
     </ClCompile>
     <ClCompile Include="Taro.cpp" />
+    <ClCompile Include="TarotClass.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CardOfDay.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="FirstMenu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -148,6 +153,7 @@
     <ClInclude Include="Taro.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="TarotClass.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FirstMenu.resx">
