@@ -31,7 +31,6 @@ namespace попытканепытка {
 				ControlStyles::OptimizedDoubleBuffer,
 				true
 			);
-
 			Application::EnableVisualStyles();
 			this->Paint += gcnew PaintEventHandler(this, &FirstMenu::FirstMenu_Paint);
 			this->Load += gcnew EventHandler(this, &FirstMenu::FirstMenu_Load);
@@ -224,5 +223,6 @@ namespace попытканепытка {
 		numerology->Show();
 		this->Hide();
 	}
+
 };
 }

@@ -156,6 +156,9 @@
     <ClInclude Include="TarotClass.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CardOfDay.resx">
+      <DependentUpon>CardOfDay.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FirstMenu.resx">
       <DependentUpon>FirstMenu.h</DependentUpon>
     </EmbeddedResource>
