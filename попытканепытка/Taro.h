@@ -18,8 +18,19 @@ namespace попытканепытка {
 		Taro(void)
 		{
 			InitializeComponent();
+			this->SetStyle(
+				ControlStyles::ResizeRedraw |
+				ControlStyles::AllPaintingInWmPaint |
+				ControlStyles::UserPaint |
+				ControlStyles::OptimizedDoubleBuffer,
+				true
+			);
+			Application::EnableVisualStyles();
+			this->Paint += gcnew PaintEventHandler(this, &Taro::Taro_Paint);
 		}
-
+	private: System::Void Taro_Paint(System::Object^ sender, PaintEventArgs^ e) {
+		e->Graphics->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::AntiAlias;
+	}
 	protected:
 		/// <summary>
 		/// Освободить все используемые ресурсы.
@@ -39,7 +50,6 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Button^ button1;
 
 	protected:
-
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.

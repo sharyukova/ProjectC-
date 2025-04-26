@@ -76,12 +76,12 @@ namespace попытканепытка {
         System::Void MyForm_Paint(System::Object^ sender, PaintEventArgs^ e) {
             e->Graphics->SmoothingMode = System::Drawing::Drawing2D::SmoothingMode::AntiAlias;
         }
-
+    private:
+        FirstMenu^ firstMenu = nullptr;
     private:
         System::Drawing::Image^ bgImage;
     private: System::Windows::Forms::Button^ exit;
     private: System::Windows::Forms::PictureBox^ pictureBox1;
-           FirstMenu^ firstMenu;
 
            void InitializeFirstMenu()
            {
@@ -200,8 +200,15 @@ namespace попытканепытка {
     private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
     }
     private: System::Void start_Click(System::Object^ sender, System::EventArgs^ e) {
-        FirstMenu^ firstMenu = gcnew FirstMenu;
+        firstMenu = gcnew FirstMenu();
+        firstMenu->Opacity = 0;  
         firstMenu->Show();
+        for (double opacity = 0; opacity <= 1; opacity += 0.1)
+        {
+            firstMenu->Opacity = opacity;
+            Application::DoEvents();
+            Threading::Thread::Sleep(15); 
+        }
         this->Hide();
     }
     private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -242,7 +249,7 @@ namespace попытканепытка {
                if (File::Exists(path)) {
                    try {
                        pictureBox1->Image = Image::FromFile(path);
-                       pictureBox1->SizeMode = PictureBoxSizeMode::Zoom; // ƒобавл€ем дл€ правильного отображени€
+                       pictureBox1->SizeMode = PictureBoxSizeMode::Zoom; 
                    }
                    catch (Exception^ e) {
                        MessageBox::Show("ќшибка загрузки изображени€: " + e->Message);
