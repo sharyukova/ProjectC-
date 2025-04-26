@@ -1,8 +1,8 @@
 #include "MyForm.h" 
-
-#include < Windows.h>
-
 using namespace попытканепытка;
+using namespace System;
+using namespace System::Windows::Forms;
+
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	Application:: EnableVisualStyles();

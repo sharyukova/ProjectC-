@@ -1,5 +1,7 @@
 #pragma once
 #include "Taro.h"
+#include "MatrixOfFate.h"
+#include "Numerology.h"
 namespace попытканепытка {
 
 	using namespace System;
@@ -86,10 +88,12 @@ namespace попытканепытка {
 			this->exit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->exit->BackColor = System::Drawing::Color::Transparent;
 			this->exit->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->exit->FlatAppearance->BorderSize = 0;
+			this->exit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->exit->ForeColor = System::Drawing::Color::IndianRed;
-			this->exit->Location = System::Drawing::Point(1387, 1);
+			this->exit->ForeColor = System::Drawing::Color::White;
+			this->exit->Location = System::Drawing::Point(1377, 11);
 			this->exit->Margin = System::Windows::Forms::Padding(2);
 			this->exit->Name = L"exit";
 			this->exit->Size = System::Drawing::Size(56, 56);
@@ -123,7 +127,7 @@ namespace попытканепытка {
 			this->button1->ForeColor = System::Drawing::Color::WhiteSmoke;
 			this->button1->Location = System::Drawing::Point(279, 249);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(406, 312);
+			this->button1->Size = System::Drawing::Size(407, 312);
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"–асклад на таро";
 			this->button1->UseVisualStyleBackColor = false;
@@ -143,6 +147,7 @@ namespace попытканепытка {
 			this->button2->TabIndex = 5;
 			this->button2->Text = L"ћатрица судьбы";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &FirstMenu::button2_Click);
 			// 
 			// button3
 			// 
@@ -158,6 +163,7 @@ namespace попытканепытка {
 			this->button3->TabIndex = 6;
 			this->button3->Text = L"Ќумерологи€";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &FirstMenu::button3_Click);
 			// 
 			// button4
 			// 
@@ -197,7 +203,7 @@ namespace попытканепытка {
 			this->PerformLayout();
 
 		}
-#pragma endregion
+	#pragma endregion
 	private: System::Void FirstMenu_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -206,6 +212,16 @@ namespace попытканепытка {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		Taro^ taro = gcnew Taro;
 		taro->Show();
+		this->Hide();
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		MatrixOfFate^ matrixOfFate = gcnew MatrixOfFate;
+		matrixOfFate->Show();
+		this->Hide();
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		Numerology^ numerology = gcnew Numerology;
+		numerology->Show();
 		this->Hide();
 	}
 };

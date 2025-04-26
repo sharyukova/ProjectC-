@@ -34,6 +34,9 @@ namespace попытканепытка {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ exit;
+	private: System::Windows::Forms::Label^ menu1;
+	protected:
 
 	private:
 		/// <summary>
@@ -49,7 +52,41 @@ namespace попытканепытка {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Numerology::typeid));
+			this->exit = (gcnew System::Windows::Forms::Button());
+			this->menu1 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
+			// 
+			// exit
+			// 
+			this->exit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->exit->BackColor = System::Drawing::Color::Transparent;
+			this->exit->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->exit->FlatAppearance->BorderSize = 0;
+			this->exit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->exit->ForeColor = System::Drawing::Color::White;
+			this->exit->Location = System::Drawing::Point(1361, 11);
+			this->exit->Margin = System::Windows::Forms::Padding(2);
+			this->exit->Name = L"exit";
+			this->exit->Size = System::Drawing::Size(56, 56);
+			this->exit->TabIndex = 3;
+			this->exit->Text = L"Х";
+			this->exit->UseVisualStyleBackColor = false;
+			// 
+			// menu1
+			// 
+			this->menu1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
+			this->menu1->BackColor = System::Drawing::Color::Transparent;
+			this->menu1->Font = (gcnew System::Drawing::Font(L"Soledago", 59.99999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->menu1->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->menu1->Location = System::Drawing::Point(471, 57);
+			this->menu1->Name = L"menu1";
+			this->menu1->Size = System::Drawing::Size(509, 105);
+			this->menu1->TabIndex = 6;
+			this->menu1->Text = L"ABACABABA";
+			this->menu1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// Numerology
 			// 
@@ -58,6 +95,8 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1428, 942);
+			this->Controls->Add(this->menu1);
+			this->Controls->Add(this->exit);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"Numerology";
 			this->Text = L"Numerology";
