@@ -10,6 +10,8 @@
 #include <iostream>
 #include <fstream>
 #pragma comment(lib, "shlwapi.lib")
+#include <locale>
+#include <codecvt>
 
 #pragma comment(lib, "sqlite3.lib")
 #include <msclr/marshal_cppstd.h>  
@@ -32,26 +34,6 @@ namespace попытканепытка {
         MyForm(void)
         {
             InitializeComponent();
-            LoadTarotCardImage();
-            String^ dbPath = "D:\\source\\repos\\попытканепытка\\попытканепытка\\test.db";
-
-            if (!File::Exists(dbPath)) {
-                MessageBox::Show("Файл БД не найден по пути: " + dbPath);
-                return;
-            }
-
-            msclr::interop::marshal_context context;
-            std::string dbPathNative = context.marshal_as<std::string>(dbPath);
-
-            sqlite3* db;
-            if (sqlite3_open("test.db", &db) != SQLITE_OK) {
-                MessageBox::Show("Ошибка открытия БД: " + gcnew String(sqlite3_errmsg(db)));
-                return;
-            }
-            else {
-                MessageBox::Show("Подключение к БД успешно!");
-                sqlite3_close(db);
-            }
             LoadTarotCardImage();
             this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -114,13 +96,16 @@ namespace попытканепытка {
             this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
             this->SuspendLayout();
+            // 
+            // start
+            // 
             this->start->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->start->BackColor = System::Drawing::Color::Transparent;
             this->start->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"start.BackgroundImage")));
             this->start->Cursor = System::Windows::Forms::Cursors::Hand;
             this->start->FlatAppearance->BorderSize = 0;
             this->start->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->start->Font = (gcnew System::Drawing::Font(L"Soledago", 22.2, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->start->Font = (gcnew System::Drawing::Font(L"Soledago", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
             this->start->ForeColor = System::Drawing::SystemColors::ControlLight;
             this->start->Location = System::Drawing::Point(587, 589);
@@ -132,6 +117,9 @@ namespace попытканепытка {
             this->start->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
             this->start->UseVisualStyleBackColor = false;
             this->start->Click += gcnew System::EventHandler(this, &MyForm::start_Click);
+            // 
+            // exit
+            // 
             this->exit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->exit->BackColor = System::Drawing::Color::Transparent;
             this->exit->Cursor = System::Windows::Forms::Cursors::Hand;
@@ -148,11 +136,18 @@ namespace попытканепытка {
             this->exit->Text = L"Х";
             this->exit->UseVisualStyleBackColor = false;
             this->exit->Click += gcnew System::EventHandler(this, &MyForm::exit_Click);
-            this->pictureBox1->Location = System::Drawing::Point(172, 498);
+            // 
+            // pictureBox1
+            // 
+            this->pictureBox1->Location = System::Drawing::Point(81, 533);
             this->pictureBox1->Name = L"pictureBox1";
             this->pictureBox1->Size = System::Drawing::Size(379, 436);
+            this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
             this->pictureBox1->TabIndex = 4;
             this->pictureBox1->TabStop = false;
+            // 
+            // MyForm
+            // 
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
@@ -169,6 +164,7 @@ namespace попытканепытка {
             this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
             this->ResumeLayout(false);
+            this->PerformLayout();
 
         }
 #pragma endregion
@@ -214,21 +210,23 @@ namespace попытканепытка {
     private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
         Application::Exit();
     }
-           void LoadTarotCardImage()
-           {
-               String^ dbPath = "D:\\source\\repos\\попытканепытка\\попытканепытка\\test.db";
-
-               if (!File::Exists(dbPath)) {
-                   MessageBox::Show("Файл БД не найден!");
-                   return;
-               }
-
+           void LoadTarotCardImage() {
+               String^ appDir = Application::StartupPath;
+               String^ dbName = "test.db";
+               String^ dbPath = Path::Combine(appDir, dbName);
                msclr::interop::marshal_context context;
-               std::string dbPathNative = context.marshal_as<std::string>(dbPath);
-
+               std::wstring widePath = context.marshal_as<std::wstring>(dbPath);
+               std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+               std::string utf8Path = converter.to_bytes(widePath);
                sqlite3* db;
-               if (sqlite3_open("test.db", &db) != SQLITE_OK) {
-                   MessageBox::Show("Ошибка открытия БД: " + gcnew String(sqlite3_errmsg(db)));
+               int rc = sqlite3_open_v2(utf8Path.c_str(), &db, SQLITE_OPEN_READWRITE, nullptr);
+
+               if (rc != SQLITE_OK) {
+                   String^ errorMsg = gcnew String(sqlite3_errmsg(db));
+                   MessageBox::Show("Ошибка открытия БД:\n" + errorMsg +
+                       "\nПуть: " + dbPath,
+                       "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                   if (db) sqlite3_close(db);
                    return;
                }
                System::Collections::Generic::List<String^>^ cards = GetAllTarotCards(db);
@@ -238,25 +236,21 @@ namespace попытканепытка {
                    sqlite3_close(db);
                    return;
                }
-
                Random^ random = gcnew Random();
                int randomIndex = random->Next(0, cards->Count);
-               String^ randomCardPath = cards[randomIndex];
-
-               String^ dbFolder = Path::GetDirectoryName(Application::ExecutablePath);
-               String^ path = dbFolder + "\\" + randomCardPath;
-
-               if (File::Exists(path)) {
+               String^ imageRelativePath = cards[randomIndex];
+               String^ imageFullPath = Path::Combine(appDir, imageRelativePath);
+               if (File::Exists(imageFullPath)) {
                    try {
-                       pictureBox1->Image = Image::FromFile(path);
-                       pictureBox1->SizeMode = PictureBoxSizeMode::Zoom; 
+                       pictureBox1->Image = Image::FromFile(imageFullPath);
+                       pictureBox1->SizeMode = PictureBoxSizeMode::Zoom;
                    }
                    catch (Exception^ e) {
-                       MessageBox::Show("Ошибка загрузки изображения: " + e->Message);
+                       MessageBox::Show("Ошибка загрузки изображения:\n" + e->Message);
                    }
                }
                else {
-                   MessageBox::Show("Изображение не найдено по пути: " + path);
+                   MessageBox::Show("Изображение не найдено:\n" + imageFullPath);
                }
 
                sqlite3_close(db);

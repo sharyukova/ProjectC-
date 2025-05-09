@@ -124,6 +124,7 @@
   <ItemGroup>
     <ClCompile Include="CardOfDay.cpp" />
     <ClCompile Include="FirstMenu.cpp" />
+    <ClCompile Include="Horoscope.cpp" />
     <ClCompile Include="MatrixOfFate.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Numerology.cpp" />
@@ -138,6 +139,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FirstMenu.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Horoscope.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MatrixOfFate.h">
@@ -161,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FirstMenu.resx">
       <DependentUpon>FirstMenu.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Horoscope.resx">
+      <DependentUpon>Horoscope.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MatrixOfFate.resx">
       <DependentUpon>MatrixOfFate.h</DependentUpon>

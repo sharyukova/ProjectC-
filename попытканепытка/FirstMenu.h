@@ -2,6 +2,7 @@
 #include "Taro.h"
 #include "MatrixOfFate.h"
 #include "Numerology.h"
+#include "Horoscope.h"
 namespace попытканепытка {
 
 	using namespace System;
@@ -42,7 +43,8 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ horoscope;
+
 	private:
 		System::Drawing::Image^ bgImage2;
 
@@ -79,7 +81,7 @@ namespace попытканепытка {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->horoscope = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// exit
@@ -164,21 +166,21 @@ namespace попытканепытка {
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &FirstMenu::button3_Click);
 			// 
-			// button4
+			// horoscope
 			// 
-			this->button4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
-			this->button4->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-			this->button4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.BackgroundImage")));
-			this->button4->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->horoscope->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
+			this->horoscope->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->horoscope->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"horoscope.BackgroundImage")));
+			this->horoscope->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->horoscope->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button4->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->button4->Location = System::Drawing::Point(867, 628);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(406, 312);
-			this->button4->TabIndex = 7;
-			this->button4->Text = L"Гороскоп";
-			this->button4->UseVisualStyleBackColor = true;
+			this->horoscope->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->horoscope->Location = System::Drawing::Point(867, 628);
+			this->horoscope->Name = L"horoscope";
+			this->horoscope->Size = System::Drawing::Size(406, 312);
+			this->horoscope->TabIndex = 7;
+			this->horoscope->Text = L"Гороскоп";
+			this->horoscope->UseVisualStyleBackColor = true;
 			// 
 			// FirstMenu
 			// 
@@ -187,7 +189,7 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1444, 981);
-			this->Controls->Add(this->button4);
+			this->Controls->Add(this->horoscope);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -205,24 +207,63 @@ namespace попытканепытка {
 	#pragma endregion
 	private: System::Void FirstMenu_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
+	private:
+		Taro^ taro = nullptr;
+		MatrixOfFate^ matrixOfFate = nullptr;
+		Numerology^ numerology = nullptr;
+		Horoscope^ horoscope1 = nullptr;
+
 	private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		Taro^ taro = gcnew Taro;
+		taro = gcnew Taro();
+		taro->Opacity = 0;
 		taro->Show();
+		for (double opacity = 0; opacity <= 1; opacity += 0.1)
+		{
+			taro->Opacity = opacity;
+			Application::DoEvents();
+			Threading::Thread::Sleep(15);
+		}
 		this->Hide();
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		MatrixOfFate^ matrixOfFate = gcnew MatrixOfFate;
+		matrixOfFate = gcnew MatrixOfFate();
+		matrixOfFate->Opacity = 0;
 		matrixOfFate->Show();
+		for (double opacity = 0; opacity <= 1; opacity += 0.1)
+		{
+			matrixOfFate->Opacity = opacity;
+			Application::DoEvents();
+			Threading::Thread::Sleep(15);
+		}
 		this->Hide();
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		Numerology^ numerology = gcnew Numerology;
+		numerology = gcnew Numerology();
+		numerology->Opacity = 0;
 		numerology->Show();
+		for (double opacity = 0; opacity <= 1; opacity += 0.1)
+		{
+			numerology->Opacity = opacity;
+			Application::DoEvents();
+			Threading::Thread::Sleep(15);
+		}
 		this->Hide();
 	}
 
+	private: System::Void horoscope_Click(System::Object^ sender, System::EventArgs^ e) {
+		horoscope1 = gcnew Horoscope();
+		horoscope1->Opacity = 0;
+		horoscope1->Show();
+		for (double opacity = 0; opacity <= 1; opacity += 0.1)
+		{
+			horoscope1->Opacity = opacity;
+			Application::DoEvents();
+			Threading::Thread::Sleep(15);
+		}
+		this->Hide();
+	}
 };
 }

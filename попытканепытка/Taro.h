@@ -114,12 +114,13 @@ namespace попытканепытка {
 			this->button4->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button4->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->button4->Location = System::Drawing::Point(813, 524);
+			this->button4->Location = System::Drawing::Point(811, 623);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(406, 312);
 			this->button4->TabIndex = 11;
 			this->button4->Text = L"Расклад на ситуацию";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &Taro::button4_Click);
 			// 
 			// button3
 			// 
@@ -129,12 +130,13 @@ namespace попытканепытка {
 			this->button3->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button3->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->button3->Location = System::Drawing::Point(225, 524);
+			this->button3->Location = System::Drawing::Point(223, 623);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(406, 312);
 			this->button3->TabIndex = 10;
 			this->button3->Text = L"\"Что Вас ждёт в ближайшее время\?\"";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &Taro::button3_Click);
 			// 
 			// button2
 			// 
@@ -144,12 +146,13 @@ namespace попытканепытка {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button2->ForeColor = System::Drawing::SystemColors::ControlLight;
-			this->button2->Location = System::Drawing::Point(813, 145);
+			this->button2->Location = System::Drawing::Point(811, 244);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(406, 312);
 			this->button2->TabIndex = 9;
 			this->button2->Text = L"\"Что он думает о Вас\?\"";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Taro::button2_Click);
 			// 
 			// button1
 			// 
@@ -160,7 +163,7 @@ namespace попытканепытка {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button1->ForeColor = System::Drawing::Color::WhiteSmoke;
-			this->button1->Location = System::Drawing::Point(225, 145);
+			this->button1->Location = System::Drawing::Point(223, 244);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(407, 312);
 			this->button1->TabIndex = 8;
@@ -197,8 +200,21 @@ namespace попытканепытка {
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		CardOfDay^ card = gcnew CardOfDay;
+		card->Opacity = 0;
 		card->Show();
+		for (double opacity = 0; opacity <= 1; opacity += 0.1)
+		{
+			card->Opacity = opacity;
+			Application::DoEvents();
+			Threading::Thread::Sleep(15);
+		}
 		this->Hide();
 	}
-	};
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
