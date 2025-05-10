@@ -67,7 +67,7 @@ namespace попытканепытка {
 			this->menu1->Name = L"menu1";
 			this->menu1->Size = System::Drawing::Size(990, 228);
 			this->menu1->TabIndex = 5;
-			this->menu1->Text = L"Выберите тип матрицы совместимости";
+			this->menu1->Text = L"Выберите тип матрицы судьбы";
 			this->menu1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->menu1->Click += gcnew System::EventHandler(this, &MatrixOfFate::menu1_Click);
 			// 
@@ -88,9 +88,6 @@ namespace попытканепытка {
 			this->exit->TabIndex = 6;
 			this->exit->Text = L"Х";
 			this->exit->UseVisualStyleBackColor = false;
-			this->exit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->exit->BackColor = System::Drawing::Color::Transparent;
-			this->exit->FlatAppearance->BorderSize = 0;
 			// 
 			// MatrixOfFate
 			// 

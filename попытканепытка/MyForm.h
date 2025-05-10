@@ -1,4 +1,4 @@
-#pragma one
+#pragma onñe
 #include "FirstMenu.h"
 #include <thread>
 #include <msclr/marshal.h>

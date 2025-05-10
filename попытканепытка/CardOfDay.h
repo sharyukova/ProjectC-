@@ -11,6 +11,9 @@ namespace попытканепытка {
 
     public ref class CardOfDay : public System::Windows::Forms::Form
     {
+    private:
+        array<PictureBox^>^ pictureBoxes; // Массив для хранения всех PictureBox
+        bool isCardSelected;
     public:
         CardOfDay(void)
         {
@@ -24,6 +27,18 @@ namespace попытканепытка {
             this->DoubleBuffered = true;
             this->SuspendLayout();
             InitializeComponent();
+            this->ResumeLayout(false);
+            isCardSelected = false;
+
+            pictureBoxes = gcnew array<PictureBox^> {
+                pictureBox2, pictureBox3, pictureBox4, pictureBox5, pictureBox6,
+                    pictureBox7, pictureBox8, pictureBox9, pictureBox10, pictureBox11,
+                    pictureBox12, pictureBox13, pictureBox14, pictureBox15, pictureBox16,
+                    pictureBox17, pictureBox18, pictureBox19, pictureBox20, pictureBox21,
+                    pictureBox22, pictureBox23, pictureBox24, pictureBox25, pictureBox26,
+                    pictureBox27, pictureBox28, pictureBox29, pictureBox30, pictureBox31
+            };
+
             this->ResumeLayout(false);
         }
 
@@ -44,10 +59,10 @@ namespace попытканепытка {
     private: System::Windows::Forms::PictureBox^ pictureBox3;
     private: System::Windows::Forms::PictureBox^ pictureBox4;
     private: System::Windows::Forms::PictureBox^ pictureBox5;
-    private: System::Windows::Forms::PictureBox^ pictureBox9;
     private: System::Windows::Forms::PictureBox^ pictureBox6;
     private: System::Windows::Forms::PictureBox^ pictureBox7;
     private: System::Windows::Forms::PictureBox^ pictureBox8;
+    private: System::Windows::Forms::PictureBox^ pictureBox9;
     private: System::Windows::Forms::PictureBox^ pictureBox10;
     private: System::Windows::Forms::PictureBox^ pictureBox11;
     private: System::Windows::Forms::PictureBox^ pictureBox12;
@@ -72,7 +87,28 @@ namespace попытканепытка {
     private: System::Windows::Forms::PictureBox^ pictureBox31;
     private: System::Windows::Forms::Button^ exit;
            System::ComponentModel::Container^ components;
+    private:
+        void PictureBox_Click(Object^ sender, EventArgs^ e)
+        {
+            if (isCardSelected) return; // Если карта уже выбрана, ничего не делаем
 
+            PictureBox^ clickedBox = (PictureBox^)sender;
+
+            // Поднимаем выбранную карту
+            clickedBox->Location = Point(clickedBox->Location.X, clickedBox->Location.Y - 34);
+            pictureBox1->Visible = true;
+
+            // Блокируем все остальные карты
+            isCardSelected = true;
+            for each (PictureBox ^ box in pictureBoxes)
+            {
+                if (box != clickedBox)
+                {
+                    box->Enabled = false; // Отключаем возможность нажатия
+                    box->Cursor = Cursors::No; // Меняем курсор
+                }
+            }
+        }
 #pragma region Windows Form Designer generated code
            void InitializeComponent(void)
            {
@@ -84,10 +120,10 @@ namespace попытканепытка {
                this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
                this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
                this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
-               this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
                this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
                this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
                this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
+               this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
                this->pictureBox10 = (gcnew System::Windows::Forms::PictureBox());
                this->pictureBox11 = (gcnew System::Windows::Forms::PictureBox());
                this->pictureBox12 = (gcnew System::Windows::Forms::PictureBox());
@@ -116,10 +152,10 @@ namespace попытканепытка {
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
-               (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
+               (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox11))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->BeginInit();
@@ -149,7 +185,7 @@ namespace попытканепытка {
                this->pictureBox1->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
                this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->pictureBox1->Location = System::Drawing::Point(545, 665);
+               this->pictureBox1->Location = System::Drawing::Point(520, 665);
                this->pictureBox1->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox1->Name = L"pictureBox1";
                this->pictureBox1->Size = System::Drawing::Size(283, 462);
@@ -157,7 +193,7 @@ namespace попытканепытка {
                this->pictureBox1->TabIndex = 0;
                this->pictureBox1->TabStop = false;
                this->pictureBox1->Visible = false;
-               this->pictureBox1->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox1_Click);
+               this->pictureBox1->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // yourname
                // 
@@ -170,7 +206,7 @@ namespace попытканепытка {
                this->yourname->Location = System::Drawing::Point(249, 68);
                this->yourname->Margin = System::Windows::Forms::Padding(0);
                this->yourname->Name = L"yourname";
-               this->yourname->Size = System::Drawing::Size(791, 51);
+               this->yourname->Size = System::Drawing::Size(740, 51);
                this->yourname->TabIndex = 1;
                this->yourname->Text = L"Введите имя";
                // 
@@ -185,7 +221,7 @@ namespace попытканепытка {
                this->znakzodiaka->Location = System::Drawing::Point(249, 196);
                this->znakzodiaka->Margin = System::Windows::Forms::Padding(0);
                this->znakzodiaka->Name = L"znakzodiaka";
-               this->znakzodiaka->Size = System::Drawing::Size(791, 56);
+               this->znakzodiaka->Size = System::Drawing::Size(740, 56);
                this->znakzodiaka->TabIndex = 2;
                this->znakzodiaka->Text = L"Введите знак зодиака";
                // 
@@ -201,7 +237,7 @@ namespace попытканепытка {
                this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox2->TabIndex = 3;
                this->pictureBox2->TabStop = false;
-               this->pictureBox2->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox2_Click);
+               this->pictureBox2->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox3
                // 
@@ -215,7 +251,7 @@ namespace попытканепытка {
                this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox3->TabIndex = 4;
                this->pictureBox3->TabStop = false;
-               this->pictureBox3->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox3_Click);
+               this->pictureBox3->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox4
                // 
@@ -229,7 +265,7 @@ namespace попытканепытка {
                this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox4->TabIndex = 5;
                this->pictureBox4->TabStop = false;
-               this->pictureBox4->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox4_Click);
+               this->pictureBox4->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox5
                // 
@@ -243,21 +279,7 @@ namespace попытканепытка {
                this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox5->TabIndex = 5;
                this->pictureBox5->TabStop = false;
-               this->pictureBox5->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox5_Click);
-               // 
-               // pictureBox9
-               // 
-               this->pictureBox9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.BackgroundImage")));
-               this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->pictureBox9->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox9->Location = System::Drawing::Point(317, 334);
-               this->pictureBox9->Margin = System::Windows::Forms::Padding(0);
-               this->pictureBox9->Name = L"pictureBox9";
-               this->pictureBox9->Size = System::Drawing::Size(164, 254);
-               this->pictureBox9->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
-               this->pictureBox9->TabIndex = 6;
-               this->pictureBox9->TabStop = false;
-               this->pictureBox9->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox9_Click);
+               this->pictureBox5->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox6
                // 
@@ -271,6 +293,7 @@ namespace попытканепытка {
                this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox6->TabIndex = 11;
                this->pictureBox6->TabStop = false;
+               this->pictureBox6->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox7
                // 
@@ -284,7 +307,7 @@ namespace попытканепытка {
                this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox7->TabIndex = 9;
                this->pictureBox7->TabStop = false;
-               this->pictureBox7->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox7_Click);
+               this->pictureBox7->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox8
                // 
@@ -298,8 +321,21 @@ namespace попытканепытка {
                this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox8->TabIndex = 10;
                this->pictureBox8->TabStop = false;
-               this->pictureBox8->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox8_Click);
-
+               this->pictureBox8->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
+               // 
+               // pictureBox9
+               // 
+               this->pictureBox9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.BackgroundImage")));
+               this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+               this->pictureBox9->Cursor = System::Windows::Forms::Cursors::Hand;
+               this->pictureBox9->Location = System::Drawing::Point(317, 334);
+               this->pictureBox9->Margin = System::Windows::Forms::Padding(0);
+               this->pictureBox9->Name = L"pictureBox9";
+               this->pictureBox9->Size = System::Drawing::Size(164, 254);
+               this->pictureBox9->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
+               this->pictureBox9->TabIndex = 6;
+               this->pictureBox9->TabStop = false;
+               this->pictureBox9->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox10
                // 
@@ -313,7 +349,7 @@ namespace попытканепытка {
                this->pictureBox10->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox10->TabIndex = 8;
                this->pictureBox10->TabStop = false;
-               this->pictureBox10->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox10_Click);
+               this->pictureBox10->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox11
                // 
@@ -327,7 +363,7 @@ namespace попытканепытка {
                this->pictureBox11->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox11->TabIndex = 7;
                this->pictureBox11->TabStop = false;
-               this->pictureBox11->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox11_Click);
+               this->pictureBox11->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox12
                // 
@@ -341,7 +377,7 @@ namespace попытканепытка {
                this->pictureBox12->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox12->TabIndex = 21;
                this->pictureBox12->TabStop = false;
-               this->pictureBox12->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox12_Click);
+               this->pictureBox12->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox13
                // 
@@ -355,7 +391,7 @@ namespace попытканепытка {
                this->pictureBox13->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox13->TabIndex = 19;
                this->pictureBox13->TabStop = false;
-               this->pictureBox13->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox13_Click);
+               this->pictureBox13->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox14
                // 
@@ -369,7 +405,7 @@ namespace попытканепытка {
                this->pictureBox14->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox14->TabIndex = 20;
                this->pictureBox14->TabStop = false;
-               this->pictureBox14->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox14_Click);
+               this->pictureBox14->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox15
                // 
@@ -383,7 +419,7 @@ namespace попытканепытка {
                this->pictureBox15->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox15->TabIndex = 18;
                this->pictureBox15->TabStop = false;
-               this->pictureBox15->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox15_Click);
+               this->pictureBox15->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox16
                // 
@@ -397,7 +433,7 @@ namespace попытканепытка {
                this->pictureBox16->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox16->TabIndex = 17;
                this->pictureBox16->TabStop = false;
-               this->pictureBox16->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox16_Click);
+               this->pictureBox16->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox17
                // 
@@ -411,8 +447,7 @@ namespace попытканепытка {
                this->pictureBox17->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox17->TabIndex = 16;
                this->pictureBox17->TabStop = false;
-
-               this->pictureBox17->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox17_Click);
+               this->pictureBox17->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox18
                // 
@@ -426,7 +461,7 @@ namespace попытканепытка {
                this->pictureBox18->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox18->TabIndex = 14;
                this->pictureBox18->TabStop = false;
-               this->pictureBox18->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox18_Click);
+               this->pictureBox18->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox19
                // 
@@ -440,7 +475,7 @@ namespace попытканепытка {
                this->pictureBox19->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox19->TabIndex = 15;
                this->pictureBox19->TabStop = false;
-               this->pictureBox19->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox19_Click);
+               this->pictureBox19->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox20
                // 
@@ -454,7 +489,7 @@ namespace попытканепытка {
                this->pictureBox20->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox20->TabIndex = 13;
                this->pictureBox20->TabStop = false;
-               this->pictureBox20->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox20_Click);
+               this->pictureBox20->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox21
                // 
@@ -468,7 +503,7 @@ namespace попытканепытка {
                this->pictureBox21->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox21->TabIndex = 12;
                this->pictureBox21->TabStop = false;
-               this->pictureBox21->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox21_Click);
+               this->pictureBox21->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox22
                // 
@@ -482,7 +517,7 @@ namespace попытканепытка {
                this->pictureBox22->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox22->TabIndex = 31;
                this->pictureBox22->TabStop = false;
-               this->pictureBox22->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox22_Click);
+               this->pictureBox22->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox23
                // 
@@ -496,7 +531,7 @@ namespace попытканепытка {
                this->pictureBox23->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox23->TabIndex = 29;
                this->pictureBox23->TabStop = false;
-               this->pictureBox23->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox23_Click);
+               this->pictureBox23->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox24
                // 
@@ -510,7 +545,7 @@ namespace попытканепытка {
                this->pictureBox24->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox24->TabIndex = 30;
                this->pictureBox24->TabStop = false;
-               this->pictureBox24->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox24_Click);
+               this->pictureBox24->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox25
                // 
@@ -524,7 +559,7 @@ namespace попытканепытка {
                this->pictureBox25->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox25->TabIndex = 28;
                this->pictureBox25->TabStop = false;
-               this->pictureBox25->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox25_Click);
+               this->pictureBox25->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox26
                // 
@@ -538,7 +573,7 @@ namespace попытканепытка {
                this->pictureBox26->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox26->TabIndex = 27;
                this->pictureBox26->TabStop = false;
-               this->pictureBox26->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox26_Click);
+               this->pictureBox26->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox27
                // 
@@ -552,7 +587,7 @@ namespace попытканепытка {
                this->pictureBox27->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox27->TabIndex = 26;
                this->pictureBox27->TabStop = false;
-               this->pictureBox27->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox27_Click);
+               this->pictureBox27->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox28
                // 
@@ -566,7 +601,7 @@ namespace попытканепытка {
                this->pictureBox28->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox28->TabIndex = 24;
                this->pictureBox28->TabStop = false;
-               this->pictureBox28->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox28_Click);
+               this->pictureBox28->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox29
                // 
@@ -580,7 +615,7 @@ namespace попытканепытка {
                this->pictureBox29->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox29->TabIndex = 25;
                this->pictureBox29->TabStop = false;
-               this->pictureBox29->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox29_Click);
+               this->pictureBox29->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox30
                // 
@@ -594,7 +629,7 @@ namespace попытканепытка {
                this->pictureBox30->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox30->TabIndex = 23;
                this->pictureBox30->TabStop = false;
-               this->pictureBox30->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox30_Click);
+               this->pictureBox30->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // pictureBox31
                // 
@@ -608,7 +643,7 @@ namespace попытканепытка {
                this->pictureBox31->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
                this->pictureBox31->TabIndex = 22;
                this->pictureBox31->TabStop = false;
-               this->pictureBox31->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox31_Click);
+               this->pictureBox31->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
                // 
                // exit
                // 
@@ -620,7 +655,7 @@ namespace попытканепытка {
                this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(204)));
                this->exit->ForeColor = System::Drawing::Color::White;
-               this->exit->Location = System::Drawing::Point(1360, 22);
+               this->exit->Location = System::Drawing::Point(1309, 22);
                this->exit->Margin = System::Windows::Forms::Padding(2);
                this->exit->Name = L"exit";
                this->exit->Size = System::Drawing::Size(56, 56);
@@ -637,7 +672,7 @@ namespace попытканепытка {
                this->AutoScrollMinSize = System::Drawing::Size(0, 3000);
                this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
                this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->ClientSize = System::Drawing::Size(1699, 1100);
+               this->ClientSize = System::Drawing::Size(1801, 1100);
                this->Controls->Add(this->exit);
                this->Controls->Add(this->pictureBox22);
                this->Controls->Add(this->pictureBox23);
@@ -682,10 +717,10 @@ namespace попытканепытка {
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
-               (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
+               (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->EndInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox11))->EndInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->EndInit();
@@ -711,12 +746,18 @@ namespace попытканепытка {
                this->ResumeLayout(false);
 
            }
+    private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
+        Application::Exit();
+    }
 #pragma endregion
-    private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+    /*private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+        if (this->pictureBox1->Visible == true) {
+
+        }
 
     }
     private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox2->Location = System::Drawing::Point(210, 300);
+        this->pictureBox2->Location = System::Drawing::Point(211, 300);
         pictureBox1->Visible = true;
     }
     private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -734,12 +775,16 @@ namespace попытканепытка {
         this->pictureBox5->Location = System::Drawing::Point(259, 300);
         pictureBox1->Visible = true;
     }
+    private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
+        this->pictureBox6->Location = System::Drawing::Point(453, 300);
+        pictureBox1->Visible = true;
+    }
     private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
         this->pictureBox7->Location = System::Drawing::Point(422, 300);
         pictureBox1->Visible = true;
     }
     private: System::Void pictureBox8_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox8->Location = System::Drawing::Point(453, 300);
+        this->pictureBox8->Location = System::Drawing::Point(395, 300);
         pictureBox1->Visible = true;
     }
     private: System::Void pictureBox9_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -762,7 +807,7 @@ namespace попытканепытка {
         pictureBox1->Visible = true;
     }
     private: System::Void pictureBox13_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox13->Location = System::Drawing::Point(668, 300);
+        this->pictureBox13->Location = System::Drawing::Point(688, 300);
         pictureBox1->Visible = true;
     }
     private: System::Void pictureBox14_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -810,7 +855,7 @@ namespace попытканепытка {
         pictureBox1->Visible = true;
     }
     private: System::Void pictureBox25_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox25->Location = System::Drawing::Point(986, 300);
+        this->pictureBox25->Location = System::Drawing::Point(906, 300);
         pictureBox1->Visible = true;
     }
     private: System::Void pictureBox26_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -836,6 +881,6 @@ namespace попытканепытка {
     private: System::Void pictureBox31_Click(System::Object^ sender, System::EventArgs^ e) {
         this->pictureBox31->Location = System::Drawing::Point(746, 300);
         pictureBox1->Visible = true;
-    }
+    }*/
 };
 }

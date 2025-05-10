@@ -2,7 +2,10 @@
 #include "Taro.h"
 #include "MatrixOfFate.h"
 #include "Numerology.h"
-#include "Horoscope.h"
+#include "Horoscope.h"/*
+namespace попытканепытка {
+	ref class MyForm;  
+}*/
 namespace попытканепытка {
 
 	using namespace System;
@@ -17,12 +20,15 @@ namespace попытканепытка {
 	/// </summary>
 	public ref class FirstMenu : public System::Windows::Forms::Form
 	{
+	private:
+		System::Drawing::Image^ bgImage2;/*
+		MyForm^ previousForm;*/
 	public:
-		FirstMenu(void)
+		FirstMenu()/* : previousForm(myForm)*/
 		{
 			InitializeComponent();
-			LoadBackground();
-
+			LoadBackground();/*
+			this->previousForm = myForm;*/
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->SetStyle(
@@ -44,10 +50,7 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ horoscope;
-
-	private:
-		System::Drawing::Image^ bgImage2;
-
+	private: System::Windows::Forms::Button^ previous;
 		void LoadBackground() {
 
 		}
@@ -82,6 +85,7 @@ namespace попытканепытка {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->horoscope = (gcnew System::Windows::Forms::Button());
+			this->previous = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// exit
@@ -182,6 +186,22 @@ namespace попытканепытка {
 			this->horoscope->Text = L"√ороскоп";
 			this->horoscope->UseVisualStyleBackColor = true;
 			// 
+			// previous
+			// 
+			this->previous->BackColor = System::Drawing::Color::Transparent;
+			this->previous->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->previous->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->previous->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->previous->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->previous->Location = System::Drawing::Point(11, 6);
+			this->previous->Name = L"previous";
+			this->previous->Size = System::Drawing::Size(124, 76);
+			this->previous->TabIndex = 8;
+			this->previous->Text = L"<";
+			this->previous->UseVisualStyleBackColor = false;
+			this->previous->Click += gcnew System::EventHandler(this, &FirstMenu::previous_Click);
+			// 
 			// FirstMenu
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -189,6 +209,7 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1444, 981);
+			this->Controls->Add(this->previous);
 			this->Controls->Add(this->horoscope);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -265,5 +286,17 @@ namespace попытканепытка {
 		}
 		this->Hide();
 	}
+private: System::Void previous_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*if (this->previousForm != nullptr) 
+	{
+		this->Hide();
+		previousForm->Show();
+		previousForm->BringToFront();
+	}
+	else
+	{
+		MessageBox::Show("ќшибка: предыдуща€ форма не найдена!");
+	}*/
+}
 };
 }
