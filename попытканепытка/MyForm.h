@@ -1,4 +1,4 @@
-#pragma onсe
+#pragma once
 #include "FirstMenu.h"
 #include <thread>
 #include <msclr/marshal.h>
@@ -34,7 +34,6 @@ namespace попытканепытка {
         MyForm(void)
         {
             InitializeComponent();
-            LoadTarotCardImage();
             this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             this->DoubleBuffered = true;
@@ -47,11 +46,9 @@ namespace попытканепытка {
                 true
             );
             firstMenu = gcnew FirstMenu();
-            firstMenu->FormClosed += gcnew FormClosedEventHandler(this, &MyForm::OnFirstMenuClosed);
             Application::EnableVisualStyles();
 
             this->Paint += gcnew PaintEventHandler(this, &MyForm::MyForm_Paint);
-            this->Load += gcnew EventHandler(this, &MyForm::MyForm_Load);
         }
 
     private:
@@ -68,7 +65,6 @@ namespace попытканепытка {
            void InitializeFirstMenu()
            {
                firstMenu = gcnew FirstMenu();
-               firstMenu->FormClosed += gcnew FormClosedEventHandler(this, &MyForm::OnFirstMenuClosed);
            }
 
 
@@ -168,8 +164,8 @@ namespace попытканепытка {
 
         }
 #pragma endregion
-    private: System::Collections::Generic::List<String^>^ GetAllTarotCards(sqlite3* db)
-    {
+    /*public: System::Collections::Generic::List<String^>^ GetAllTarotCards(sqlite3* db)*/
+    /*{
         System::Collections::Generic::List<String^>^ cards = gcnew System::Collections::Generic::List<String^>();
 
         const char* sql = "SELECT image_path FROM tarot_cards";
@@ -189,12 +185,7 @@ namespace попытканепытка {
 
         sqlite3_finalize(stmt);
         return cards;
-    }
-    private:
-        System::Void OnFirstMenuClosed(System::Object^ sender, FormClosedEventArgs^ e) { }
-
-    private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-    }
+    }*/
     private: System::Void start_Click(System::Object^ sender, System::EventArgs^ e) {
         firstMenu = gcnew FirstMenu();
         firstMenu->Opacity = 0;  
@@ -210,7 +201,7 @@ namespace попытканепытка {
     private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
         Application::Exit();
     }
-           void LoadTarotCardImage() {
+           /*public: void LoadTarotCardImage() {
                String^ appDir = Application::StartupPath;
                String^ dbName = "test.db";
                String^ dbPath = Path::Combine(appDir, dbName);
@@ -254,7 +245,6 @@ namespace попытканепытка {
                }
 
                sqlite3_close(db);
-           }
-    };
-
+           }*/
+    }; // попробу написать ьединый потокобезопасный класс дл€ работы с бд. „тобы он был единственным в пам€ти с помощью синготона какого нибудь? „тобы не ебатьс€ с кучей методов в разных формах. умно но € хз как из класса дальше обращатьс€ но щас попробую
 }

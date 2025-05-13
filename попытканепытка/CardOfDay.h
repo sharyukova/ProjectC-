@@ -1,18 +1,35 @@
 #pragma once
+#include <thread>
+#include <msclr/marshal.h>
+#include <msclr/marshal_cppstd.h>
+#include "sqlite3.h"
+#include <stdlib.h>
+#include <windows.h>
+#include <shlwapi.h>
+#include <iostream>
+#include <fstream>
+#pragma comment(lib, "shlwapi.lib")
+#include <locale>
+#include <codecvt>
 
+#pragma comment(lib, "sqlite3.lib")
+#include <msclr/marshal_cppstd.h>  
 namespace попытканепытка {
 
     using namespace System;
+    using namespace System::IO;
     using namespace System::ComponentModel;
     using namespace System::Collections;
     using namespace System::Windows::Forms;
     using namespace System::Data;
     using namespace System::Drawing;
+    using namespace System::Threading;
+    using namespace System::Runtime::InteropServices;
 
     public ref class CardOfDay : public System::Windows::Forms::Form
     {
     private:
-        array<PictureBox^>^ pictureBoxes; // Массив для хранения всех PictureBox
+        array<PictureBox^>^ pictureBoxes; 
         bool isCardSelected;
     public:
         CardOfDay(void)
@@ -104,8 +121,8 @@ namespace попытканепытка {
             {
                 if (box != clickedBox)
                 {
-                    box->Enabled = false; // Отключаем возможность нажатия
-                    box->Cursor = Cursors::No; // Меняем курсор
+                    box->Enabled = false; 
+                    box->Cursor = Cursors::No;
                 }
             }
         }
@@ -193,7 +210,7 @@ namespace попытканепытка {
                this->pictureBox1->TabIndex = 0;
                this->pictureBox1->TabStop = false;
                this->pictureBox1->Visible = false;
-               this->pictureBox1->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
+               this->pictureBox1->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox1_Click);
                // 
                // yourname
                // 
@@ -750,137 +767,79 @@ namespace попытканепытка {
         Application::Exit();
     }
 #pragma endregion
-    /*private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+    private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
         if (this->pictureBox1->Visible == true) {
-
+            LoadTarotCardImage();
         }
 
     }
-    private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox2->Location = System::Drawing::Point(211, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
+     public: System::Collections::Generic::List<String^>^ GetAllTarotCards(sqlite3* db)
+     {
+         System::Collections::Generic::List<String^>^ cards = gcnew System::Collections::Generic::List<String^>();
 
-        this->pictureBox3->Location = System::Drawing::Point(234, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
+         const char* sql = "SELECT image_path FROM tarot_cards";
+         sqlite3_stmt* stmt;
 
-        this->pictureBox4->Location = System::Drawing::Point(286, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
+         if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) != SQLITE_OK) {
+             MessageBox::Show("Ошибка подготовки запроса: " + gcnew String(sqlite3_errmsg(db)));
+             return cards;
+         }
 
-        this->pictureBox5->Location = System::Drawing::Point(259, 300);
-        pictureBox1->Visible = true;
+         while (sqlite3_step(stmt) == SQLITE_ROW) {
+             const unsigned char* imagePath = sqlite3_column_text(stmt, 0);
+             if (imagePath != NULL) {
+                 cards->Add(gcnew String((const char*)imagePath));
+             }
+         }
+
+         sqlite3_finalize(stmt);
+         return cards;
+     }
+    public: void LoadTarotCardImage() {
+        String^ appDir = Application::StartupPath;
+        String^ dbName = "test.db";
+        String^ dbPath = Path::Combine(appDir, dbName);
+        msclr::interop::marshal_context context;
+        std::wstring widePath = context.marshal_as<std::wstring>(dbPath);
+        std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+        std::string utf8Path = converter.to_bytes(widePath);
+        sqlite3* db;
+        int rc = sqlite3_open_v2(utf8Path.c_str(), &db, SQLITE_OPEN_READWRITE, nullptr);
+
+        if (rc != SQLITE_OK) {
+            String^ errorMsg = gcnew String(sqlite3_errmsg(db));
+            MessageBox::Show("Ошибка открытия БД:\n" + errorMsg +
+                "\nПуть: " + dbPath,
+                "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            if (db) sqlite3_close(db);
+            return;
+        }
+        System::Collections::Generic::List<String^>^ cards = GetAllTarotCards(db);
+
+        if (cards->Count == 0) {
+            MessageBox::Show("В БД не найдено ни одной карты!");
+            sqlite3_close(db);
+            return;
+        }
+        Random^ random = gcnew Random();
+        int randomIndex = random->Next(0, cards->Count);
+        String^ imageRelativePath = cards[randomIndex];
+        String^ imageFullPath = Path::Combine(appDir, imageRelativePath);
+        if (File::Exists(imageFullPath)) {
+            try {
+                pictureBox1->Image = Image::FromFile(imageFullPath);
+                pictureBox1->SizeMode = PictureBoxSizeMode::Zoom;
+            }
+            catch (Exception^ e) {
+                MessageBox::Show("Ошибка загрузки изображения:\n" + e->Message);
+            }
+        }
+        else {
+            MessageBox::Show("Изображение не найдено:\n" + imageFullPath);
+        }
+
+        sqlite3_close(db);
     }
-    private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox6->Location = System::Drawing::Point(453, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox7->Location = System::Drawing::Point(422, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox8_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox8->Location = System::Drawing::Point(395, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox9_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox9->Location = System::Drawing::Point(317, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox10_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox10->Location = System::Drawing::Point(370, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
-        Application::Exit();
-    }
-    private: System::Void pictureBox11_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox11->Location = System::Drawing::Point(346, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox12_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox12->Location = System::Drawing::Point(719, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox13_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox13->Location = System::Drawing::Point(688, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox14_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox14->Location = System::Drawing::Point(661, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox15_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox15->Location = System::Drawing::Point(636, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox16_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox16->Location = System::Drawing::Point(612, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox17_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox17->Location = System::Drawing::Point(583, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox18_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox18->Location = System::Drawing::Point(552, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox19_Click(System::Object^ sender, System::EventArgs^ e) {
-         this->pictureBox19->Location = System::Drawing::Point(525, 300);
-         pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox20_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox20->Location = System::Drawing::Point(500, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox21_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox21->Location = System::Drawing::Point(476, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox22_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox22->Location = System::Drawing::Point(989, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox23_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox23->Location = System::Drawing::Point(958, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox24_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox24->Location = System::Drawing::Point(931, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox25_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox25->Location = System::Drawing::Point(906, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox26_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox26->Location = System::Drawing::Point(882, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox27_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox27->Location = System::Drawing::Point(853, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox28_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox28->Location = System::Drawing::Point(822, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox29_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox29->Location = System::Drawing::Point(795, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox30_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox30->Location = System::Drawing::Point(770, 300);
-        pictureBox1->Visible = true;
-    }
-    private: System::Void pictureBox31_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->pictureBox31->Location = System::Drawing::Point(746, 300);
-        pictureBox1->Visible = true;
-    }*/
+
 };
 }
