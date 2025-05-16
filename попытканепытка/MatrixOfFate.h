@@ -36,6 +36,9 @@ namespace попытканепытка {
 		}
 	private: System::Windows::Forms::Label^ menu1;
 	private: System::Windows::Forms::Button^ exit;
+	private: System::Windows::Forms::Button^ relation;
+	private: System::Windows::Forms::Button^ person;
+	private: System::Windows::Forms::Button^ button1;
 	protected:
 
 	private:
@@ -54,6 +57,8 @@ namespace попытканепытка {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MatrixOfFate::typeid));
 			this->menu1 = (gcnew System::Windows::Forms::Label());
 			this->exit = (gcnew System::Windows::Forms::Button());
+			this->relation = (gcnew System::Windows::Forms::Button());
+			this->person = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// menu1
@@ -69,7 +74,6 @@ namespace попытканепытка {
 			this->menu1->TabIndex = 5;
 			this->menu1->Text = L"Выберите тип матрицы судьбы";
 			this->menu1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->menu1->Click += gcnew System::EventHandler(this, &MatrixOfFate::menu1_Click);
 			// 
 			// exit
 			// 
@@ -89,6 +93,35 @@ namespace попытканепытка {
 			this->exit->Text = L"Х";
 			this->exit->UseVisualStyleBackColor = false;
 			// 
+			// relation
+			// 
+			this->relation->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"relation.BackgroundImage")));
+			this->relation->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->relation->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 47.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->relation->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->relation->Location = System::Drawing::Point(150, 339);
+			this->relation->Name = L"relation";
+			this->relation->Size = System::Drawing::Size(493, 485);
+			this->relation->TabIndex = 7;
+			this->relation->Text = L"Мтарица совместимости";
+			this->relation->UseVisualStyleBackColor = true;
+			// 
+			// person
+			// 
+			this->person->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"person.BackgroundImage")));
+			this->person->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->person->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->person->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->person->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->person->Location = System::Drawing::Point(803, 339);
+			this->person->Name = L"person";
+			this->person->Size = System::Drawing::Size(493, 485);
+			this->person->TabIndex = 8;
+			this->person->Text = L"Матрица человека";
+			this->person->UseVisualStyleBackColor = true;
+			// 
 			// MatrixOfFate
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -96,6 +129,8 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1428, 942);
+			this->Controls->Add(this->person);
+			this->Controls->Add(this->relation);
 			this->Controls->Add(this->exit);
 			this->Controls->Add(this->menu1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -105,7 +140,5 @@ namespace попытканепытка {
 
 		}
 #pragma endregion
-	private: System::Void menu1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	};
+};
 }

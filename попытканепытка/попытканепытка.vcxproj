@@ -125,9 +125,9 @@
     <ClCompile Include="CardOfDay.cpp" />
     <ClCompile Include="FirstMenu.cpp" />
     <ClCompile Include="Horoscope.cpp" />
-    <ClCompile Include="MatrixOfFate.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Numerology.cpp" />
+    <ClCompile Include="RelationMatrix.cpp" />
     <ClCompile Include="sqlite3.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
     </ClCompile>
@@ -152,6 +152,10 @@
     </ClInclude>
     <ClInclude Include="Numerology.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="RelationMatrix.h">
+      <FileType>CppForm</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="sqlite3.h" />
     <ClInclude Include="Taro.h">

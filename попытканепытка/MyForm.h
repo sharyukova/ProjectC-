@@ -60,7 +60,6 @@ namespace попытканепытка {
     private:
         System::Drawing::Image^ bgImage;
     private: System::Windows::Forms::Button^ exit;
-    private: System::Windows::Forms::PictureBox^ pictureBox1;
 
            void InitializeFirstMenu()
            {
@@ -89,8 +88,6 @@ namespace попытканепытка {
             System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
             this->start = (gcnew System::Windows::Forms::Button());
             this->exit = (gcnew System::Windows::Forms::Button());
-            this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
             this->SuspendLayout();
             // 
             // start
@@ -135,12 +132,6 @@ namespace попытканепытка {
             // 
             // pictureBox1
             // 
-            this->pictureBox1->Location = System::Drawing::Point(81, 533);
-            this->pictureBox1->Name = L"pictureBox1";
-            this->pictureBox1->Size = System::Drawing::Size(379, 436);
-            this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
-            this->pictureBox1->TabIndex = 4;
-            this->pictureBox1->TabStop = false;
             // 
             // MyForm
             // 
@@ -149,7 +140,6 @@ namespace попытканепытка {
             this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
             this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
             this->ClientSize = System::Drawing::Size(1444, 981);
-            this->Controls->Add(this->pictureBox1);
             this->Controls->Add(this->exit);
             this->Controls->Add(this->start);
             this->DoubleBuffered = true;
@@ -158,34 +148,11 @@ namespace попытканепытка {
             this->Name = L"MyForm";
             this->Text = L"MyForm";
             this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
             this->ResumeLayout(false);
             this->PerformLayout();
 
         }
 #pragma endregion
-    /*public: System::Collections::Generic::List<String^>^ GetAllTarotCards(sqlite3* db)*/
-    /*{
-        System::Collections::Generic::List<String^>^ cards = gcnew System::Collections::Generic::List<String^>();
-
-        const char* sql = "SELECT image_path FROM tarot_cards";
-        sqlite3_stmt* stmt;
-
-        if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) != SQLITE_OK) {
-            MessageBox::Show("Ошибка подготовки запроса: " + gcnew String(sqlite3_errmsg(db)));
-            return cards;
-        }
-
-        while (sqlite3_step(stmt) == SQLITE_ROW) {
-            const unsigned char* imagePath = sqlite3_column_text(stmt, 0);
-            if (imagePath != NULL) {
-                cards->Add(gcnew String((const char*)imagePath));
-            }
-        }
-
-        sqlite3_finalize(stmt);
-        return cards;
-    }*/
     private: System::Void start_Click(System::Object^ sender, System::EventArgs^ e) {
         firstMenu = gcnew FirstMenu();
         firstMenu->Opacity = 0;  
@@ -201,50 +168,5 @@ namespace попытканепытка {
     private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
         Application::Exit();
     }
-           /*public: void LoadTarotCardImage() {
-               String^ appDir = Application::StartupPath;
-               String^ dbName = "test.db";
-               String^ dbPath = Path::Combine(appDir, dbName);
-               msclr::interop::marshal_context context;
-               std::wstring widePath = context.marshal_as<std::wstring>(dbPath);
-               std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-               std::string utf8Path = converter.to_bytes(widePath);
-               sqlite3* db;
-               int rc = sqlite3_open_v2(utf8Path.c_str(), &db, SQLITE_OPEN_READWRITE, nullptr);
-
-               if (rc != SQLITE_OK) {
-                   String^ errorMsg = gcnew String(sqlite3_errmsg(db));
-                   MessageBox::Show("Ошибка открытия БД:\n" + errorMsg +
-                       "\nПуть: " + dbPath,
-                       "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
-                   if (db) sqlite3_close(db);
-                   return;
-               }
-               System::Collections::Generic::List<String^>^ cards = GetAllTarotCards(db);
-
-               if (cards->Count == 0) {
-                   MessageBox::Show("В БД не найдено ни одной карты!");
-                   sqlite3_close(db);
-                   return;
-               }
-               Random^ random = gcnew Random();
-               int randomIndex = random->Next(0, cards->Count);
-               String^ imageRelativePath = cards[randomIndex];
-               String^ imageFullPath = Path::Combine(appDir, imageRelativePath);
-               if (File::Exists(imageFullPath)) {
-                   try {
-                       pictureBox1->Image = Image::FromFile(imageFullPath);
-                       pictureBox1->SizeMode = PictureBoxSizeMode::Zoom;
-                   }
-                   catch (Exception^ e) {
-                       MessageBox::Show("Ошибка загрузки изображения:\n" + e->Message);
-                   }
-               }
-               else {
-                   MessageBox::Show("Изображение не найдено:\n" + imageFullPath);
-               }
-
-               sqlite3_close(db);
-           }*/
     }; // попробу написать ьединый потокобезопасный класс для работы с бд. Чтобы он был единственным в памяти с помощью синготона какого нибудь? Чтобы не ебаться с кучей методов в разных формах. умно но я хз как из класса дальше обращаться но щас попробую
 }
