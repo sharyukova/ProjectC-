@@ -689,7 +689,7 @@ namespace попытканепытка {
                this->AutoScrollMinSize = System::Drawing::Size(0, 3000);
                this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
                this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->ClientSize = System::Drawing::Size(1801, 1100);
+               this->ClientSize = System::Drawing::Size(1818, 1100);
                this->Controls->Add(this->exit);
                this->Controls->Add(this->pictureBox22);
                this->Controls->Add(this->pictureBox23);
