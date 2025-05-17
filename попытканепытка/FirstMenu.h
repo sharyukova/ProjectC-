@@ -1,10 +1,12 @@
 #pragma once
 #include "Taro.h"
 #include "MatrixOfFate.h"
-#include "Horoscope.h"/*
-namespace попытканепытка {
-	ref class MyForm;  
-}*/
+#include "Horoscope.h"
+//
+//namespace попытканепытка {
+//	ref class MyForm;  
+//}
+
 namespace попытканепытка {
 
 	using namespace System;
@@ -20,8 +22,7 @@ namespace попытканепытка {
 	public ref class FirstMenu : public System::Windows::Forms::Form
 	{
 	private:
-		System::Drawing::Image^ bgImage2;/*
-		MyForm^ previousForm;*/
+		System::Drawing::Image^ bgImage2;
 	public:
 		FirstMenu()/* : previousForm(myForm)*/
 		{
@@ -279,6 +280,7 @@ private: System::Void previous_Click(System::Object^ sender, System::EventArgs^ 
 	/*if (this->previousForm != nullptr) 
 	{
 		this->Hide();
+		previousForm = gcnew MyForm();
 		previousForm->Show();
 		previousForm->BringToFront();
 	}

@@ -1,5 +1,5 @@
 #pragma once
-
+#include <Person.h>
 namespace попытканепытка {
 
 	using namespace System;
@@ -8,6 +8,7 @@ namespace попытканепытка {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Threading;
 
 	/// <summary>
 	/// —водка дл€ MatrixOfFate
@@ -40,7 +41,8 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Button^ person;
 	private: System::Windows::Forms::Button^ button1;
 	protected:
-
+	private: 
+		Person^ person1 = nullptr;
 	private:
 		/// <summary>
 		/// ќб€зательна€ переменна€ конструктора.
@@ -121,6 +123,7 @@ namespace попытканепытка {
 			this->person->TabIndex = 8;
 			this->person->Text = L"ћатрица человека";
 			this->person->UseVisualStyleBackColor = true;
+			this->person->Click += gcnew System::EventHandler(this, &MatrixOfFate::person_Click);
 			// 
 			// MatrixOfFate
 			// 
@@ -141,5 +144,17 @@ namespace попытканепытка {
 
 		}
 #pragma endregion
+private: System::Void person_Click(System::Object^ sender, System::EventArgs^ e) {
+	person1 = gcnew Person();
+	person1->Opacity = 0;
+	person1->Show();
+	for (double opacity = 0; opacity <= 1; opacity += 0.1)
+	{
+		person1->Opacity = opacity;
+		Application::DoEvents();
+		Threading::Thread::Sleep(15);
+	}
+	this->Hide();
+}
 };
 }
