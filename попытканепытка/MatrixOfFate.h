@@ -68,9 +68,9 @@ namespace попытканепытка {
 			this->menu1->Font = (gcnew System::Drawing::Font(L"Soledago", 59.99999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->menu1->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->menu1->Location = System::Drawing::Point(246, 65);
+			this->menu1->Location = System::Drawing::Point(254, 65);
 			this->menu1->Name = L"menu1";
-			this->menu1->Size = System::Drawing::Size(990, 228);
+			this->menu1->Size = System::Drawing::Size(990, 267);
 			this->menu1->TabIndex = 5;
 			this->menu1->Text = L"Выберите тип матрицы судьбы";
 			this->menu1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -85,7 +85,7 @@ namespace попытканепытка {
 			this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->exit->ForeColor = System::Drawing::Color::White;
-			this->exit->Location = System::Drawing::Point(1361, 11);
+			this->exit->Location = System::Drawing::Point(1377, 11);
 			this->exit->Margin = System::Windows::Forms::Padding(2);
 			this->exit->Name = L"exit";
 			this->exit->Size = System::Drawing::Size(56, 56);
@@ -104,7 +104,7 @@ namespace попытканепытка {
 			this->relation->Name = L"relation";
 			this->relation->Size = System::Drawing::Size(493, 485);
 			this->relation->TabIndex = 7;
-			this->relation->Text = L"Мтарица совместимости";
+			this->relation->Text = L"Матрица совместимости";
 			this->relation->UseVisualStyleBackColor = true;
 			// 
 			// person
@@ -128,7 +128,7 @@ namespace попытканепытка {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1428, 942);
+			this->ClientSize = System::Drawing::Size(1444, 981);
 			this->Controls->Add(this->person);
 			this->Controls->Add(this->relation);
 			this->Controls->Add(this->exit);
@@ -136,6 +136,7 @@ namespace попытканепытка {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"MatrixOfFate";
 			this->Text = L"MatrixOfFate";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->ResumeLayout(false);
 
 		}

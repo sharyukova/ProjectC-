@@ -1,7 +1,6 @@
 #pragma once
 #include "Taro.h"
 #include "MatrixOfFate.h"
-#include "Numerology.h"
 #include "Horoscope.h"/*
 namespace попытканепытка {
 	ref class MyForm;  
@@ -231,7 +230,6 @@ namespace попытканепытка {
 	private:
 		Taro^ taro = nullptr;
 		MatrixOfFate^ matrixOfFate = nullptr;
-		Numerology^ numerology = nullptr;
 		Horoscope^ horoscope1 = nullptr;
 
 	private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -262,16 +260,7 @@ namespace попытканепытка {
 		this->Hide();
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		numerology = gcnew Numerology();
-		numerology->Opacity = 0;
-		numerology->Show();
-		for (double opacity = 0; opacity <= 1; opacity += 0.1)
-		{
-			numerology->Opacity = opacity;
-			Application::DoEvents();
-			Threading::Thread::Sleep(15);
-		}
-		this->Hide();
+		
 	}
 
 	private: System::Void horoscope_Click(System::Object^ sender, System::EventArgs^ e) {

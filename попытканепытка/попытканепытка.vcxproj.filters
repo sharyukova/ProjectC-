@@ -27,9 +27,6 @@
     <ClCompile Include="Taro.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="Numerology.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
     <ClCompile Include="TarotClass.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -39,8 +36,8 @@
     <ClCompile Include="Horoscope.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="RelationMatrix.cpp">
-      <Filter>Файлы ресурсов</Filter>
+    <ClCompile Include="Person.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,9 +56,6 @@
     <ClInclude Include="MatrixOfFate.h">
       <Filter>Файлы ресурсов</Filter>
     </ClInclude>
-    <ClInclude Include="Numerology.h">
-      <Filter>Файлы ресурсов</Filter>
-    </ClInclude>
     <ClInclude Include="TarotClass.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -71,8 +65,8 @@
     <ClInclude Include="Horoscope.h">
       <Filter>Файлы ресурсов</Filter>
     </ClInclude>
-    <ClInclude Include="RelationMatrix.h">
-      <Filter>Файлы ресурсов</Filter>
+    <ClInclude Include="Person.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

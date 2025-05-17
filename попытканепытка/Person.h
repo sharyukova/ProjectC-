@@ -10,12 +10,12 @@ namespace попытканепытка {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для RelationMatrix
+	/// Сводка для Person
 	/// </summary>
-	public ref class RelationMatrix : public System::Windows::Forms::Form
+	public ref class Person : public System::Windows::Forms::Form
 	{
 	public:
-		RelationMatrix(void)
+		Person(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace попытканепытка {
 		/// <summary>
 		/// Освободить все используемые ресурсы.
 		/// </summary>
-		~RelationMatrix()
+		~Person()
 		{
 			if (components)
 			{
@@ -48,11 +48,22 @@ namespace попытканепытка {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"RelationMatrix";
-			this->Padding = System::Windows::Forms::Padding(0);
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Person::typeid));
+			this->SuspendLayout();
+			// 
+			// Person
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->ClientSize = System::Drawing::Size(1428, 942);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Name = L"Person";
+			this->Text = L"Person";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};
