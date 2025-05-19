@@ -35,13 +35,21 @@ namespace попытканепытка {
 			}
 		}
 	private: System::Windows::Forms::DateTimePicker^ date;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ done;
+
 	private: System::Windows::Forms::PictureBox^ matrixOfPerson;
 	private: System::Windows::Forms::Label^ A;
 	private: System::Windows::Forms::Label^ B;
 	private: System::Windows::Forms::Label^ C;
 	private: System::Windows::Forms::Label^ D;
 	private: System::Windows::Forms::Label^ E;
+	private: System::Windows::Forms::Button^ personalityPlus;
+	private: System::Windows::Forms::Button^ personalityMinus;
+	private: System::Windows::Forms::Button^ zoneOfComfort;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Label^ enter;
+	private: System::Windows::Forms::Label^ description;
+
 
 	protected:
 
@@ -62,43 +70,50 @@ namespace попытканепытка {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Person::typeid));
 			this->date = (gcnew System::Windows::Forms::DateTimePicker());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->done = (gcnew System::Windows::Forms::Button());
 			this->matrixOfPerson = (gcnew System::Windows::Forms::PictureBox());
 			this->A = (gcnew System::Windows::Forms::Label());
 			this->B = (gcnew System::Windows::Forms::Label());
 			this->C = (gcnew System::Windows::Forms::Label());
 			this->D = (gcnew System::Windows::Forms::Label());
 			this->E = (gcnew System::Windows::Forms::Label());
+			this->personalityPlus = (gcnew System::Windows::Forms::Button());
+			this->personalityMinus = (gcnew System::Windows::Forms::Button());
+			this->zoneOfComfort = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->enter = (gcnew System::Windows::Forms::Label());
+			this->description = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->matrixOfPerson))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// date
 			// 
-			this->date->CalendarFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->date->CalendarFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->date->CalendarForeColor = System::Drawing::Color::SaddleBrown;
 			this->date->CalendarMonthBackground = System::Drawing::Color::LavenderBlush;
+			this->date->CalendarTitleBackColor = System::Drawing::Color::LavenderBlush;
 			this->date->CalendarTitleForeColor = System::Drawing::Color::SaddleBrown;
 			this->date->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->date->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->date->Format = System::Windows::Forms::DateTimePickerFormat::Short;
-			this->date->Location = System::Drawing::Point(254, 189);
+			this->date->Location = System::Drawing::Point(240, 198);
 			this->date->Name = L"date";
 			this->date->Size = System::Drawing::Size(340, 62);
 			this->date->TabIndex = 0;
 			// 
-			// button1
+			// done
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->done->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 27.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(296, 70);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(261, 76);
-			this->button1->TabIndex = 1;
-			this->button1->Text = L"готово";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Person::button1_Click);
+			this->done->Location = System::Drawing::Point(294, 266);
+			this->done->Name = L"done";
+			this->done->Size = System::Drawing::Size(243, 57);
+			this->done->TabIndex = 1;
+			this->done->Text = L"готово";
+			this->done->UseVisualStyleBackColor = true;
+			this->done->Click += gcnew System::EventHandler(this, &Person::button1_Click);
 			// 
 			// matrixOfPerson
 			// 
@@ -119,11 +134,12 @@ namespace попытканепытка {
 			this->A->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->A->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->A->Location = System::Drawing::Point(163, 572);
+			this->A->Location = System::Drawing::Point(165, 572);
 			this->A->Name = L"A";
 			this->A->Size = System::Drawing::Size(31, 33);
 			this->A->TabIndex = 3;
 			this->A->Text = L"0";
+			this->A->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->A->Click += gcnew System::EventHandler(this, &Person::A_Click);
 			// 
 			// B
@@ -138,6 +154,7 @@ namespace попытканепытка {
 			this->B->Size = System::Drawing::Size(31, 33);
 			this->B->TabIndex = 4;
 			this->B->Text = L"0";
+			this->B->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// C
 			// 
@@ -146,11 +163,12 @@ namespace попытканепытка {
 				static_cast<System::Int32>(static_cast<System::Byte>(165)));
 			this->C->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->C->Location = System::Drawing::Point(601, 572);
+			this->C->Location = System::Drawing::Point(602, 572);
 			this->C->Name = L"C";
 			this->C->Size = System::Drawing::Size(31, 33);
 			this->C->TabIndex = 5;
 			this->C->Text = L"0";
+			this->C->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->C->Click += gcnew System::EventHandler(this, &Person::C_Click);
 			// 
 			// D
@@ -160,11 +178,12 @@ namespace попытканепытка {
 				static_cast<System::Int32>(static_cast<System::Byte>(165)));
 			this->D->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->D->Location = System::Drawing::Point(382, 787);
+			this->D->Location = System::Drawing::Point(385, 786);
 			this->D->Name = L"D";
 			this->D->Size = System::Drawing::Size(31, 33);
 			this->D->TabIndex = 6;
 			this->D->Text = L"0";
+			this->D->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->D->Click += gcnew System::EventHandler(this, &Person::D_Click);
 			// 
 			// E
@@ -174,11 +193,84 @@ namespace попытканепытка {
 				static_cast<System::Int32>(static_cast<System::Byte>(200)));
 			this->E->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->E->Location = System::Drawing::Point(382, 572);
+			this->E->Location = System::Drawing::Point(385, 571);
 			this->E->Name = L"E";
 			this->E->Size = System::Drawing::Size(31, 33);
 			this->E->TabIndex = 7;
 			this->E->Text = L"0";
+			this->E->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// personalityPlus
+			// 
+			this->personalityPlus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->personalityPlus->Location = System::Drawing::Point(789, 89);
+			this->personalityPlus->Name = L"personalityPlus";
+			this->personalityPlus->Size = System::Drawing::Size(174, 74);
+			this->personalityPlus->TabIndex = 8;
+			this->personalityPlus->Text = L"Характер человека в минусе";
+			this->personalityPlus->UseVisualStyleBackColor = true;
+			// 
+			// personalityMinus
+			// 
+			this->personalityMinus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->personalityMinus->Location = System::Drawing::Point(1020, 89);
+			this->personalityMinus->Name = L"personalityMinus";
+			this->personalityMinus->Size = System::Drawing::Size(174, 74);
+			this->personalityMinus->TabIndex = 9;
+			this->personalityMinus->Text = L"Характер человека в плюсе";
+			this->personalityMinus->UseVisualStyleBackColor = true;
+			// 
+			// zoneOfComfort
+			// 
+			this->zoneOfComfort->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->zoneOfComfort->Location = System::Drawing::Point(1020, 198);
+			this->zoneOfComfort->Name = L"zoneOfComfort";
+			this->zoneOfComfort->Size = System::Drawing::Size(174, 74);
+			this->zoneOfComfort->TabIndex = 10;
+			this->zoneOfComfort->Text = L"Зона комфорта и гармонии";
+			this->zoneOfComfort->UseVisualStyleBackColor = true;
+			this->zoneOfComfort->Click += gcnew System::EventHandler(this, &Person::zoneOfComfort_Click);
+			// 
+			// button2
+			// 
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button2->Location = System::Drawing::Point(789, 198);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(174, 74);
+			this->button2->TabIndex = 11;
+			this->button2->Text = L"Главная проработка души";
+			this->button2->UseVisualStyleBackColor = true;
+			// 
+			// enter
+			// 
+			this->enter->BackColor = System::Drawing::Color::Transparent;
+			this->enter->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 26.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->enter->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->enter->Location = System::Drawing::Point(105, 26);
+			this->enter->Name = L"enter";
+			this->enter->Size = System::Drawing::Size(621, 149);
+			this->enter->TabIndex = 12;
+			this->enter->Text = L"Для расчёта матрицы судьбы введите дату рождения";
+			this->enter->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// description
+			// 
+			this->description->BackColor = System::Drawing::Color::LavenderBlush;
+			this->description->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->description->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->description->Location = System::Drawing::Point(738, 459);
+			this->description->Name = L"description";
+			this->description->Size = System::Drawing::Size(676, 612);
+			this->description->TabIndex = 13;
+			this->description->Text = L"Описание вашего аркана";
+			this->description->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->description->Click += gcnew System::EventHandler(this, &Person::label1_Click);
 			// 
 			// Person
 			// 
@@ -187,12 +279,18 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1440, 1100);
+			this->Controls->Add(this->description);
+			this->Controls->Add(this->enter);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->zoneOfComfort);
+			this->Controls->Add(this->personalityMinus);
+			this->Controls->Add(this->personalityPlus);
 			this->Controls->Add(this->E);
 			this->Controls->Add(this->D);
 			this->Controls->Add(this->C);
 			this->Controls->Add(this->B);
 			this->Controls->Add(this->A);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->done);
 			this->Controls->Add(this->date);
 			this->Controls->Add(this->matrixOfPerson);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -210,11 +308,8 @@ namespace попытканепытка {
 		DateTime selectedDate = this->date->Value;
 		int day = selectedDate.Day;
 		int sum = 0;
-		if (day == 11 || day == 22) {
+		if (day < 23)  {
 			sum = day;  
-		}
-		else if (day == 29) {
-			sum = 11;
 		}
 		else {
 			int tempDay = day;
@@ -222,7 +317,7 @@ namespace попытканепытка {
 				sum += tempDay % 10;
 				tempDay /= 10;
 			}
-			if (sum >= 10) {
+			if (sum >= 22) {
 				int newSum = 0;
 				int tempSum = sum;
 				while (tempSum > 0) {
@@ -233,32 +328,13 @@ namespace попытканепытка {
 			}
 		}
 		int month = selectedDate.Month;
-		int sum2 = 0;
-		if (month==11) {
-			sum2 = month;
-		}
-		else {
-			int tempMonth = month;
-			while (tempMonth > 0) {
-				sum2 += tempMonth % 10;
-				tempMonth /= 10;
-			}
-			if (sum2 >= 10) {
-				int newSum2 = 0;
-				int tempSum2 = sum2;
-				while (tempSum2 > 0) {
-					newSum2 += tempSum2 % 10;
-					tempSum2 /= 10;
-				}
-				sum2 = newSum2;
-			}
-		}
+		int sum2 =  month;
 		int year = selectedDate.Year;
 		int sum3 = 0;
 		int sum4 = 0;
 		int year1 = year / 100;
 		int year2 = year % 100;
-		if (year1 == 11) {
+		if (year1<23) {
 			sum3 = year1;
 		}
 		else {
@@ -267,7 +343,7 @@ namespace попытканепытка {
 				sum3 += tempYear1 % 10;
 				tempYear1 /= 10;
 			}
-			if (sum3 >= 10) {
+			if (sum3 >= 23) {
 				int newSum3 = 0;
 				int tempSum3 = sum3;
 				while (tempSum3 > 0) {
@@ -277,8 +353,8 @@ namespace попытканепытка {
 				sum3 = newSum3;
 			}
 		}
-		if (year2 == 11) {
-			sum4 = year1;
+		if (year2<23) {
+			sum4 = year2;
 		}
 		else {
 			int tempYear2 = year2;
@@ -286,7 +362,7 @@ namespace попытканепытка {
 				sum4 += tempYear2 % 10;
 				tempYear2 /= 10;
 			}
-			if (sum4 >= 10) {
+			if (sum4 >= 23) {
 				int newSum4 = 0;
 				int tempSum4 = sum4;
 				while (tempSum4 > 0) {
@@ -298,11 +374,8 @@ namespace попытканепытка {
 		}
 		int year3 = sum3+sum4;
 		int sum5 = 0;
-		if (year3 == 11) {
+		if (year3 <23) {
 			sum5 = year3;
-		}
-		else if (year3 == 29) {
-			sum5 = 11;
 		}
 		else {
 			int tempYear3 = year3;
@@ -310,7 +383,7 @@ namespace попытканепытка {
 				sum5 += tempYear3 % 10;
 				tempYear3 /= 10;
 			}
-			if (sum5 >= 10) {
+			if (sum5 >= 23) {
 				int newSum5 = 0;
 				int tempSum5 = sum5;
 				while (tempSum5 > 0) {
@@ -322,7 +395,7 @@ namespace попытканепытка {
 		}
 		int sum6 = sum + sum2 + sum5;
 		int sum7 = 0;
-		if (sum6 == 11||sum6==22) {
+		if (sum6<23) {
 			sum7 = sum6;
 		}
 		else {
@@ -331,7 +404,7 @@ namespace попытканепытка {
 				sum7 += temp % 10;
 				temp /= 10;
 			}
-			if (sum7 >= 10) {
+			if (sum7 >= 23) {
 				int newSum = 0;
 				int tempSum = sum7;
 				while (tempSum > 0) {
@@ -343,7 +416,7 @@ namespace попытканепытка {
 		}
 		int sumE = sum + sum2 + sum5 + sum7;
 		int result = 0;
-		if (sumE == 11 || sumE == 22) {
+		if (sumE<23) {
 			result = sumE;
 		}
 		else {
@@ -352,7 +425,7 @@ namespace попытканепытка {
 				result += temp % 10;
 				temp /= 10;
 			}
-			if (result >= 10) {
+			if (result >= 23) {
 				int newSum = 0;
 				int tempSum = result;
 				while (tempSum > 0) {
@@ -381,6 +454,94 @@ private: System::Void D_Click(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void A_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void C_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->E->Text == "1") {
+		this->description->Text = "Обладатель 1 аркана привык ставить себе амбициозные цели и умеет достигать их любой ценой. Такой человек, безусловно, талантлив и умеет управлять ресурсами, которые даёт ему судьба. Однако максимально комфортно он себя чувствует не в момент достижения цели, а в процессе движения к ней. Конечно, при условии, что всё идёт как задумано.\tДля перехода в точку гармонии нужно:"+			
+			"\n•Не бойтесь строить глобальные планы, чем больше цель — тем лучше."+
+			"\n•Будьте активны, верьте в свои силы, не бойтесь совершить ошибку.\t"+
+			"\n•Помните, что путь к любой цели начинается с чёткого плана" +
+			"\n•Ресурсы, которые вам необходимы — непременно появятся в процессе движения" +
+			"\n•Только рациональное мышление поможет вам достичь высоких результатов.\t" +
+			"\n•Лучшая сфера для реализации — созидание чего - то нового.\t" +
+			"\n•Познавайте мир, изучайте всё, что может помочь вам на пути к вершине." +
+			"\n•Смело берите на себя ответственность за людей и процессы, вы справитесь." +
+			"\n•Достигнув промежуточной цели — не останавливайтесь, ставьте новую цель и двигайтесь дальше";
+	}
+	if (this->E->Text == "2") {
+		this->description->Text = "Обладатель 2 аркана обладает врождённой интуицией, мудр в словах и поступках, не склонен проявлять эмоции, всегда окутан ореолом некой тайны. Достигнуть гармонии такой человек может, если станет действительно самодостаточным, будет постоянно развиваться духовно и обретёт внутреннее спокойствие. \nЧто нужно сделать для перехода в точку гармонии:" +
+			"\n•Примите и раскройте женскую сторону своей натуры." +
+			"\n•Доверяйте интуиции, в поиске ответов обращайте свой взгляд внутрь, а не наружу." +
+			"\n•Будьте терпеливы и выдержаны, больше доверяйте людям.Помогайте советом всем, кто просит об этом." +
+			"\n•По возможности придерживайтесь нейтральной позиции, не вмешивайтесь в процессы, которые не инициировали."+
+			"\n•Освойте любые духовные практики, займитесь йогой."+
+			"\n•Проанализируйте свой жизненный опыт, выработайте свою жизненную позицию и кредо."+
+			"\n•Больше слушайте, не ведите пустых разговоров, старайтесь меньше лгать, прекратите сплетничать."+
+			"\n•Примите собственную уникальность, поймите, что некоторые знания доступны лишь избранным."+
+			"\n•Набирайтесь опыта, накапливайте и осмысляйте всю поступающую информацию." +
+			"\n•Старайтесь реализовывать творческие идеи, они достойны, чтобы воплотить их в жизнь!";
+	}
+	if (this->E->Text == "3") {
+		this->description->Text = "Обладатель 3 аркана на протяжении всей жизни стремится к комфортной и счастливой жизни. Такой человек хочет добиться высокого социального статуса, жить в роскоши и богатстве. Даже власть, которой они рано или поздно добиваются, нужна им для того, чтобы получить материальные плоды, а не из простого честолюбия. Надо сказать, что Императрица вполне может воплотить свои мечты в жизнь, однако для этого придётся кое-что сделать."+
+
+			"\n•Для перехода в точку гармонии нужно :" +
+			"\n•Принять женскую сущность в себе и в окружающих женщинах, наладить отношения с матерью." +
+			"\n•Найти достойного партнёра, завести крепкую патриархальную семью, родить детей." +
+			"\n•Старайтесь содержать дом в идеальной чистоте и порядке." +
+			"\n•Поставить цель, совместно с партнёром, обеспечить семью всем необходимым, повысить уровень жизни." +
+			"\n•Научиться доверять супругу, разрешить ему принимать решения и нести ответственность за семью." +
+			"\n•Не давить на детей, не навязывать им собственное мнение, разрешить жить своей жизнью." +
+			"\n•Попробовать жить, как хочется : не экономить деньги, покупать престижные вещи, путешествовать и т.п." +
+			"\n•Добиться руководящей должности на работе, принять на себя ответственность за подчинённых." +
+			"\n•Начать помогать нуждающимся, взять под опеку достойного человека, реализовав тягу к наставничеству.";
+	}
+	if (this->E->Text == "4") {
+		this->description->Text = "4 аркан – наделён властью, уважает порядок, имеет талант управления людьми, может принимать важные и ответственные решения. Максимально комфортной для такого человека будет ситуация, где он будет в полной мере реализовывать заложенный потенциал. \nЧто нужно сделать для перехода в точку гармонии:" +
+			"\n•Император – отличный руководитель, не только в профессиональной деятельности, но и дома. Всё, что ему нужно сделать, чтобы стать лидером — захотеть этого и начать движение в этом направлении." +
+			"\n•Если 4 энергия выпадает женщине, она не должна становиться «мужчиной в юбке». Своих целей нужно достигать, используя женскую силу: ум, красоту и хитрость." +
+			"\n•Человек 4 аркана имеет критическое логическое мышление, может легко выстраивать стратегию развития, предусмотрителен в выборе пути. Ему нельзя руководствоваться эмоциями, только планирование и чистый расчёт." +
+			"\n•Человеку с энергией Императора, нужно постоянно действовать, только активность принесёт хорошие плоды. Наметив план — сразу приступайте к его выполнению.";		
+	}
+	if (this->E->Text == "5") {
+		this->description->Text = "Обладатель 5 аркана всей душой стремится к истине и знаниям. Считается, что он может открыть величайшие тайны и постичь божественное откровение. Достигнуть гармонии такой человек может только совершив долгий и трудный путь своего становления и передав накопленную мудрость ученикам. Иерофант символизирует знания, доступные каждому, знания которые помогут людям постичь Вселенную. \n Для перехода в точку гармонии нужно:" +
+			"\n•Постоянно учиться и развиваться в выбранном направлении." +
+			"\n•Применять полученные знания на практике, объединяя материю и дух." +
+			"\n•Найти последователей, а во второй половине жизни и учеников, которым можно передать знания." +
+			"\n•С чистым сердцем нести свет истины всем желающим, давать советы, судить спорщиков."+
+			"\n•Получив власть, вести людей к свету, поднимая их до своего уровня, а не опускаться на их." +
+			"\n•Придерживаться человеческих и божественных законов." +
+			"\n•Развиваясь духовно не забывать о своём теле. Осваивать духовные практики и йогу." +
+			"\n•Наладить отношения в семьи, иметь крепкую духовную связь с дедом и отцом."+
+			"\n•Блюсти семейные традиции, придерживаться традиционного мировоззрения.";
+	}
+	if (this->E->Text == "6") {
+		this->description->Text = "Обладатель 6 аркана всю жизнь будет стремиться к любви и красоте. Буквально всё в их жизни будет делаться из любви и ради любви. Обрести истинную гармонию и комфорт такой человек сможет в тот момент, когда сможет полюбить себя и весь окружающий мир. Постарайтесь постоянно улучшать окружающий мир и по мере сил наполняйте его красотой. Однако не забывайте, что на этом пути вас ждёт немало искушений и мук выбора. \nДля перехода в точку гармонии нужно : " +
+			"\n•Полюбите себя, свою жизнь, своих врагов, друзей и весь окружающий мир." +
+			"\n•Примите любовь Вселенной, поймите, что бог вас действительно любит." +
+			"\n•Правильно выберите спутника жизни, не будьте идеалистом и не жертвуйте собой ради отношений." +
+			"\n•Расширяйте свой круг общения, заводите новые знакомства, дружите с теми, кто замкнут и одинок." +
+			"\n•Выбирайте профессию по сердцу, смело меняйте работу, если в душе её ненавидите." +
+			"\n•Чаще собирайте у себя гостей, людям всегда не хватает ощущения праздника." +
+			"\n•Будьте терпимее к себе и окружающим, никто в этом мире несовершенен." +
+			"\n•Разрешайте любые конфликты путём переговоров, силовые решения не принесут вам результата." +
+			"\n•Окружите себя комфортом и уютом, не пренебрегайте деньгами, постарайтесь полюбить и их." +
+			"\n•Всегда помните чего хотите, научитесь отделять фантазию от реальности.";
+	}
+	if (this->E->Text == "7") {
+		this->description->Text = "Обладатель 7 аркана всё время стремится двигаться и развиваться. На пути к цели он собран и дисциплинирован, старается контролировать обстановку и принимать верные решения. Однако настоящий душевный комфорт и гармонию он обретает только в момент победы. Момент этот крайне короткий, однако его хватает, чтобы «подзарядить» колесничего энергией и дать стимул двигаться к следующей цели.  Для перехода в точку гармонии нужно : " +
+			"\n•Полюбите себя, свою жизнь, своих врагов, друзей и весь окружающий мир." +
+			"\n•Примите любовь Вселенной, поймите, что бог вас действительно любит." +
+			"\n•Правильно выберите спутника жизни, не будьте идеалистом и не жертвуйте собой ради отношений." +
+			"\n•Расширяйте свой круг общения, заводите новые знакомства, дружите с теми, кто замкнут и одинок." +
+			"\n•Выбирайте профессию по сердцу, смело меняйте работу, если в душе её ненавидите." +
+			"\n•Чаще собирайте у себя гостей, людям всегда не хватает ощущения праздника." +
+			"\n•Будьте терпимее к себе и окружающим, никто в этом мире несовершенен." +
+			"\n•Разрешайте любые конфликты путём переговоров, силовые решения не принесут вам результата." +
+			"\n•Окружите себя комфортом и уютом, не пренебрегайте деньгами, постарайтесь полюбить и их." +
+			"\n•Всегда помните чего хотите, научитесь отделять фантазию от реальности.";
+	}
 }
 };
 }
