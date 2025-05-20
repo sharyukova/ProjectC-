@@ -3,9 +3,9 @@
 #include "MatrixOfFate.h"
 #include "Horoscope.h"
 //
-//namespace попытканепытка {
-//	ref class MyForm;  
-//}
+namespace попытканепытка {
+	ref class MyForm;  
+}
 
 namespace попытканепытка {
 
@@ -22,10 +22,12 @@ namespace попытканепытка {
 	public ref class FirstMenu : public System::Windows::Forms::Form
 	{
 	private:
+		MyForm^ previousForm;
 		System::Drawing::Image^ bgImage2;
 	public:
 		FirstMenu()/* : previousForm(myForm)*/
 		{
+
 			InitializeComponent();
 			LoadBackground();/*
 			this->previousForm = myForm;*/
@@ -277,17 +279,7 @@ namespace попытканепытка {
 		this->Hide();
 	}
 private: System::Void previous_Click(System::Object^ sender, System::EventArgs^ e) {
-	/*if (this->previousForm != nullptr) 
-	{
-		this->Hide();
-		previousForm = gcnew MyForm();
-		previousForm->Show();
-		previousForm->BringToFront();
-	}
-	else
-	{
-		MessageBox::Show("Ошибка: предыдущая форма не найдена!");
-	}*/
+	this->Hide();
 }
 };
 }

@@ -48,6 +48,7 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ previous4;
 
 	protected:
 	private:
@@ -70,6 +71,7 @@ namespace попытканепытка {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->previous4 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// menu1
@@ -171,6 +173,22 @@ namespace попытканепытка {
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &Taro::button1_Click);
 			// 
+			// previous4
+			// 
+			this->previous4->BackColor = System::Drawing::Color::Transparent;
+			this->previous4->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->previous4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->previous4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->previous4->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->previous4->Location = System::Drawing::Point(1, 2);
+			this->previous4->Name = L"previous4";
+			this->previous4->Size = System::Drawing::Size(124, 76);
+			this->previous4->TabIndex = 34;
+			this->previous4->Text = L"<";
+			this->previous4->UseVisualStyleBackColor = false;
+			this->previous4->Click += gcnew System::EventHandler(this, &Taro::previous4_Click);
+			// 
 			// Taro
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -178,6 +196,7 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1444, 981);
+			this->Controls->Add(this->previous4);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -216,5 +235,8 @@ namespace попытканепытка {
 	}
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void previous4_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
 };
 }

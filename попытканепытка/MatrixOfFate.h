@@ -43,6 +43,7 @@ namespace попытканепытка {
 	protected:
 	private: 
 		Person^ person1 = nullptr;
+	private: System::Windows::Forms::Button^ previous5;
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -61,6 +62,7 @@ namespace попытканепытка {
 			this->exit = (gcnew System::Windows::Forms::Button());
 			this->relation = (gcnew System::Windows::Forms::Button());
 			this->person = (gcnew System::Windows::Forms::Button());
+			this->previous5 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// menu1
@@ -94,36 +96,55 @@ namespace попытканепытка {
 			this->exit->TabIndex = 6;
 			this->exit->Text = L"Х";
 			this->exit->UseVisualStyleBackColor = false;
+			this->exit->Click += gcnew System::EventHandler(this, &MatrixOfFate::exit_Click);
 			// 
 			// relation
 			// 
+			this->relation->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->relation->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"relation.BackgroundImage")));
 			this->relation->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->relation->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 47.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->relation->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->relation->Location = System::Drawing::Point(150, 339);
+			this->relation->Location = System::Drawing::Point(186, 348);
 			this->relation->Name = L"relation";
-			this->relation->Size = System::Drawing::Size(493, 485);
+			this->relation->Size = System::Drawing::Size(500, 500);
 			this->relation->TabIndex = 7;
 			this->relation->Text = L"Матрица совместимости";
 			this->relation->UseVisualStyleBackColor = true;
 			// 
 			// person
 			// 
+			this->person->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->person->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"person.BackgroundImage")));
 			this->person->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->person->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->person->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->person->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->person->Location = System::Drawing::Point(803, 339);
+			this->person->Location = System::Drawing::Point(830, 348);
 			this->person->Name = L"person";
-			this->person->Size = System::Drawing::Size(493, 485);
+			this->person->Size = System::Drawing::Size(500, 500);
 			this->person->TabIndex = 8;
 			this->person->Text = L"Матрица человека";
 			this->person->UseVisualStyleBackColor = true;
 			this->person->Click += gcnew System::EventHandler(this, &MatrixOfFate::person_Click);
+			// 
+			// previous5
+			// 
+			this->previous5->BackColor = System::Drawing::Color::Transparent;
+			this->previous5->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->previous5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->previous5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->previous5->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->previous5->Location = System::Drawing::Point(-1, 0);
+			this->previous5->Name = L"previous5";
+			this->previous5->Size = System::Drawing::Size(124, 76);
+			this->previous5->TabIndex = 34;
+			this->previous5->Text = L"<";
+			this->previous5->UseVisualStyleBackColor = false;
+			this->previous5->Click += gcnew System::EventHandler(this, &MatrixOfFate::previous5_Click);
 			// 
 			// MatrixOfFate
 			// 
@@ -132,6 +153,7 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1444, 981);
+			this->Controls->Add(this->previous5);
 			this->Controls->Add(this->person);
 			this->Controls->Add(this->relation);
 			this->Controls->Add(this->exit);
@@ -155,6 +177,12 @@ private: System::Void person_Click(System::Object^ sender, System::EventArgs^ e)
 		Threading::Thread::Sleep(15);
 	}
 	this->Hide();
+}
+private: System::Void previous5_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
 }
 };
 }

@@ -51,6 +51,8 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Label^ description;
 
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Button^ exit;
+	private: System::Windows::Forms::Button^ previous2;
 
 
 	protected:
@@ -86,6 +88,8 @@ namespace попытканепытка {
 			this->enter = (gcnew System::Windows::Forms::Label());
 			this->description = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->exit = (gcnew System::Windows::Forms::Button());
+			this->previous2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->matrixOfPerson))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -140,7 +144,7 @@ namespace попытканепытка {
 			this->A->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->A->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->A->Location = System::Drawing::Point(166, 676);
+			this->A->Location = System::Drawing::Point(165, 675);
 			this->A->Name = L"A";
 			this->A->Size = System::Drawing::Size(31, 33);
 			this->A->TabIndex = 3;
@@ -169,7 +173,7 @@ namespace попытканепытка {
 				static_cast<System::Int32>(static_cast<System::Byte>(165)));
 			this->C->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->C->Location = System::Drawing::Point(603, 676);
+			this->C->Location = System::Drawing::Point(601, 675);
 			this->C->Name = L"C";
 			this->C->Size = System::Drawing::Size(31, 33);
 			this->C->TabIndex = 5;
@@ -213,7 +217,7 @@ namespace попытканепытка {
 			this->personalityPlus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->personalityPlus->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->personalityPlus->Location = System::Drawing::Point(925, 72);
+			this->personalityPlus->Location = System::Drawing::Point(1032, 78);
 			this->personalityPlus->Name = L"personalityPlus";
 			this->personalityPlus->Size = System::Drawing::Size(194, 91);
 			this->personalityPlus->TabIndex = 8;
@@ -227,7 +231,7 @@ namespace попытканепытка {
 			this->personalityMinus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->personalityMinus->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->personalityMinus->Location = System::Drawing::Point(1307, 72);
+			this->personalityMinus->Location = System::Drawing::Point(1414, 78);
 			this->personalityMinus->Name = L"personalityMinus";
 			this->personalityMinus->Size = System::Drawing::Size(190, 91);
 			this->personalityMinus->TabIndex = 9;
@@ -241,7 +245,7 @@ namespace попытканепытка {
 			this->zoneOfComfort->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->zoneOfComfort->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->zoneOfComfort->Location = System::Drawing::Point(1307, 206);
+			this->zoneOfComfort->Location = System::Drawing::Point(1414, 212);
 			this->zoneOfComfort->Name = L"zoneOfComfort";
 			this->zoneOfComfort->Size = System::Drawing::Size(190, 92);
 			this->zoneOfComfort->TabIndex = 10;
@@ -256,7 +260,7 @@ namespace попытканепытка {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button2->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->button2->Location = System::Drawing::Point(925, 206);
+			this->button2->Location = System::Drawing::Point(1032, 212);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(194, 92);
 			this->button2->TabIndex = 11;
@@ -282,13 +286,12 @@ namespace попытканепытка {
 			this->description->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->description->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->description->Location = System::Drawing::Point(738, 437);
+			this->description->Location = System::Drawing::Point(845, 443);
 			this->description->Name = L"description";
 			this->description->Size = System::Drawing::Size(953, 612);
 			this->description->TabIndex = 13;
 			this->description->Text = L"Описание вашего аркана";
-			this->description->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->description->Visible = false;
+			this->description->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->description->Click += gcnew System::EventHandler(this, &Person::label1_Click);
 			// 
 			// label2
@@ -298,11 +301,46 @@ namespace попытканепытка {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Arial", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label2->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->label2->Location = System::Drawing::Point(983, 331);
+			this->label2->Location = System::Drawing::Point(1090, 337);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(429, 56);
 			this->label2->TabIndex = 15;
 			this->label2->Text = L"Название аркана";
+			// 
+			// exit
+			// 
+			this->exit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->exit->BackColor = System::Drawing::Color::Transparent;
+			this->exit->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->exit->FlatAppearance->BorderSize = 0;
+			this->exit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->exit->ForeColor = System::Drawing::Color::White;
+			this->exit->Location = System::Drawing::Point(1873, 11);
+			this->exit->Margin = System::Windows::Forms::Padding(2);
+			this->exit->Name = L"exit";
+			this->exit->Size = System::Drawing::Size(56, 56);
+			this->exit->TabIndex = 16;
+			this->exit->Text = L"Х";
+			this->exit->UseVisualStyleBackColor = false;
+			this->exit->Click += gcnew System::EventHandler(this, &Person::exit_Click);
+			// 
+			// previous
+			// 
+			this->previous2->BackColor = System::Drawing::Color::Transparent;
+			this->previous2->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->previous2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->previous2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->previous2->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->previous2->Location = System::Drawing::Point(1, 1);
+			this->previous2->Name = L"previous";
+			this->previous2->Size = System::Drawing::Size(124, 76);
+			this->previous2->TabIndex = 17;
+			this->previous2->Text = L"<";
+			this->previous2->UseVisualStyleBackColor = false;
+			this->previous2->Click += gcnew System::EventHandler(this, &Person::previous2_Click);
 			// 
 			// Person
 			// 
@@ -311,6 +349,8 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1940, 1100);
+			this->Controls->Add(this->previous2);
+			this->Controls->Add(this->exit);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->description);
 			this->Controls->Add(this->enter);
@@ -491,7 +531,6 @@ private: System::Void C_Click(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->description->Visible = true;
 	if (this->E->Text == "1") {
 		this->description->Text = "Обладатель 1 аркана привык ставить себе амбициозные цели и умеет достигать их любой ценой. Такой человек, безусловно, талантлив и умеет управлять ресурсами, которые даёт ему судьба. Однако максимально комфортно он себя чувствует не в момент достижения цели, а в процессе движения к ней. Конечно, при условии, что всё идёт как задумано.\tДля перехода в точку гармонии нужно:"+			
 			"\n•Не бойтесь строить глобальные планы, чем больше цель — тем лучше."+
@@ -565,44 +604,51 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 	}
 	if (this->E->Text == "7") {
 		this->description->Text = "Обладатель 7 аркана всё время стремится двигаться и развиваться. На пути к цели он собран и дисциплинирован, старается контролировать обстановку и принимать верные решения. Однако настоящий душевный комфорт и гармонию он обретает только в момент победы. Момент этот крайне короткий, однако его хватает, чтобы «подзарядить» колесничего энергией и дать стимул двигаться к следующей цели.  Для перехода в точку гармонии нужно : " +
-			"\n•Полюбите себя, свою жизнь, своих врагов, друзей и весь окружающий мир." +
-			"\n•Примите любовь Вселенной, поймите, что бог вас действительно любит." +
+			"\n•Наметить множество второстепенных и одну две главных, так у вас постоянно будет мотивация не останавливаться в развитии." +
+			"\n•Непременно нужно отмечать все значимые достижения." +
 			"\n•Правильно выберите спутника жизни, не будьте идеалистом и не жертвуйте собой ради отношений." +
-			"\n•Расширяйте свой круг общения, заводите новые знакомства, дружите с теми, кто замкнут и одинок." +
-			"\n•Выбирайте профессию по сердцу, смело меняйте работу, если в душе её ненавидите." +
-			"\n•Чаще собирайте у себя гостей, людям всегда не хватает ощущения праздника." +
-			"\n•Будьте терпимее к себе и окружающим, никто в этом мире несовершенен." +
-			"\n•Разрешайте любые конфликты путём переговоров, силовые решения не принесут вам результата." +
-			"\n•Окружите себя комфортом и уютом, не пренебрегайте деньгами, постарайтесь полюбить и их." +
-			"\n•Всегда помните чего хотите, научитесь отделять фантазию от реальности.";
+			"\n•Бороться с внутренним страхом поражения." +
+			"\n•Стараться контролировать обстановку, а главное, самого себя." +
+			"\n•Брать на себя ответственность за подчинённых и семью." +
+			"\n•Выработать распорядок дня и неуклонно его придерживаться как в части работы, так и в части отдыха." +
+			"\n•Развивать тело и дух. Заниматься спортом, обязательно участвовать в соревнованиях." +
+			"\n•Найти хобби, больше путешествовать, крайне полезными будут конные прогулки.";
 	}
 	if (this->E->Text == "8") {
 		this->description->Text = "Обладатель 8 аркана всю свою жизнь стремится к справедливости и балансу во всём. Считается, что у такого человека есть все способности, чтобы достичь истинной гармонии, обрести душевное равновесие и покой. Он очень проницателен и справедлив, видит закономерности во всё происходящем, умеет разобраться в вопросе. Принимает взвешенные решения, не обращая внимания на эмоции. Для перехода в точку гармонии нужно : " +
-			"\n•Полюбите себя, свою жизнь, своих врагов, друзей и весь окружающий мир." +
-			"\n•Примите любовь Вселенной, поймите, что бог вас действительно любит." +
-			"\n•Правильно выберите спутника жизни, не будьте идеалистом и не жертвуйте собой ради отношений." +
-			"\n•Расширяйте свой круг общения, заводите новые знакомства, дружите с теми, кто замкнут и одинок." +
-			"\n•Выбирайте профессию по сердцу, смело меняйте работу, если в душе её ненавидите." +
-			"\n•Чаще собирайте у себя гостей, людям всегда не хватает ощущения праздника." +
-			"\n•Будьте терпимее к себе и окружающим, никто в этом мире несовершенен." +
-			"\n•Разрешайте любые конфликты путём переговоров, силовые решения не принесут вам результата." +
-			"\n•Окружите себя комфортом и уютом, не пренебрегайте деньгами, постарайтесь полюбить и их." +
-			"\n•Всегда помните чего хотите, научитесь отделять фантазию от реальности.";
+			"\n•Удерживайте равновесие между духовным и материальным, не впадайте в крайности, не теряйте себя как бы плохо или хорошо не обстояли ваши дела." +
+			"\n•Воздержитесь от необдуманных импульсивных поступков, спокойно и уверенно идите своей дорогой." +
+			"\n•Исполняйте все юридические, моральные или религиозные законы, которые вы прияли. За любой противозаконный поступок вы будете наказаны Вселенной." +
+			"\n•Находите и принимайте правильные решения, не убегая от проблем. Ситуация будет неоднократно повторятся, пока вы не пройдёте этот кармический урок." +
+			"\n•Важно не подавлять эмоции, а научиться их контролировать. Иначе в критической ситуации эмоции возьмут над вами верх и не дадут трезво мыслить." +
+			"\n•Следуйте советам голоса справедливости внутри вас. Замечайте знаки судьбы, они помогут вам при принятии решения и выбора нужной дороги." +
+			"\n•Старайтесь оставаться на правильном пути и поступать справедливо, независимо от собственных желаний, личной выгоды и общественного осуждения.";
 	}
 	if (this->E->Text == "9") {
-
-		this->description->Text = "Обладатель 7 аркана всё время стремится двигаться и развиваться. На пути к цели он собран и дисциплинирован, старается контролировать обстановку и принимать верные решения. Однако настоящий душевный комфорт и гармонию он обретает только в момент победы. Момент этот крайне короткий, однако его хватает, чтобы «подзарядить» колесничего энергией и дать стимул двигаться к следующей цели.\n\nДля перехода в точку гармонии нужно : " +
-			"\n•Полюбите себя, свою жизнь, своих врагов, друзей и весь окружающий мир." +
-			"\n•Примите любовь Вселенной, поймите, что бог вас действительно любит." +
-			"\n•Правильно выберите спутника жизни, не будьте идеалистом и не жертвуйте собой ради отношений." +
-			"\n•Расширяйте свой круг общения, заводите новые знакомства, дружите с теми, кто замкнут и одинок." +
-			"\n•Выбирайте профессию по сердцу, смело меняйте работу, если в душе её ненавидите." +
-			"\n•Чаще собирайте у себя гостей, людям всегда не хватает ощущения праздника." +
-			"\n•Будьте терпимее к себе и окружающим, никто в этом мире несовершенен." +
-			"\n•Разрешайте любые конфликты путём переговоров, силовые решения не принесут вам результата." +
-			"\n•Окружите себя комфортом и уютом, не пренебрегайте деньгами, постарайтесь полюбить и их." +
-			"\n•Всегда помните чего хотите, научитесь отделять фантазию от реальности.";
+		this->description->Text = "Человек с 9 энергией в Матрице судьбы всю свою жизнь стремиться получать знания, исследовать и узнавать что-то новое. Этот человек любит находиться наедине с самим собой, и в одиночестве вести поиск истины. Неудивительно, что наиболее комфортно и гармонично он ощущает себя, когда имеет возможность спокойно получать информацию, систематизировать её набираться мудрости и практического опыта. А вот материальные проблемы совсем не заботят Отшельника, и он предпочитает о них не думать.  Для перехода в точку гармонии нужно : " +
+			"\n•Вы самый настоящий мудрец и должны постоянно собирать в свою копилку новые знания и опыт. Применяйте их в реальной жизни, увеличивайте свой авторитет в глазах окружающих. Старайтесь как можно глубже разобраться в своём предмете, а вместе с истиной придёт и мудрость." +
+			"\n•Регулярное пребывание в одиночестве подпитает вас силами. Находясь наедине с собой, вы гораздо будете гораздо быстрее усваивать информацию и осмыслять полученный опыт." +
+			"\n•Далеко не все могут учиться и постигать науки без посторонней помощи. Попробуйте себя в роли учителя или наставника. Обратите внимание, что порой после разговора с вами человеку становится легче. Больше общайтесь — вас очень воодушевит возможность делиться своим опытом." +
+			"\n•Научитесь соблюдать баланс духовного и физического развития. Не замыкайтесь в одиночестве. Когда будет необходимо, вы легко должны погружаться в себя, а потом также с лёгкостью выходить в общество, создавать новые проекты или просто общаться." +
+			"\n•Вы не слишком эмоциональны, от природы, однако это идёт вам на пользу. Не торопитесь с принятием решений, будьте спокойны и никогда не идите силовым путём. Однако не отказывайтесь от выражения чувство — помните о балансе." +
+			"\n•Следуйте советам голоса справедливости внутри вас. Замечайте знаки судьбы, они помогут вам при принятии решения и выбора нужной дороги." +
+			"\n•У вас есть незаурядные творческие способности, обязательно попробуйте их реализовать. Не так важно чем вы займётесь, важен сам факт творения и самовыражения.";
 	}
+	if (this->E->Text == "10") {
+		this->description->Text = "Человек с 10 арканом обычно верит в свою судьбу и удачу, никогда не унывает в случае неприятностей, всегда готов действовать и двигаться. Именно тогда, когда удача на стороне 10 аркана, а он находится в самой гуще событий, этот человек обретает истинную гармонию и счастье. Однако чтобы успех не казался вам слишком простым, Колесо фортуны предоставит вам немало испытаний. Только на фоне испытаний, ваши победы будут чувствоваться гораздо ярче.  Для перехода в точку гармонии нужно : " +
+			"\n•Не забывайте, вы находитесь в руках судьбы, помните, это она вас ведёт, а не вы её." +
+			"\n•Верьте в удачу, но не забывайте активно действовать, Колесо фортуны не любит пассивных." +
+			"\n•Следите за знаками, не упускайте возможности, которые будут вам предоставлены." +
+			"\n•Научитесь соблюдать баланс духовного и физического развития. Не замыкайтесь в одиночестве. Когда будет необходимо, вы легко должны погружаться в себя, а потом также с лёгкостью выходить в общество, создавать новые проекты или просто общаться." +
+			"\n•Вы не слишком эмоциональны, от природы, однако это идёт вам на пользу. Не торопитесь с принятием решений, будьте спокойны и никогда не идите силовым путём. Однако не отказывайтесь от выражения чувство — помните о балансе." +
+			"\n•Следуйте советам голоса справедливости внутри вас. Замечайте знаки судьбы, они помогут вам при принятии решения и выбора нужной дороги." +
+			"\n•У вас есть незаурядные творческие способности, обязательно попробуйте их реализовать. Не так важно чем вы займётесь, важен сам факт творения и самовыражения.";
+	}
+}
+private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();}
+private: System::Void previous2_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }

@@ -35,6 +35,7 @@ namespace попытканепытка {
 			}
 		}
 	private: System::Windows::Forms::Button^ exit;
+	private: System::Windows::Forms::Button^ previous3;
 	protected:
 
 	private:
@@ -52,6 +53,7 @@ namespace попытканепытка {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Horoscope::typeid));
 			this->exit = (gcnew System::Windows::Forms::Button());
+			this->previous3 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// exit
@@ -73,6 +75,22 @@ namespace попытканепытка {
 			this->exit->UseVisualStyleBackColor = false;
 			this->exit->Click += gcnew System::EventHandler(this, &Horoscope::exit_Click);
 			// 
+			// previous3
+			// 
+			this->previous3->BackColor = System::Drawing::Color::Transparent;
+			this->previous3->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->previous3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->previous3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->previous3->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->previous3->Location = System::Drawing::Point(3, 1);
+			this->previous3->Name = L"previous3";
+			this->previous3->Size = System::Drawing::Size(124, 76);
+			this->previous3->TabIndex = 34;
+			this->previous3->Text = L"<";
+			this->previous3->UseVisualStyleBackColor = false;
+			this->previous3->Click += gcnew System::EventHandler(this, &Horoscope::previous3_Click);
+			// 
 			// Horoscope
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -80,6 +98,7 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1428, 942);
+			this->Controls->Add(this->previous3);
 			this->Controls->Add(this->exit);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"Horoscope";
@@ -90,6 +109,9 @@ namespace попытканепытка {
 #pragma endregion
 	private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
+	}
+	private: System::Void previous3_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
 	}
 	};
 }

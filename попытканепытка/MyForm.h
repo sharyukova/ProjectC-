@@ -163,7 +163,7 @@ namespace попытканепытка {
             Application::DoEvents();
             Threading::Thread::Sleep(15); 
         }
-        this->Hide();
+       // this->Hide();
     }
     private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
         Application::Exit();

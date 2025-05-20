@@ -30,7 +30,8 @@ namespace попытканепытка {
     {
     private:
         array<PictureBox^>^ pictureBoxes; 
-        bool isCardSelected;
+    private: System::Windows::Forms::Button^ previous1;
+           bool isCardSelected;
     public:
         CardOfDay(void)
         {
@@ -107,15 +108,11 @@ namespace попытканепытка {
     private:
         void PictureBox_Click(Object^ sender, EventArgs^ e)
         {
-            if (isCardSelected) return; // ≈сли карта уже выбрана, ничего не делаем
+            if (isCardSelected) return; 
 
             PictureBox^ clickedBox = (PictureBox^)sender;
-
-            // ѕоднимаем выбранную карту
             clickedBox->Location = Point(clickedBox->Location.X, clickedBox->Location.Y - 34);
             pictureBox1->Visible = true;
-
-            // Ѕлокируем все остальные карты
             isCardSelected = true;
             for each (PictureBox ^ box in pictureBoxes)
             {
@@ -164,6 +161,7 @@ namespace попытканепытка {
                this->pictureBox30 = (gcnew System::Windows::Forms::PictureBox());
                this->pictureBox31 = (gcnew System::Windows::Forms::PictureBox());
                this->exit = (gcnew System::Windows::Forms::Button());
+               this->previous1 = (gcnew System::Windows::Forms::Button());
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -202,7 +200,7 @@ namespace попытканепытка {
                this->pictureBox1->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
                this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->pictureBox1->Location = System::Drawing::Point(502, 665);
+               this->pictureBox1->Location = System::Drawing::Point(484, 665);
                this->pictureBox1->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox1->Name = L"pictureBox1";
                this->pictureBox1->Size = System::Drawing::Size(283, 462);
@@ -220,10 +218,11 @@ namespace попытканепытка {
                    static_cast<System::Int32>(static_cast<System::Byte>(236)));
                this->yourname->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(204)));
+               this->yourname->ImeMode = System::Windows::Forms::ImeMode::KatakanaHalf;
                this->yourname->Location = System::Drawing::Point(249, 68);
                this->yourname->Margin = System::Windows::Forms::Padding(0);
                this->yourname->Name = L"yourname";
-               this->yourname->Size = System::Drawing::Size(706, 51);
+               this->yourname->Size = System::Drawing::Size(672, 51);
                this->yourname->TabIndex = 1;
                this->yourname->Text = L"¬ведите им€";
                // 
@@ -238,7 +237,7 @@ namespace попытканепытка {
                this->znakzodiaka->Location = System::Drawing::Point(249, 196);
                this->znakzodiaka->Margin = System::Windows::Forms::Padding(0);
                this->znakzodiaka->Name = L"znakzodiaka";
-               this->znakzodiaka->Size = System::Drawing::Size(706, 56);
+               this->znakzodiaka->Size = System::Drawing::Size(672, 56);
                this->znakzodiaka->TabIndex = 2;
                this->znakzodiaka->Text = L"¬ведите знак зодиака";
                // 
@@ -672,7 +671,7 @@ namespace попытканепытка {
                this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(204)));
                this->exit->ForeColor = System::Drawing::Color::White;
-               this->exit->Location = System::Drawing::Point(1275, 22);
+               this->exit->Location = System::Drawing::Point(1241, 22);
                this->exit->Margin = System::Windows::Forms::Padding(2);
                this->exit->Name = L"exit";
                this->exit->Size = System::Drawing::Size(56, 56);
@@ -680,6 +679,22 @@ namespace попытканепытка {
                this->exit->Text = L"’";
                this->exit->UseVisualStyleBackColor = false;
                this->exit->Click += gcnew System::EventHandler(this, &CardOfDay::exit_Click);
+               // 
+               // previous1
+               // 
+               this->previous1->BackColor = System::Drawing::Color::Transparent;
+               this->previous1->Cursor = System::Windows::Forms::Cursors::Hand;
+               this->previous1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+               this->previous1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                   static_cast<System::Byte>(204)));
+               this->previous1->ForeColor = System::Drawing::Color::LavenderBlush;
+               this->previous1->Location = System::Drawing::Point(-3, 0);
+               this->previous1->Name = L"previous1";
+               this->previous1->Size = System::Drawing::Size(124, 76);
+               this->previous1->TabIndex = 33;
+               this->previous1->Text = L"<";
+               this->previous1->UseVisualStyleBackColor = false;
+               this->previous1->Click += gcnew System::EventHandler(this, &CardOfDay::previous1_Click);
                // 
                // CardOfDay
                // 
@@ -690,6 +705,7 @@ namespace попытканепытка {
                this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
                this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->ClientSize = System::Drawing::Size(1818, 1100);
+               this->Controls->Add(this->previous1);
                this->Controls->Add(this->exit);
                this->Controls->Add(this->pictureBox22);
                this->Controls->Add(this->pictureBox23);
@@ -841,5 +857,8 @@ namespace попытканепытка {
         sqlite3_close(db);
     }
 
+private: System::Void previous1_Click(System::Object^ sender, System::EventArgs^ e) {
+    this->Hide();
+}
 };
 }
