@@ -50,6 +50,8 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Label^ enter;
 	private: System::Windows::Forms::Label^ description;
 
+	private: System::Windows::Forms::Label^ label2;
+
 
 	protected:
 
@@ -83,12 +85,13 @@ namespace попытканепытка {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->enter = (gcnew System::Windows::Forms::Label());
 			this->description = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->matrixOfPerson))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// date
 			// 
-			this->date->CalendarFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->date->CalendarFont = (gcnew System::Drawing::Font(L"Arial", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->date->CalendarForeColor = System::Drawing::Color::SaddleBrown;
 			this->date->CalendarMonthBackground = System::Drawing::Color::LavenderBlush;
@@ -105,21 +108,24 @@ namespace попытканепытка {
 			// 
 			// done
 			// 
+			this->done->BackColor = System::Drawing::Color::Transparent;
+			this->done->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->done->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 27.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->done->Location = System::Drawing::Point(294, 266);
+			this->done->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->done->Location = System::Drawing::Point(279, 292);
 			this->done->Name = L"done";
 			this->done->Size = System::Drawing::Size(243, 57);
 			this->done->TabIndex = 1;
 			this->done->Text = L"готово";
-			this->done->UseVisualStyleBackColor = true;
+			this->done->UseVisualStyleBackColor = false;
 			this->done->Click += gcnew System::EventHandler(this, &Person::button1_Click);
 			// 
 			// matrixOfPerson
 			// 
 			this->matrixOfPerson->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"matrixOfPerson.BackgroundImage")));
 			this->matrixOfPerson->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->matrixOfPerson->Location = System::Drawing::Point(151, 339);
+			this->matrixOfPerson->Location = System::Drawing::Point(152, 443);
 			this->matrixOfPerson->Name = L"matrixOfPerson";
 			this->matrixOfPerson->Size = System::Drawing::Size(493, 493);
 			this->matrixOfPerson->TabIndex = 2;
@@ -134,7 +140,7 @@ namespace попытканепытка {
 			this->A->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->A->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->A->Location = System::Drawing::Point(165, 572);
+			this->A->Location = System::Drawing::Point(166, 676);
 			this->A->Name = L"A";
 			this->A->Size = System::Drawing::Size(31, 33);
 			this->A->TabIndex = 3;
@@ -149,7 +155,7 @@ namespace попытканепытка {
 				static_cast<System::Int32>(static_cast<System::Byte>(234)));
 			this->B->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->B->Location = System::Drawing::Point(387, 354);
+			this->B->Location = System::Drawing::Point(388, 458);
 			this->B->Name = L"B";
 			this->B->Size = System::Drawing::Size(31, 33);
 			this->B->TabIndex = 4;
@@ -163,7 +169,7 @@ namespace попытканепытка {
 				static_cast<System::Int32>(static_cast<System::Byte>(165)));
 			this->C->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->C->Location = System::Drawing::Point(602, 572);
+			this->C->Location = System::Drawing::Point(603, 676);
 			this->C->Name = L"C";
 			this->C->Size = System::Drawing::Size(31, 33);
 			this->C->TabIndex = 5;
@@ -178,7 +184,7 @@ namespace попытканепытка {
 				static_cast<System::Int32>(static_cast<System::Byte>(165)));
 			this->D->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->D->Location = System::Drawing::Point(385, 786);
+			this->D->Location = System::Drawing::Point(386, 890);
 			this->D->Name = L"D";
 			this->D->Size = System::Drawing::Size(31, 33);
 			this->D->TabIndex = 6;
@@ -193,7 +199,7 @@ namespace попытканепытка {
 				static_cast<System::Int32>(static_cast<System::Byte>(200)));
 			this->E->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->E->Location = System::Drawing::Point(385, 571);
+			this->E->Location = System::Drawing::Point(386, 675);
 			this->E->Name = L"E";
 			this->E->Size = System::Drawing::Size(31, 33);
 			this->E->TabIndex = 7;
@@ -202,48 +208,60 @@ namespace попытканепытка {
 			// 
 			// personalityPlus
 			// 
+			this->personalityPlus->BackColor = System::Drawing::Color::Transparent;
+			this->personalityPlus->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->personalityPlus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->personalityPlus->Location = System::Drawing::Point(789, 89);
+			this->personalityPlus->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->personalityPlus->Location = System::Drawing::Point(925, 72);
 			this->personalityPlus->Name = L"personalityPlus";
-			this->personalityPlus->Size = System::Drawing::Size(174, 74);
+			this->personalityPlus->Size = System::Drawing::Size(194, 91);
 			this->personalityPlus->TabIndex = 8;
 			this->personalityPlus->Text = L"Характер человека в минусе";
-			this->personalityPlus->UseVisualStyleBackColor = true;
+			this->personalityPlus->UseVisualStyleBackColor = false;
 			// 
 			// personalityMinus
 			// 
+			this->personalityMinus->BackColor = System::Drawing::Color::Transparent;
+			this->personalityMinus->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->personalityMinus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->personalityMinus->Location = System::Drawing::Point(1020, 89);
+			this->personalityMinus->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->personalityMinus->Location = System::Drawing::Point(1307, 72);
 			this->personalityMinus->Name = L"personalityMinus";
-			this->personalityMinus->Size = System::Drawing::Size(174, 74);
+			this->personalityMinus->Size = System::Drawing::Size(190, 91);
 			this->personalityMinus->TabIndex = 9;
 			this->personalityMinus->Text = L"Характер человека в плюсе";
-			this->personalityMinus->UseVisualStyleBackColor = true;
+			this->personalityMinus->UseVisualStyleBackColor = false;
 			// 
 			// zoneOfComfort
 			// 
+			this->zoneOfComfort->BackColor = System::Drawing::Color::Transparent;
+			this->zoneOfComfort->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->zoneOfComfort->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->zoneOfComfort->Location = System::Drawing::Point(1020, 198);
+			this->zoneOfComfort->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->zoneOfComfort->Location = System::Drawing::Point(1307, 206);
 			this->zoneOfComfort->Name = L"zoneOfComfort";
-			this->zoneOfComfort->Size = System::Drawing::Size(174, 74);
+			this->zoneOfComfort->Size = System::Drawing::Size(190, 92);
 			this->zoneOfComfort->TabIndex = 10;
 			this->zoneOfComfort->Text = L"Зона комфорта и гармонии";
-			this->zoneOfComfort->UseVisualStyleBackColor = true;
+			this->zoneOfComfort->UseVisualStyleBackColor = false;
 			this->zoneOfComfort->Click += gcnew System::EventHandler(this, &Person::zoneOfComfort_Click);
 			// 
 			// button2
 			// 
+			this->button2->BackColor = System::Drawing::Color::Transparent;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(789, 198);
+			this->button2->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->button2->Location = System::Drawing::Point(925, 206);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(174, 74);
+			this->button2->Size = System::Drawing::Size(194, 92);
 			this->button2->TabIndex = 11;
 			this->button2->Text = L"Главная проработка души";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			// 
 			// enter
 			// 
@@ -264,13 +282,27 @@ namespace попытканепытка {
 			this->description->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->description->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->description->Location = System::Drawing::Point(738, 459);
+			this->description->Location = System::Drawing::Point(738, 437);
 			this->description->Name = L"description";
-			this->description->Size = System::Drawing::Size(676, 612);
+			this->description->Size = System::Drawing::Size(953, 612);
 			this->description->TabIndex = 13;
 			this->description->Text = L"Описание вашего аркана";
-			this->description->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->description->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->description->Visible = false;
 			this->description->Click += gcnew System::EventHandler(this, &Person::label1_Click);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::Color::Transparent;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Arial", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label2->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->label2->Location = System::Drawing::Point(983, 331);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(429, 56);
+			this->label2->TabIndex = 15;
+			this->label2->Text = L"Название аркана";
 			// 
 			// Person
 			// 
@@ -278,7 +310,8 @@ namespace попытканепытка {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1440, 1100);
+			this->ClientSize = System::Drawing::Size(1940, 1100);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->description);
 			this->Controls->Add(this->enter);
 			this->Controls->Add(this->button2);
@@ -458,6 +491,7 @@ private: System::Void C_Click(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->description->Visible = true;
 	if (this->E->Text == "1") {
 		this->description->Text = "Обладатель 1 аркана привык ставить себе амбициозные цели и умеет достигать их любой ценой. Такой человек, безусловно, талантлив и умеет управлять ресурсами, которые даёт ему судьба. Однако максимально комфортно он себя чувствует не в момент достижения цели, а в процессе движения к ней. Конечно, при условии, что всё идёт как задумано.\tДля перехода в точку гармонии нужно:"+			
 			"\n•Не бойтесь строить глобальные планы, чем больше цель — тем лучше."+
@@ -531,6 +565,33 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 	}
 	if (this->E->Text == "7") {
 		this->description->Text = "Обладатель 7 аркана всё время стремится двигаться и развиваться. На пути к цели он собран и дисциплинирован, старается контролировать обстановку и принимать верные решения. Однако настоящий душевный комфорт и гармонию он обретает только в момент победы. Момент этот крайне короткий, однако его хватает, чтобы «подзарядить» колесничего энергией и дать стимул двигаться к следующей цели.  Для перехода в точку гармонии нужно : " +
+			"\n•Полюбите себя, свою жизнь, своих врагов, друзей и весь окружающий мир." +
+			"\n•Примите любовь Вселенной, поймите, что бог вас действительно любит." +
+			"\n•Правильно выберите спутника жизни, не будьте идеалистом и не жертвуйте собой ради отношений." +
+			"\n•Расширяйте свой круг общения, заводите новые знакомства, дружите с теми, кто замкнут и одинок." +
+			"\n•Выбирайте профессию по сердцу, смело меняйте работу, если в душе её ненавидите." +
+			"\n•Чаще собирайте у себя гостей, людям всегда не хватает ощущения праздника." +
+			"\n•Будьте терпимее к себе и окружающим, никто в этом мире несовершенен." +
+			"\n•Разрешайте любые конфликты путём переговоров, силовые решения не принесут вам результата." +
+			"\n•Окружите себя комфортом и уютом, не пренебрегайте деньгами, постарайтесь полюбить и их." +
+			"\n•Всегда помните чего хотите, научитесь отделять фантазию от реальности.";
+	}
+	if (this->E->Text == "8") {
+		this->description->Text = "Обладатель 8 аркана всю свою жизнь стремится к справедливости и балансу во всём. Считается, что у такого человека есть все способности, чтобы достичь истинной гармонии, обрести душевное равновесие и покой. Он очень проницателен и справедлив, видит закономерности во всё происходящем, умеет разобраться в вопросе. Принимает взвешенные решения, не обращая внимания на эмоции. Для перехода в точку гармонии нужно : " +
+			"\n•Полюбите себя, свою жизнь, своих врагов, друзей и весь окружающий мир." +
+			"\n•Примите любовь Вселенной, поймите, что бог вас действительно любит." +
+			"\n•Правильно выберите спутника жизни, не будьте идеалистом и не жертвуйте собой ради отношений." +
+			"\n•Расширяйте свой круг общения, заводите новые знакомства, дружите с теми, кто замкнут и одинок." +
+			"\n•Выбирайте профессию по сердцу, смело меняйте работу, если в душе её ненавидите." +
+			"\n•Чаще собирайте у себя гостей, людям всегда не хватает ощущения праздника." +
+			"\n•Будьте терпимее к себе и окружающим, никто в этом мире несовершенен." +
+			"\n•Разрешайте любые конфликты путём переговоров, силовые решения не принесут вам результата." +
+			"\n•Окружите себя комфортом и уютом, не пренебрегайте деньгами, постарайтесь полюбить и их." +
+			"\n•Всегда помните чего хотите, научитесь отделять фантазию от реальности.";
+	}
+	if (this->E->Text == "9") {
+
+		this->description->Text = "Обладатель 7 аркана всё время стремится двигаться и развиваться. На пути к цели он собран и дисциплинирован, старается контролировать обстановку и принимать верные решения. Однако настоящий душевный комфорт и гармонию он обретает только в момент победы. Момент этот крайне короткий, однако его хватает, чтобы «подзарядить» колесничего энергией и дать стимул двигаться к следующей цели.\n\nДля перехода в точку гармонии нужно : " +
 			"\n•Полюбите себя, свою жизнь, своих врагов, друзей и весь окружающий мир." +
 			"\n•Примите любовь Вселенной, поймите, что бог вас действительно любит." +
 			"\n•Правильно выберите спутника жизни, не будьте идеалистом и не жертвуйте собой ради отношений." +
