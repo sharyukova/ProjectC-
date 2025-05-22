@@ -200,7 +200,7 @@ namespace попытканепытка {
                this->pictureBox1->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
                this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->pictureBox1->Location = System::Drawing::Point(484, 665);
+               this->pictureBox1->Location = System::Drawing::Point(475, 665);
                this->pictureBox1->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox1->Name = L"pictureBox1";
                this->pictureBox1->Size = System::Drawing::Size(283, 462);
@@ -222,7 +222,7 @@ namespace попытканепытка {
                this->yourname->Location = System::Drawing::Point(249, 68);
                this->yourname->Margin = System::Windows::Forms::Padding(0);
                this->yourname->Name = L"yourname";
-               this->yourname->Size = System::Drawing::Size(672, 51);
+               this->yourname->Size = System::Drawing::Size(655, 51);
                this->yourname->TabIndex = 1;
                this->yourname->Text = L"¬ведите им€";
                // 
@@ -237,7 +237,7 @@ namespace попытканепытка {
                this->znakzodiaka->Location = System::Drawing::Point(249, 196);
                this->znakzodiaka->Margin = System::Windows::Forms::Padding(0);
                this->znakzodiaka->Name = L"znakzodiaka";
-               this->znakzodiaka->Size = System::Drawing::Size(672, 56);
+               this->znakzodiaka->Size = System::Drawing::Size(655, 56);
                this->znakzodiaka->TabIndex = 2;
                this->znakzodiaka->Text = L"¬ведите знак зодиака";
                // 
@@ -671,7 +671,7 @@ namespace попытканепытка {
                this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(204)));
                this->exit->ForeColor = System::Drawing::Color::White;
-               this->exit->Location = System::Drawing::Point(1241, 22);
+               this->exit->Location = System::Drawing::Point(1224, 22);
                this->exit->Margin = System::Windows::Forms::Padding(2);
                this->exit->Name = L"exit";
                this->exit->Size = System::Drawing::Size(56, 56);
