@@ -1,5 +1,5 @@
 #pragma once
-#include "Taro.h"
+#include "CardOfDay.h"
 #include "MatrixOfFate.h"
 #include "Horoscope.h"
 //
@@ -231,7 +231,7 @@ namespace попытканепытка {
 	private: System::Void FirstMenu_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private:
-		Taro^ taro = nullptr;
+		CardOfDay^ cardOfDay = nullptr;
 		MatrixOfFate^ matrixOfFate = nullptr;
 		Horoscope^ horoscope1 = nullptr;
 
@@ -239,12 +239,12 @@ namespace попытканепытка {
 		Application::Exit();
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		taro = gcnew Taro();
-		taro->Opacity = 0;
-		taro->Show();
+		cardOfDay = gcnew CardOfDay();
+		cardOfDay->Opacity = 0;
+		cardOfDay->Show();
 		for (double opacity = 0; opacity <= 1; opacity += 0.1)
 		{
-			taro->Opacity = opacity;
+			cardOfDay->Opacity = opacity;
 			Application::DoEvents();
 			Threading::Thread::Sleep(15);
 		}
