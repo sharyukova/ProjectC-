@@ -264,7 +264,7 @@ namespace попытканепытка {
                this->card1->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card1.BackgroundImage")));
                this->card1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->card1->Location = System::Drawing::Point(221, 1059);
+               this->card1->Location = System::Drawing::Point(212, 1059);
                this->card1->Margin = System::Windows::Forms::Padding(0);
                this->card1->Name = L"card1";
                this->card1->Size = System::Drawing::Size(110, 190);
@@ -281,7 +281,7 @@ namespace попытканепытка {
                this->yourname->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(204)));
                this->yourname->ImeMode = System::Windows::Forms::ImeMode::KatakanaHalf;
-               this->yourname->Location = System::Drawing::Point(114, 145);
+               this->yourname->Location = System::Drawing::Point(105, 145);
                this->yourname->Margin = System::Windows::Forms::Padding(0);
                this->yourname->Name = L"yourname";
                this->yourname->Size = System::Drawing::Size(728, 43);
@@ -295,7 +295,7 @@ namespace попытканепытка {
                    static_cast<System::Int32>(static_cast<System::Byte>(236)));
                this->znakzodiaka->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(204)));
-               this->znakzodiaka->Location = System::Drawing::Point(112, 207);
+               this->znakzodiaka->Location = System::Drawing::Point(103, 207);
                this->znakzodiaka->Margin = System::Windows::Forms::Padding(0);
                this->znakzodiaka->Name = L"znakzodiaka";
                this->znakzodiaka->Size = System::Drawing::Size(730, 44);
@@ -308,7 +308,7 @@ namespace попытканепытка {
                this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
                this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox2->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox2->Location = System::Drawing::Point(47, 327);
+               this->pictureBox2->Location = System::Drawing::Point(38, 327);
                this->pictureBox2->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox2->Name = L"pictureBox2";
                this->pictureBox2->Size = System::Drawing::Size(100, 190);
@@ -323,7 +323,7 @@ namespace попытканепытка {
                this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
                this->pictureBox3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox3->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox3->Location = System::Drawing::Point(70, 327);
+               this->pictureBox3->Location = System::Drawing::Point(61, 327);
                this->pictureBox3->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox3->Name = L"pictureBox3";
                this->pictureBox3->Size = System::Drawing::Size(100, 190);
@@ -338,7 +338,7 @@ namespace попытканепытка {
                this->pictureBox4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.BackgroundImage")));
                this->pictureBox4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox4->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox4->Location = System::Drawing::Point(122, 327);
+               this->pictureBox4->Location = System::Drawing::Point(113, 327);
                this->pictureBox4->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox4->Name = L"pictureBox4";
                this->pictureBox4->Size = System::Drawing::Size(100, 190);
@@ -353,7 +353,7 @@ namespace попытканепытка {
                this->pictureBox5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.BackgroundImage")));
                this->pictureBox5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox5->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox5->Location = System::Drawing::Point(95, 327);
+               this->pictureBox5->Location = System::Drawing::Point(86, 327);
                this->pictureBox5->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox5->Name = L"pictureBox5";
                this->pictureBox5->Size = System::Drawing::Size(100, 190);
@@ -368,7 +368,7 @@ namespace попытканепытка {
                this->pictureBox6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.BackgroundImage")));
                this->pictureBox6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox6->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox6->Location = System::Drawing::Point(289, 327);
+               this->pictureBox6->Location = System::Drawing::Point(280, 327);
                this->pictureBox6->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox6->Name = L"pictureBox6";
                this->pictureBox6->Size = System::Drawing::Size(100, 190);
@@ -383,7 +383,7 @@ namespace попытканепытка {
                this->pictureBox7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.BackgroundImage")));
                this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox7->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox7->Location = System::Drawing::Point(258, 327);
+               this->pictureBox7->Location = System::Drawing::Point(249, 327);
                this->pictureBox7->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox7->Name = L"pictureBox7";
                this->pictureBox7->Size = System::Drawing::Size(100, 190);
@@ -398,7 +398,7 @@ namespace попытканепытка {
                this->pictureBox8->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.BackgroundImage")));
                this->pictureBox8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox8->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox8->Location = System::Drawing::Point(231, 327);
+               this->pictureBox8->Location = System::Drawing::Point(222, 327);
                this->pictureBox8->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox8->Name = L"pictureBox8";
                this->pictureBox8->Size = System::Drawing::Size(100, 190);
@@ -413,7 +413,7 @@ namespace попытканепытка {
                this->pictureBox9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.BackgroundImage")));
                this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox9->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox9->Location = System::Drawing::Point(153, 327);
+               this->pictureBox9->Location = System::Drawing::Point(144, 327);
                this->pictureBox9->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox9->Name = L"pictureBox9";
                this->pictureBox9->Size = System::Drawing::Size(100, 190);
@@ -428,7 +428,7 @@ namespace попытканепытка {
                this->pictureBox10->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox10.BackgroundImage")));
                this->pictureBox10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox10->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox10->Location = System::Drawing::Point(206, 327);
+               this->pictureBox10->Location = System::Drawing::Point(197, 327);
                this->pictureBox10->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox10->Name = L"pictureBox10";
                this->pictureBox10->Size = System::Drawing::Size(100, 190);
@@ -443,7 +443,7 @@ namespace попытканепытка {
                this->pictureBox11->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox11.BackgroundImage")));
                this->pictureBox11->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox11->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox11->Location = System::Drawing::Point(182, 327);
+               this->pictureBox11->Location = System::Drawing::Point(173, 327);
                this->pictureBox11->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox11->Name = L"pictureBox11";
                this->pictureBox11->Size = System::Drawing::Size(100, 190);
@@ -458,7 +458,7 @@ namespace попытканепытка {
                this->pictureBox12->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox12.BackgroundImage")));
                this->pictureBox12->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox12->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox12->Location = System::Drawing::Point(555, 327);
+               this->pictureBox12->Location = System::Drawing::Point(546, 327);
                this->pictureBox12->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox12->Name = L"pictureBox12";
                this->pictureBox12->Size = System::Drawing::Size(100, 190);
@@ -473,7 +473,7 @@ namespace попытканепытка {
                this->pictureBox13->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox13.BackgroundImage")));
                this->pictureBox13->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox13->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox13->Location = System::Drawing::Point(524, 327);
+               this->pictureBox13->Location = System::Drawing::Point(515, 327);
                this->pictureBox13->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox13->Name = L"pictureBox13";
                this->pictureBox13->Size = System::Drawing::Size(100, 190);
@@ -488,7 +488,7 @@ namespace попытканепытка {
                this->pictureBox14->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox14.BackgroundImage")));
                this->pictureBox14->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox14->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox14->Location = System::Drawing::Point(497, 327);
+               this->pictureBox14->Location = System::Drawing::Point(488, 327);
                this->pictureBox14->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox14->Name = L"pictureBox14";
                this->pictureBox14->Size = System::Drawing::Size(100, 190);
@@ -503,7 +503,7 @@ namespace попытканепытка {
                this->pictureBox15->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox15.BackgroundImage")));
                this->pictureBox15->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox15->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox15->Location = System::Drawing::Point(472, 327);
+               this->pictureBox15->Location = System::Drawing::Point(463, 327);
                this->pictureBox15->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox15->Name = L"pictureBox15";
                this->pictureBox15->Size = System::Drawing::Size(100, 190);
@@ -518,7 +518,7 @@ namespace попытканепытка {
                this->pictureBox16->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox16.BackgroundImage")));
                this->pictureBox16->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox16->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox16->Location = System::Drawing::Point(448, 327);
+               this->pictureBox16->Location = System::Drawing::Point(439, 327);
                this->pictureBox16->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox16->Name = L"pictureBox16";
                this->pictureBox16->Size = System::Drawing::Size(100, 190);
@@ -533,7 +533,7 @@ namespace попытканепытка {
                this->pictureBox17->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox17.BackgroundImage")));
                this->pictureBox17->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox17->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox17->Location = System::Drawing::Point(419, 327);
+               this->pictureBox17->Location = System::Drawing::Point(410, 327);
                this->pictureBox17->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox17->Name = L"pictureBox17";
                this->pictureBox17->Size = System::Drawing::Size(100, 190);
@@ -548,7 +548,7 @@ namespace попытканепытка {
                this->pictureBox18->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox18.BackgroundImage")));
                this->pictureBox18->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox18->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox18->Location = System::Drawing::Point(388, 327);
+               this->pictureBox18->Location = System::Drawing::Point(379, 327);
                this->pictureBox18->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox18->Name = L"pictureBox18";
                this->pictureBox18->Size = System::Drawing::Size(100, 190);
@@ -563,7 +563,7 @@ namespace попытканепытка {
                this->pictureBox19->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox19.BackgroundImage")));
                this->pictureBox19->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox19->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox19->Location = System::Drawing::Point(361, 327);
+               this->pictureBox19->Location = System::Drawing::Point(352, 327);
                this->pictureBox19->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox19->Name = L"pictureBox19";
                this->pictureBox19->Size = System::Drawing::Size(100, 190);
@@ -578,7 +578,7 @@ namespace попытканепытка {
                this->pictureBox20->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox20.BackgroundImage")));
                this->pictureBox20->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox20->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox20->Location = System::Drawing::Point(336, 327);
+               this->pictureBox20->Location = System::Drawing::Point(327, 327);
                this->pictureBox20->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox20->Name = L"pictureBox20";
                this->pictureBox20->Size = System::Drawing::Size(100, 190);
@@ -593,7 +593,7 @@ namespace попытканепытка {
                this->pictureBox21->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox21.BackgroundImage")));
                this->pictureBox21->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox21->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox21->Location = System::Drawing::Point(312, 327);
+               this->pictureBox21->Location = System::Drawing::Point(303, 327);
                this->pictureBox21->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox21->Name = L"pictureBox21";
                this->pictureBox21->Size = System::Drawing::Size(100, 190);
@@ -608,7 +608,7 @@ namespace попытканепытка {
                this->pictureBox22->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox22.BackgroundImage")));
                this->pictureBox22->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox22->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox22->Location = System::Drawing::Point(825, 327);
+               this->pictureBox22->Location = System::Drawing::Point(816, 327);
                this->pictureBox22->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox22->Name = L"pictureBox22";
                this->pictureBox22->Size = System::Drawing::Size(100, 190);
@@ -623,7 +623,7 @@ namespace попытканепытка {
                this->pictureBox23->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox23.BackgroundImage")));
                this->pictureBox23->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox23->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox23->Location = System::Drawing::Point(794, 327);
+               this->pictureBox23->Location = System::Drawing::Point(785, 327);
                this->pictureBox23->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox23->Name = L"pictureBox23";
                this->pictureBox23->Size = System::Drawing::Size(100, 190);
@@ -638,7 +638,7 @@ namespace попытканепытка {
                this->pictureBox24->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox24.BackgroundImage")));
                this->pictureBox24->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox24->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox24->Location = System::Drawing::Point(767, 327);
+               this->pictureBox24->Location = System::Drawing::Point(758, 327);
                this->pictureBox24->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox24->Name = L"pictureBox24";
                this->pictureBox24->Size = System::Drawing::Size(100, 190);
@@ -653,7 +653,7 @@ namespace попытканепытка {
                this->pictureBox25->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox25.BackgroundImage")));
                this->pictureBox25->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox25->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox25->Location = System::Drawing::Point(742, 327);
+               this->pictureBox25->Location = System::Drawing::Point(733, 327);
                this->pictureBox25->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox25->Name = L"pictureBox25";
                this->pictureBox25->Size = System::Drawing::Size(100, 190);
@@ -668,7 +668,7 @@ namespace попытканепытка {
                this->pictureBox26->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox26.BackgroundImage")));
                this->pictureBox26->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox26->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox26->Location = System::Drawing::Point(718, 327);
+               this->pictureBox26->Location = System::Drawing::Point(709, 327);
                this->pictureBox26->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox26->Name = L"pictureBox26";
                this->pictureBox26->Size = System::Drawing::Size(100, 190);
@@ -683,7 +683,7 @@ namespace попытканепытка {
                this->pictureBox27->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox27.BackgroundImage")));
                this->pictureBox27->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox27->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox27->Location = System::Drawing::Point(689, 327);
+               this->pictureBox27->Location = System::Drawing::Point(680, 327);
                this->pictureBox27->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox27->Name = L"pictureBox27";
                this->pictureBox27->Size = System::Drawing::Size(100, 190);
@@ -698,7 +698,7 @@ namespace попытканепытка {
                this->pictureBox28->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox28.BackgroundImage")));
                this->pictureBox28->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox28->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox28->Location = System::Drawing::Point(658, 327);
+               this->pictureBox28->Location = System::Drawing::Point(649, 327);
                this->pictureBox28->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox28->Name = L"pictureBox28";
                this->pictureBox28->Size = System::Drawing::Size(100, 190);
@@ -713,7 +713,7 @@ namespace попытканепытка {
                this->pictureBox29->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox29.BackgroundImage")));
                this->pictureBox29->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox29->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox29->Location = System::Drawing::Point(631, 327);
+               this->pictureBox29->Location = System::Drawing::Point(622, 327);
                this->pictureBox29->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox29->Name = L"pictureBox29";
                this->pictureBox29->Size = System::Drawing::Size(100, 190);
@@ -728,7 +728,7 @@ namespace попытканепытка {
                this->pictureBox30->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox30.BackgroundImage")));
                this->pictureBox30->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox30->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox30->Location = System::Drawing::Point(606, 327);
+               this->pictureBox30->Location = System::Drawing::Point(597, 327);
                this->pictureBox30->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox30->Name = L"pictureBox30";
                this->pictureBox30->Size = System::Drawing::Size(100, 190);
@@ -743,7 +743,7 @@ namespace попытканепытка {
                this->pictureBox31->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox31.BackgroundImage")));
                this->pictureBox31->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
                this->pictureBox31->Cursor = System::Windows::Forms::Cursors::Hand;
-               this->pictureBox31->Location = System::Drawing::Point(582, 327);
+               this->pictureBox31->Location = System::Drawing::Point(573, 327);
                this->pictureBox31->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox31->Name = L"pictureBox31";
                this->pictureBox31->Size = System::Drawing::Size(100, 190);
@@ -762,7 +762,7 @@ namespace попытканепытка {
                this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(204)));
                this->exit->ForeColor = System::Drawing::Color::White;
-               this->exit->Location = System::Drawing::Point(1192, 11);
+               this->exit->Location = System::Drawing::Point(1175, 11);
                this->exit->Margin = System::Windows::Forms::Padding(2);
                this->exit->Name = L"exit";
                this->exit->Size = System::Drawing::Size(56, 56);
@@ -792,7 +792,7 @@ namespace попытканепытка {
                this->card2->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card2.BackgroundImage")));
                this->card2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->card2->Location = System::Drawing::Point(403, 1059);
+               this->card2->Location = System::Drawing::Point(394, 1059);
                this->card2->Margin = System::Windows::Forms::Padding(0);
                this->card2->Name = L"card2";
                this->card2->Size = System::Drawing::Size(110, 190);
@@ -806,7 +806,7 @@ namespace попытканепытка {
                this->card3->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card3.BackgroundImage")));
                this->card3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->card3->Location = System::Drawing::Point(585, 1059);
+               this->card3->Location = System::Drawing::Point(576, 1059);
                this->card3->Margin = System::Windows::Forms::Padding(0);
                this->card3->Name = L"card3";
                this->card3->Size = System::Drawing::Size(110, 190);
@@ -820,7 +820,7 @@ namespace попытканепытка {
                this->card4->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card4.BackgroundImage")));
                this->card4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->card4->Location = System::Drawing::Point(312, 835);
+               this->card4->Location = System::Drawing::Point(303, 835);
                this->card4->Margin = System::Windows::Forms::Padding(0);
                this->card4->Name = L"card4";
                this->card4->Size = System::Drawing::Size(110, 190);
@@ -834,7 +834,7 @@ namespace попытканепытка {
                this->card5->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card5.BackgroundImage")));
                this->card5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->card5->Location = System::Drawing::Point(498, 835);
+               this->card5->Location = System::Drawing::Point(489, 835);
                this->card5->Margin = System::Windows::Forms::Padding(0);
                this->card5->Name = L"card5";
                this->card5->Size = System::Drawing::Size(110, 190);
@@ -848,7 +848,7 @@ namespace попытканепытка {
                this->card6->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card6.BackgroundImage")));
                this->card6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->card6->Location = System::Drawing::Point(403, 623);
+               this->card6->Location = System::Drawing::Point(394, 623);
                this->card6->Margin = System::Windows::Forms::Padding(0);
                this->card6->Name = L"card6";
                this->card6->Size = System::Drawing::Size(110, 190);
@@ -862,7 +862,7 @@ namespace попытканепытка {
                this->pictureBox1->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
                this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->pictureBox1->Location = System::Drawing::Point(403, 1301);
+               this->pictureBox1->Location = System::Drawing::Point(394, 1301);
                this->pictureBox1->Margin = System::Windows::Forms::Padding(0);
                this->pictureBox1->Name = L"pictureBox1";
                this->pictureBox1->Size = System::Drawing::Size(110, 190);
@@ -877,7 +877,7 @@ namespace попытканепытка {
                this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
                    static_cast<System::Int32>(static_cast<System::Byte>(64)));
                this->textBox1->ForeColor = System::Drawing::Color::LavenderBlush;
-               this->textBox1->Location = System::Drawing::Point(-13, 1954);
+               this->textBox1->Location = System::Drawing::Point(-22, 1954);
                this->textBox1->Multiline = true;
                this->textBox1->Name = L"textBox1";
                this->textBox1->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
@@ -889,7 +889,7 @@ namespace попытканепытка {
                this->card->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card.BackgroundImage")));
                this->card->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-               this->card->Location = System::Drawing::Point(85, 1551);
+               this->card->Location = System::Drawing::Point(76, 1551);
                this->card->Margin = System::Windows::Forms::Padding(0);
                this->card->Name = L"card";
                this->card->Size = System::Drawing::Size(227, 366);
@@ -906,7 +906,7 @@ namespace попытканепытка {
                this->name->Font = (gcnew System::Drawing::Font(L"Arial", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(204)));
                this->name->ForeColor = System::Drawing::Color::LavenderBlush;
-               this->name->Location = System::Drawing::Point(462, 1584);
+               this->name->Location = System::Drawing::Point(453, 1584);
                this->name->Name = L"name";
                this->name->Size = System::Drawing::Size(356, 75);
                this->name->TabIndex = 43;
@@ -920,7 +920,7 @@ namespace попытканепытка {
                this->cardOfEnd->Font = (gcnew System::Drawing::Font(L"Arial", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(204)));
                this->cardOfEnd->ForeColor = System::Drawing::Color::LavenderBlush;
-               this->cardOfEnd->Location = System::Drawing::Point(389, 1766);
+               this->cardOfEnd->Location = System::Drawing::Point(380, 1766);
                this->cardOfEnd->Name = L"cardOfEnd";
                this->cardOfEnd->Size = System::Drawing::Size(464, 75);
                this->cardOfEnd->TabIndex = 44;

@@ -51,9 +51,10 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Button^ zoneOfComfort;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ enter;
+	private: System::Windows::Forms::Label^ nameOfArcana;
 
 
-	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::Button^ exit;
 	private: System::Windows::Forms::Button^ previous2;
 	private: System::Windows::Forms::TextBox^ description;
@@ -91,7 +92,7 @@ namespace попытканепытка {
 			this->zoneOfComfort = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->enter = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->nameOfArcana = (gcnew System::Windows::Forms::Label());
 			this->exit = (gcnew System::Windows::Forms::Button());
 			this->previous2 = (gcnew System::Windows::Forms::Button());
 			this->description = (gcnew System::Windows::Forms::TextBox());
@@ -278,6 +279,7 @@ namespace попытканепытка {
 			this->button2->TabIndex = 11;
 			this->button2->Text = L"Главная проработка души";
 			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &Person::button2_Click);
 			// 
 			// enter
 			// 
@@ -292,18 +294,18 @@ namespace попытканепытка {
 			this->enter->Text = L"Для расчёта матрицы судьбы введите дату рождения";
 			this->enter->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// label2
+			// nameOfArcana
 			// 
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Transparent;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Arial", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->nameOfArcana->AutoSize = true;
+			this->nameOfArcana->BackColor = System::Drawing::Color::Transparent;
+			this->nameOfArcana->Font = (gcnew System::Drawing::Font(L"Arial", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label2->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->label2->Location = System::Drawing::Point(1090, 337);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(429, 56);
-			this->label2->TabIndex = 15;
-			this->label2->Text = L"Название аркана";
+			this->nameOfArcana->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->nameOfArcana->Location = System::Drawing::Point(1090, 337);
+			this->nameOfArcana->Name = L"nameOfArcana";
+			this->nameOfArcana->Size = System::Drawing::Size(429, 56);
+			this->nameOfArcana->TabIndex = 15;
+			this->nameOfArcana->Text = L"Название аркана";
 			// 
 			// exit
 			// 
@@ -365,7 +367,7 @@ namespace попытканепытка {
 			this->Controls->Add(this->description);
 			this->Controls->Add(this->previous2);
 			this->Controls->Add(this->exit);
-			this->Controls->Add(this->label2);
+			this->Controls->Add(this->nameOfArcana);
 			this->Controls->Add(this->enter);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->zoneOfComfort);
@@ -561,6 +563,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Достигнув промежуточной цели — не останавливайтесь, ставьте новую цель и двигайтесь дальше.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "1 аркан - Маг";
 	}
 	else if (this->E->Text == "2") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -580,6 +583,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Старайтесь реализовывать творческие идеи, они достойны, чтобы воплотить их в жизнь!");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "2 аркан - Верховная жрица";
 	}
 	else if (this->E->Text == "3") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -598,6 +602,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Начать помогать нуждающимся, взять под опеку достойного человека, реализовав тягу к наставничеству.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "3 аркан - Императрица";
 	}
 	else if (this->E->Text == "4") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -611,6 +616,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Человеку с энергией Императора, нужно постоянно действовать, только активность принесёт хорошие плоды. Наметив план — сразу приступайте к его выполнению.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "4 аркан - Импператор";
 	}
 	if (this->E->Text == "5") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -629,6 +635,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Блюсти семейные традиции и традиционное мировоззрение.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "5 аркан - Иерофант";
 	}
 	if (this->E->Text == "6") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -648,6 +655,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Всегда помните чего хотите, научитесь отделять фантазию от реальности.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "6 аркан - Влюблённые";
 	}
 	else if (this->E->Text == "7") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -666,6 +674,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Найти хобби, больше путешествовать, крайне полезными будут конные прогулки.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "7 аркан - Колесница";
 	}
 	else if (this->E->Text == "8") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -682,6 +691,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Старайтесь оставаться на правильном пути и поступать справедливо, независимо от собственных желаний, личной выгоды и общественного осуждения.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "8 аркан - Справедливость";
 	}
 	else if (this->E->Text == "9") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -697,6 +707,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• У вас есть незаурядные творческие способности, обязательно попробуйте их реализовать. Не так важно чем вы займётесь, важен сам факт творения и самовыражения.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "9 аркан - Отшельник";
 	}
 	else if (this->E->Text == "10") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -713,6 +724,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• У вас есть незаурядные творческие способности, обязательно попробуйте их реализовать.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "10 аркан - Колесо фортуны";
 	}
 	else if (this->E->Text == "11") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -734,6 +746,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Достигнув богатства и успеха, использовать эти блага для добрых целей.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "11 аркан - Сила";
 	}
 	else if (this->E->Text == "12") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -747,6 +760,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Если у вас нет материальных проблем — займитесь благотворительностью.");
 		sb->AppendLine("• Почаще вспоминайте о своих потребностях, вы тоже достойны любви и сострадания.");
 		sb->AppendLine("• Ухаживайте за собой, регулярно отдыхайте, больше бывайте на природе.");
+		this->nameOfArcana->Text = "12 аркан - Повешенный";
 
 		this->description->Text = sb->ToString();
 	}
@@ -762,6 +776,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Занимайтесь духовным саморазвитием, следите за новыми технологиями.");
 		sb->AppendLine("• Временами будет сложно, однако это ваш путь, доверьтесь судьбе.");
 		sb->AppendLine("• Если ваша профессия не связана с риском, попробуйте экстремальное хобби.");
+		this->nameOfArcana->Text = "13 аркан - Смерть";
 
 		this->description->Text = sb->ToString();
 	}
@@ -779,6 +794,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• В итоге вы должны прийти к балансу во всех сферах.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "14 аркан - Умеренность";
 	}
 	else if (this->E->Text == "15") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -797,6 +813,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Научиться прощать — себя и других.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "15 аркан - Дьявол";
 	}
 	else if (this->E->Text == "16") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -812,6 +829,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Никогда не переоценивать себя, избегать гордыни.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "16 аркан - Башня";
 	}
 	else if (this->E->Text == "17") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -830,6 +848,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Не забывать развиваться духовно.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "17 аркан - Звезда";
 	}
 	else if (this->E->Text == "18") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -848,6 +867,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Ставить перед собой разумные цели.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "18 аркан - Луна";
 	}
 	else if (this->E->Text == "19") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -866,6 +886,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Стараться не быть жадным.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "19 аркан - Солнце";
 	}
 	else if (this->E->Text == "20") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -885,6 +906,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Продолжать учиться, получать образование.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "20 аркан - Страшный суд";
 	}
 	else if (this->E->Text == "21") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -902,6 +924,7 @@ private: System::Void zoneOfComfort_Click(System::Object^ sender, System::EventA
 		sb->AppendLine("• Изучать новые языки.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "21 аркан - Мир";
 	}
 	else if (this->E->Text == "22") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -936,6 +959,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 		sb->AppendLine("• Депрессия достижений. Энергия первого аркана даёт человеку силы и возможности, но когда он достигает задуманного, вместо чувства удовлетворения это приносит разочарование. Такое состояния будет длиться ровно до тех пор, пока не появится новая цель.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "1 аркан - Маг";
 	}
 	else if (this->B->Text == "2") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -948,6 +972,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 		sb->AppendLine("• Одиночество. Со временем между обладателем 2 аркана и окружающими образуется незримая стена, препятствующая нормальным отношениям. Такому человеку сложно найти спутника жизни, отношения либо «зависают» либо люди расстаются.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "2 аркан - Верховная жрица";
 	}
 	else if (this->B->Text == "3") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -960,6 +985,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 		sb->AppendLine("• Злоупотребление властью. При отсутствии более честолюбивых людей, например, Императора, Императрица может получить в свои руки всю власть. Вседозволенность может вскружить ей голову, и тогда она переходит все границы дозволенного. Как правило, становясь меркантильной, агрессивной и беспринципной стервой. В результате женщина теряет свою суть и становится предельно несчастлива.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "3 аркан - Императрица";
 	}
 	else if (this->B->Text == "4") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -973,6 +999,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 		sb->AppendLine("• Худший вариант. При уходе в «глубокий минус» такие люди могут потерять все положительные черты характера и скатываются в противоположную крайность. Боятся брать на себя ответственность, постоянно болеют, лишаются стабильного дохода.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "4 аркан - Император";
 	}
 	else if (this->B->Text == "5") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -985,6 +1012,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 		sb->AppendLine("• Отчаявшийся. Находясь в минусе, 5 аркан расходует массу сил, чтобы раскрыть людям истину и передать свои знания. Однако, если вокруг только неблагодарные ученики, никакой подпитки у него не будет. Чаще всего такой человек отчаивается или выгорает. Отказывается от своего признания, теряет авторитет, уходит от людей, оставаясь наедине и со своими знаниями.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "5 аркан - Иерофант";
 	}
 	else if (this->B->Text == "6") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -998,6 +1026,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 		sb->AppendLine("• Глупые траты. Не умеет копить и контролировать траты, часто совершает необдуманные спонтанные покупки. Отказывается заниматься элементарным финансовым планированием, может потратить всю зарплату за неделю, а дальше жить в кредит.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "6 аркан - Влюблённые";
 	}
 	else if (this->B->Text == "7") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1010,6 +1039,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 		sb->AppendLine("• Загнанный конь. В других случаях он обрушивает силу гнева не на посторонних, а на себя. Ругая себя за совершённые ошибки, он пытается всеми силами исправить ситуацию, постепенно теряя силы и, в конце концов, совершенно лишаясь сил.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "7 аркан - Колесница";
 	}
 	else if (this->B->Text == "8") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1021,6 +1051,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 		sb->AppendLine("• Наивность. Верит всем подряд, поддаётся чужим манипуляциям, легко обманывается, живёт иллюзиями. Вследствие чего, не имеет веса среди коллег и партнёров, его часто делают крайним в конфликтах. Часто попадается на уловки мошенников.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "8 аркан - Справедливость";
 	}
 	else if (this->B->Text == "9") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1033,6 +1064,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 		sb->AppendLine("• Отсутствие физического развития. В погоне за знаниями и духовным развитием 9 аркан может совершенно забыть о собственном теле и здоровье. Чрезмерное умственное напряжение и слабое тело приводят к болезням и психологическим расстройствам.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "9 аркан - Отшельник";
 	}
 	else if (this->B->Text == "10") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1045,6 +1077,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 		sb->AppendLine("• Опасная беспечность. В глубоком минусе обладатель Колеса фортуны совсем плюёт на жизнь и становится опасно беспечен. Делает что хочет, невзирая на возможные последствия, пренебрежительно относится к деньгам, здоровью и самой жизни. Может увлечься азартными играми или встать на преступный путь.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "10 аркан - Колесо фортуны";
 		}
 	else if (this->B->Text == "11") {
 			System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1057,6 +1090,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 			sb->AppendLine("• Утративший веру. Ещё одна крайность – полная потеря веры, отречение от идеалов. В этом смысле человек полностью подчиняется слабостям, которые со временем разрушают тело и душу. Безверие делает жизнь тёмной, ведёт к моральному падению, депрессии.");
 
 			this->description->Text = sb->ToString();
+			this->nameOfArcana->Text = "11 аркан - ";
 			}
 	else if (this->B->Text == "14") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1080,6 +1114,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 			sb->AppendLine("• Проигравший. Опустив руки, этот человек прекращает борьбу со своими слабостями, становится её жертвой. Его начинают преследовать поражения во всём – в профессии, творчестве, личной жизни. Попав в этот порочный круг, человек становится его заложником, чувствует бессилие и опустошение.");
 
 			this->description->Text = sb->ToString();
+			this->nameOfArcana->Text = "15 аркан - Дьявол";
 			}
 	else if (this->B->Text == "16") {
 				System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1092,6 +1127,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 				sb->AppendLine("• Кризис отношений. Зачастую этот человек становится агрессивным тираном, что в первую очередь чувствуют на себе члены семьи. Начинаются проблемы в отношениях с партнёром, дети стараются быстрее покинуть семью, как только достаточно вырастут. В критической ситуации может решиться на отчаянные, аморальные действия, и в итоге остаётся в одиночестве.");
 
 				this->description->Text = sb->ToString();
+				this->nameOfArcana->Text = "16 аркан - Башня";
 				}
 	else if (this->B->Text == "17") {
 					System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1104,6 +1140,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 					sb->AppendLine("• Уныние и пессимизм. В глубоком минусе, вне зависимости от варианта развития, 17 аркан теряет свой неизменный позитивный настрой. Постоянно жалуется на несправедливость судьбы, безденежье, людскую подлость и т. п. Непрерывно копит негатив, впадает в уныние, от него отворачиваются друзья и родственники.");
 
 					this->description->Text = sb->ToString();
+					this->nameOfArcana->Text = "17 аркан - Звезда";
 					}
 	else if (this->B->Text == "18") {
 						System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1116,6 +1153,7 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 						sb->AppendLine("• Блуждание без цели. Отсутствие цели делает этого человека пассивным, он дрейфует по морю жизни без плана и маршрута – полностью подчиняясь судьбе. Такая жизнь бесплодна и пуста, не приносит удовлетворения, лишена смысла и вдохновения. Конечно, он довольно умён, но понимает, что происходит, только во второй половине жизни, когда исправлять положение гораздо сложнее.");
 
 						this->description->Text = sb->ToString();
+						this->nameOfArcana->Text = "18 аркан - Луна";
 						}
 	else if (this->B->Text == "19") {
 							System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1128,18 +1166,48 @@ private: System::Void personalityMinus_Click(System::Object^ sender, System::Eve
 							sb->AppendLine("• Корыстолюбие. В некоторых случаях такой человек ставит во главу угла материальное благосостояние. Становится скуп, старается на всём экономить, даже если хорошо зарабатывает, жёстко контролирует расходы семьи. При этом может выделить некое направление, куда будет тратить всё сэкономленное, например: недвижимость, автомобили, статусные вещи.");
 
 							this->description->Text = sb->ToString();
+							this->nameOfArcana->Text = "19 аркан - Солнце";
 							}
 	else if (this->B->Text == "20") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
+		sb->AppendLine("Состояние человека «в минусе»:");
+		sb->AppendLine();
+		sb->AppendLine("• Отщепенец. Когда энергия уходит в минус, этот человек уходит из семьи, или, наоборот, семья по каким-то причинам его изгоняет. Ситуацию можно исправить, однако для этого потребуется признать свои ошибки, принять ответственность и совершить ряд важных действий.");
+		sb->AppendLine("• Нерешительный скептик. Идеи других людей этот человек воспринимает с сомнениями, привык высмеивать чужие надежды и предположения. Не уверен в себе, никогда не строит планы, во всём видит ловушки и угрозы, таким образом, лишая себя всех подарков судьбы.");
+		sb->AppendLine("• Мелкая сошка. Каждый день такого человека наполнен однообразными событиями, в которых нет никакой радости. Эта рутина действует удручающе, сбивает с толку, вынуждает ощущать себя слабым и никому не нужным. Отсутствие перемен, глобальных целей, интересной работы, мотивации — отнимает жизненную силу.");
+		sb->AppendLine("• Спящий. Любые изменения воспринимаются этим человеком негативно, даже если что-то происходит, он видит только опасности, а не возможности. Не хочет раскрывать свои таланты, всячески избегает судьбоносных решений, намеренно отстраняясь от любых ярких событий. Жизнь его подобна скучному, серому сну, из которого нет выхода.");
+		sb->AppendLine("• Несправедливый судья. Этот человек любит вешать ярлыки и осуждать окружающих за любые проступки. Искренне считает, что у него есть такое право, и не стесняется высказывать все претензии в глаза. А вот критику в свой адрес не воспринимает и, что называется, «в своём глазу бревна не замечает».");
+		sb->AppendLine("• Противник прогресса. Любые философские течения, инновации, технологии и новые методы работы кажутся человеку чрезмерно сложными. Он отказывается изучать и пользоваться ими. Такое упрямство сужает ваше мировоззрение, ведёт к снижению продуктивности работы, мешает устроить семейную жизнь.");
 
-		sb->AppendLine("Такой человек ощущает связь с родом и всем человечеством, от природы мудр и прекрасно понимает законы кармы. Готов принимать сложные решения, влияющие на судьбы множества людей, и главное, нести за них ответственность. Обладатель 20 аркана хорошо оперирует информацией, умеет обобщать, анализировать и выдвигать новые идеи. Хотя до определённого момента может никак не проявлять свои способности.");
-		sb->AppendLine();
-		sb->AppendLine("Состояние человека «в плюсе»:");
-		sb->AppendLine();
-		sb->AppendLine("• Глава семьи и рода. Этот человек чувствует связь со своим родом и во много считает себя ответственным за его развитие. Всей душой стремится укрепить связи с близкими и дальними родственниками, отыскать пропавших членов семьи, урегулировать имеющиеся разногласия. Во второй половине жизни он становится главой семьи или всего рода.");
-		sb->AppendLine("• Мудрец и философ. Этот человек от рождения мудр и всегда поражает окружающих глубиной своих суждений. Умеет посмотреть на привычные вещи с неожиданного ракурса, может вдохновлять окружающих на свершения. Философски относится к жизни, спокойно принимает любые испытания и награды, посылаемые судьбой. Не боится перемен, принимает их как необходимость.");
-		sb->AppendLine("• Вершитель судеб. Обладатель 20 аркана способен на большие свершения в обществе, политике и культуре. Изменения, которые предлагает этот человек, всегда приводят к успеху и влияют на судьбы многих людей. Он всегда видит направления, нуждающиеся в доработке, что позволяет ему вносить рациональные предложения и внедрять их в жизнь.");
-		sb->AppendLine("• Пробудившийся. До определённого момента этот человек может находиться в состоянии «сна», когда его силы и таланты остаются неактивными. В какой-то знаковый момент он пробуждается и начинается период бурного развития. События быстро сменяют друг друга, за короткий промежуток времени человек раскрывает свои таланты и добивается успеха.");
+		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "20 аркан - Страшный суд";
+	}
+	else if (this->B->Text == "21") {
+			System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
+			sb->AppendLine("Состояние человека «в минусе»:");
+			sb->AppendLine();
+			sb->AppendLine("• Воинственность. Когда аркан в минусе, такой человек становится крайне нетерпим к любой несправедливости или вещам, которые не соответствуют его мировоззрению. Воинственно настроен по отношению к любой власти, готов отстаивать свои идеалы словом и делом. Вполне может стать настоящим революционером, оппозиционером, экологом, борцом за права меньшинств.");
+			sb->AppendLine("• Бесконечная рутина. Боится участвовать в больших проектах, не верит в свои силы и преуменьшает возможности. В результате погружается в пучину мелких дел и бытовой суеты, из которой уже не может выбраться. Опасается принимать значимые решения, в любых обстоятельствах идёт по пути наименьшего сопротивления, не любит выходить из зоны комфорта.");
+			sb->AppendLine("• Пустые мечты и реальность. Человек полностью погружён в свои фантазии, мечтает о том, чтобы сделать мир идеальным, представляет себя в роли победителя добившего успеха. Однако ничего не делает чтобы воплотить мечты в реальность, считает, что никто не понимает его гениальность. В результате сталкивается с суровой реальностью, ничего не достигает, впадает в депрессию и опускает руки.");
+			sb->AppendLine("• Шаблоны и отсталость. Не понимает, что мир непрерывно развивается, игнорирует новые течения и технологии. Предпочитает жить в прошлом и действует по отработанной схеме. Мыслит шаблонно, не проявляет инициативы, предпочитая исполнять прямые указания. Ленится получать дополнительное образование, считая это бесполезным занятием.");
+			sb->AppendLine("• Замкнутость. Опасается окружающего мира, не любит бывать в новых местах, избегает живого общения, предпочитая уединение или общение в социальных сетях. Не доверяет новым людям, из-за чего долго не может найти достойного партнёра. В итоге замыкается в своём привычном мире, отказываясь выходить из него под разными предлогами.");
+
+			this->description->Text = sb->ToString();
+			this->nameOfArcana->Text = "21 аркан - Мир";
+	}
+	else if (this->B->Text == "22") {
+				System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
+				sb->AppendLine("Состояние человека «в минусе»:");
+				sb->AppendLine();
+				sb->AppendLine("• Маска. Очень часто, у людей с этой энергией, чрезмерная весёлость, скрывает подобно маске весьма напряжённую жизнь и тяжёлые мысли. Вместо того чтобы что-то менять они просто скрывают проблему.");
+				sb->AppendLine("• Асоциальность. Любые социальные устои таким людям становятся в тягость: школа, работа — всё, где есть режим и строгий график. Могут всю жизнь оставаться холостяками, чтобы не привязаться к одному человеку на всю жизнь.");
+				sb->AppendLine("• Беспомощность. Люди, с 22 энергией, бывают крайне беспомощны. Имея талант, они не могут его использовать, в их жизни больше разрушительного, чем созидательного. Всё, чем от природы наделён человек, может быть использовано в том случае, если рядом будет надёжный партнёр, направляющий в правильное русло.");
+				sb->AppendLine("• Зависимость. Люди с такой энергией, часто попадают в зависимость. Это может быть игровая, алкогольная или наркотическая зависимость, что приводит к неприятным последствиям, вплоть до проблем с законом.");
+				sb->AppendLine("• Иллюзорность. Иногда такой человек создаёт собственный фантастический мир. Ему кажется, что только там он абсолютно свободен.");
+				sb->AppendLine("• Фриковатость. В поведении человека, с этой энергией, есть много моментов, которые отличают его от окружающих. В минусе, чувство стиля и экстравагантность превращает его во фрика. В результате жизнь, такого человека скорее напоминает театральную постановку.");
+
+				this->description->Text = sb->ToString();
+				this->nameOfArcana->Text = "22 Аркан - Шут";
 	}
 }
 private: System::Void personalityPlus_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1157,6 +1225,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Активная позиция. Люди первого аркана обладают неиссякаемой жизненной энергией, никогда не сидят на месте, крайне активны, излучают позитив и мотивируют окружающих. Многие берут пример с таких людей и восхищаются таким подходом к жизни.");
 		sb->AppendLine("• Задатки лидера. Острый ум, амбиции и внутренняя энергия буквально заставляют Мага становиться лидером. Он знает, как организовать людей на совместный труд и замотивировать их на достижение намеченных целей. Со временем такие люди становятся опытными и весьма жёсткими руководителями.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "1 аркан - Маг";
 	}
 	else if (this->A->Text == "2") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1171,6 +1240,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Самодостаточность. Такой человек редко кого пускает в свою жизнь. Обладая огромным внутренним миром, 2 аркан не испытывает острой потребности в общении с посторонними, хотя и совсем один быть не любит. Часто носит «маску» и только дома позволяет быть самой собой. Любит читать и знает толк в хорошей литературе.");
 		sb->AppendLine("• Теневой дипломат. Человек, обладающий 2 энергией, вызывает необъяснимую симпатию у окружающих. Он умеет находить общий язык с людьми, и его очень любят животные. Однако сама Жрица не любит руководить напрямую, предпочитая занять место теневого лидера и скрытно управлять окружающими. Этот человек умеет мирить спорщиков, неплохо ведёт переговоры.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "2 аркан - Верховная жрица";
 	}
 	else if (this->A->Text == "3") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1186,6 +1256,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Роскошь и комфорт. Другой важный аспект этой энергии – любовь к роскоши и комфорту. Такой человек хочет иметь всё только самое лучшее и дорогое, его дом всегда «полная чаша» и выглядит как дворец. Любит дарить и получать подарки, по возможности старается делать жизнь интересной, наполненной счастливыми событиями.");
 		sb->AppendLine("• Власть и стабильность. Человек с такой энергией привык решать глобальные вопросы и может на каком-то жизненном этапе обрести власть. Однако он не честолюбив, и власть для него не самоцель как для Императора. Скорее Императрице нравится состояние стабильности и уверенности в завтрашнем дне, которое даёт власть. Ну и прилагающая роскошь с комфортом — тоже играют свою роль.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "3 аркан - Императрица";
 	}
 	else if (this->A->Text == "4") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1202,6 +1273,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Семья, клан. Рано или поздно этот человек становится главой рода, семьи, клана, где устанавливает строгую иерархию. Пол в этом случае значения не имеет. 4 аркан готов сделать всё, чтобы его семья жила в достатке.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "4 аркан - Император";
 	}
 	else if (this->A->Text == "5") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1217,6 +1289,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Справедливый судья. В жизни такого человека, справедливость занимает одно из главных мест. Он чтит и свято верит в принятые им принципы, опираясь на которые определяет свои поступки. В определённый момент жизни, благодаря полученному авторитету -— может стать неким неофициальным судьёй.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "5 аркан - Иерофант";
 	}
 	else if (this->A->Text == "6") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1233,6 +1306,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Радушный хозяин. Такой человек очень любит атмосферу праздника, поэтому с удовольствием принимает гостей у себя, любит ходить в гости к другим. С удовольствием организует праздничные мероприятия, а иногда даже делает это своей профессией.");
 
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "6 аркан - Влюблённые";
 	}
 	else if (this->A->Text == "7") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1247,6 +1321,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Воля к победе. Несмотря на возникающие сложности этот человек достаточно оптимистичен и готов побеждать. Для победы он готов сделать всё: работать, развиваться, активно действовать, созидать и разрушать. Колесничий привык быть в самой гуще схватки и может сокрушить любого противника.");
 		sb->AppendLine("• Власть и контроль. Решительность и привычка непрерывно контролировать процесс делает этого человека умелым руководителем. Хоть он и не умеет мыслить стратегически, руководство малыми коллективами ему удаётся без труда. Если у такого человека нет амбиций, он становится отличным командным игроком и прекрасно вписывается в любой коллектив.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "7 аркан - Колесница";
 	}
 	else if (this->A->Text == "8") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1261,6 +1336,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Здравый смысл. Этот человек умеет справляться с эмоциями, здраво смотреть на всё происходящее, руководствуясь логикой. Редко нервничает, умеет сосредоточиться на деле, независим от мнения окружающих.");
 		sb->AppendLine("• Поиск правильного пути. Всегда старается найти правильное решение, иногда пренебрегая более выгодными и заманчивыми вариантами. За это окружающие считают его наивным идеалистом.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "8 аркан - Справделивость";
 	}
 	else if (this->A->Text == "9") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1276,6 +1352,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Творческий талант. Этот человек имеет ряд несомненных творческих талантов. Он прекрасный оратор, отлично владеет письменной речью, умеет сопоставлять факты и делать прогнозы. Может добиться значительного успеха в любых гуманитарных науках.");
 		sb->AppendLine("• Аскетизм и духовная сила. Для Отшельника материальные достижения не играют особой роли, скорее его заинтересует духовный рост иногда общественное признание. Такой человек живёт скромно и даже аскетично, не ориентируется на моду и общественное мнение. У него есть собственные ориентиры и некий личный путь, по которому он следует в течение всей жизни.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "9 аркан - Отшельник";
 	}
 	else if (this->A->Text == "10") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1292,6 +1369,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Благодарность. Такой человек умеет принимать подарки судьбы и всегда благодарен Вселенной за то, что у него есть. Никогда не сетует на жизнь и своё положение, даже если дела складываются не лучшим образом. Понимает, что такое карма, и знает, у человека есть определённые задачи, которые он должен выполнить в течение жизни.");
 		sb->AppendLine("• Тяга к людям. Обладатель 10 аркана никогда не замыкается в себе и готов делиться своей удачей с окружающими. Он привык постоянно находиться в коллективе, любит шумные компании и весёлое времяпрепровождение.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "10 аркан - Колесо фортуны";
 	}
 	else if (this->A->Text == "11") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1307,6 +1385,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Миротворец. Используя свою силу для установления равновесия, 11 аркан дарит окружающим ощущение безопасности. Всегда оставаясь на страже мира, можно укрепить и духовную силу, лежащую в основе истинного душевного просветления и проявления созидающей энергии. В результате сила раскрывается полностью, делая ваш жизненный путь осмысленным.");
 		sb->AppendLine("• Наставник. Добившись успеха и набравшись опыта, вы можете стать отличным наставникам. Ученики будут относиться к вам не только как к учителю, но и как отцу. Близкие отношения с учениками даруют вам мудрость, а ответственность за них не будет восприниматься как груз – скорее, как великий дар.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "11 аркан - Сила";
 	}
 	else if (this->A->Text == "14") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1321,6 +1400,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Чувствительность. Несмотря на хороший самоконтроль, это очень чувствительные люди. У них тонкая душевная организация, они глубоко переживают всё происходящее вокруг, беспокоятся о, чувствуют ложь и лицемерие. Любят музыку, хорошие книги и фильмы. Такой человек имеет неплохие творческие задатки и вполне может реализовать себя в этом направлении.");
 		sb->AppendLine("• Терпение и миролюбие. Обладатель 14 энергии не любит торопиться, очень терпелив и все конфликты предпочитает решать мирным путём. Может примирять окружающих, находя мудрые решения, которые устраивают всех. Столкнувшись со сложной проблемой, не пытается решить её в лоб, а ищет обходные пути.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "14 аркан - Умеренность";
 	}
 	else if (this->A->Text == "15") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1336,6 +1416,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Мудрец и наставник. Полученный опыт дарит мудрый взгляд на вещи – этот человек не делит мир на чёрное и белое, а умеет видеть его глубину и неоднозначность. Умея принимать себя, он учит других, вкладывая в окружающих любовь к человеческой природе, способность уравновешено к ней относиться. Мудрость этого человека распространяется на все сферы жизни.");
 		sb->AppendLine("• Искатель. Поиски истины и гармонии сопровождают человека постоянно, без них он теряет смысл жизни. Такие люди нередко посвящают свою жизнь науке, философии или духовным практикам.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "15 аркан - Дьявол";
 	}
 	else if (this->A->Text == "16") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1350,6 +1431,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Освобождение или спасение. Это надёжный товарищ, который всегда будет рядом и непременно придёт вам на помощь. Добрым делом или мудрым советом может вывести человека из любого жизненного тупика. Члены семьи за ним чувствуют себя как за каменной стеной.");
 		sb->AppendLine("• Энергия и потенциал. Внешне такой человек может выглядеть медлительным и неуклюжим, однако в этом человеке заключён огромный потенциал и неиссякаемый запас энергии. Он не привык сидеть на месте, всегда находит себе дело, и максимально он раскрывается именно в трудных ситуациях.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "16 аркан - Башня";
 	}
 	else if (this->A->Text == "17") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1365,6 +1447,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Радость и позитив. Обладатель 17 энергии крайне позитивный и приятный в общении человек. Любит повеселиться, много шутит и искренне радуется по любому поводу. Он не привык думать в негативном ключе, уверен, что начатое им дело обречено на успех. Привык доверять своей интуиции, и она редко его подводит.");
 	
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "17 аркан - Звезда";
 	}
 	else if (this->A->Text == "18") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1381,6 +1464,7 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Источник мудрости. Во второй половине жизни, справившись с внутренними тревогами и переживаниями, обладатель 18 аркана обретает настоящую мудрость, помогающую ему побеждать любые обстоятельства. Знания хранятся глубоко в сердце, но он щедро делится ими с окружающими, если видит, что те нуждаются в добром совете.");
 		
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "18 аркан - Луна";
 	}
 	else if (this->A->Text == "19") {
 		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
@@ -1395,8 +1479,57 @@ private: System::Void personalityPlus_Click(System::Object^ sender, System::Even
 		sb->AppendLine("• Прогресс. Такой человек быстро прогрессирует в любом деле. Быстро учится, впитывая массу новой информации, быстро набирается опыта и развивается. Не любит застоя в делах, отношениях и жизни в целом. Всё время двигается вперёд: заводит детей, меняет квартиры, растёт в должности, увеличивает бизнес и т. п.");
 		sb->AppendLine("• Материальная реализация. Владелец 19 энергии в целом сконцентрирован на материальной сфере жизни, и духовное развитие его интересует мало. Этот человек любит зарабатывать и умеет тратить, очень хозяйственный, живёт по принципу «всё в дом». При должном подходе легко добивается любых материальных благ.");
 		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "19 аркан - Солнце";
 	}
+	else if (this->A->Text == "20") {
+		System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
 
+		sb->AppendLine("Такой человек ощущает связь с родом и всем человечеством, от природы мудр и прекрасно понимает законы кармы. Готов принимать сложные решения, влияющие на судьбы множества людей, и главное, нести за них ответственность. Обладатель 20 аркана хорошо оперирует информацией, умеет обобщать, анализировать и выдвигать новые идеи. Хотя до определённого момента может никак не проявлять свои способности.");
+		sb->AppendLine();
+		sb->AppendLine("Состояние человека «в плюсе»:");
+		sb->AppendLine();
+		sb->AppendLine("• Глава семьи и рода. Этот человек чувствует связь со своим родом и во много считает себя ответственным за его развитие. Всей душой стремится укрепить связи с близкими и дальними родственниками, отыскать пропавших членов семьи, урегулировать имеющиеся разногласия. Во второй половине жизни он становится главой семьи или всего рода.");
+		sb->AppendLine("• Мудрец и философ. Этот человек от рождения мудр и всегда поражает окружающих глубиной своих суждений. Умеет посмотреть на привычные вещи с неожиданного ракурса, может вдохновлять окружающих на свершения. Философски относится к жизни, спокойно принимает любые испытания и награды, посылаемые судьбой. Не боится перемен, принимает их как необходимость.");
+		sb->AppendLine("• Вершитель судеб. Обладатель 20 аркана способен на большие свершения в обществе, политике и культуре. Изменения, которые предлагает этот человек, всегда приводят к успеху и влияют на судьбы многих людей. Он всегда видит направления, нуждающиеся в доработке, что позволяет ему вносить рациональные предложения и внедрять их в жизнь.");
+		sb->AppendLine("• Пробудившийся. До определённого момента этот человек может находиться в состоянии «сна», когда его силы и таланты остаются неактивными. В какой-то знаковый момент он пробуждается и начинается период бурного развития. События быстро сменяют друг друга, за короткий промежуток времени человек раскрывает свои таланты и добивается успеха.");
+		sb->AppendLine("• Учёный и изобретатель. Владелец 20 энергии превосходно оперирует большими объёмами информации. Способен стать автором целого научного направления, совершить революционные открытия в науке, изобретать нечто новое, что принесёт пользу не только ему, но и всему человечеству. Постоянно задумывается о новых путях и возможностях, может стать настоящим изобретателем и новатором.");
+
+		this->description->Text = sb->ToString();
+		this->nameOfArcana->Text = "20 аркан - Страшный суд";
+		}
+	else if (this->A->Text == "21") {
+			System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
+
+			sb->AppendLine("Такой человек считает весь мир своим домом, не делит людей на своих и чужих, принимает все религии, национальности и языки. Всегда принимает чужую точку зрения, не любит спорить, крайне миролюбив и уступчив. Верит в некие идеалы, искренне считает, что в его силах сделать мир действительно лучше. С энтузиазмом относится к любым современным технологиям, любит познавать мир, много путешествует и общается с незнакомыми людьми. Участвует в глобальных проектах мирового масштаба, может возглавлять группы единомышленников и увлекать всех своими идеями.");
+			sb->AppendLine();
+			sb->AppendLine("Состояние человека «в плюсе»:");
+			sb->AppendLine();
+			sb->AppendLine("• Терпимость и миролюбие. Этот человек принимает мир во всех его проявлениях, терпимо относится к любой культуре, религии и мировоззрению. Не любит спорить, предпочитая находить компромиссы, очень миролюбив, отрицает насилие в любых проявлениях. Чтит и никогда не нарушает юридические и моральные законы.");
+			sb->AppendLine("• Глобальные цели. Любит ставить перед собой масштабные цели, мыслит глобально, в масштабах народа, государства или целой планеты. Охотно вступает в некоммерческие, благотворительные или научные организации, объединяющие людей из множества стран. Может увлечь людей своими идеями и стать настоящим духовным лидером.");
+			sb->AppendLine("• Вера в идеалы. В целом это очень «правильный» человек, искренне верящий в свои идеалы. Он охотно принимает утопические идеи, искренне верит в людскую доброту и всё время пытается сделать наш мир лучше. Некоторые считают такого человека наивным идеалистом. Но в реальности, только такие люди могут что-то изменить на нашей планете.");
+			sb->AppendLine("• Современные технологии. Этот человек легко принимает любые новые технологии и отлично оперирует массивами данных, не может жить без интернета и современных гаджетов. Из него может получиться отличный IT-специалист: программист, сетевой администратор, блогер, разработчик интерфейсов и т. п.");
+			sb->AppendLine("• Познание мира. Обладатель 21 аркана любит познавать мир: много путешествует, изучает обычаи и культуру разных стран, учит иностранные языки. Он хочет постоянно расширять свои границы, часто бывает на природе, любит животных. При некотором стечении обстоятельств может переехать в другую страну или вовсе, непрерывно менять место жительства.");
+
+			this->nameOfArcana->Text = "21 аркан - Мир";
+			this->description->Text = sb->ToString();
+			}
+	else if (this->A->Text == "22") {
+				System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
+				sb->AppendLine("22 аркан выпадает позитивному человеку, который любит жизнь, однако склонен совершать импульсивные и необдуманные поступки. Тем не менее он легко идёт по жизни, черпая из неё вдохновение, всегда открыт новому. Считает, что свобода должна быть во всём: свобода выбора, мысли, слова, свобода прожить эту жизнь так, как хочется. Он принимает мир безусловно, таким, какой он есть. Обычно не протестует против чего-то, ни за что не борется. В нём прекрасно уживаются две составляющие: отсутствие желания быть взрослым, а вместе с тем мудрость и житейский опыт.");
+				sb->AppendLine();
+				sb->AppendLine("Состояние человека «в плюсе»:");
+				sb->AppendLine();
+				sb->AppendLine("• Истинная свобода. Отсутствие рамок и границ, освобождают такого человека от условностей, он совершенно не зависит от общественного мнения, наслаждается жизнью в своё удовольствие. Искренне верит, что «было хорошо, а будет ещё лучше».");
+				sb->AppendLine("• Оптимизм. В большинстве случаев, это порядочный человек, в котором бурлит энергия. Он полон неиссякаемого оптимизма, идеи всегда неординарны, хотя внешне и не приводит соответствующего впечатления.");
+				sb->AppendLine("• Талант. 22 энергия наделяет своего владельца талантом в какой-то сфере. Причём проявляться талант может далеко не сразу и быть совершенно не связан с искусством или артистизмом. Есть скрытые способности к оккультным наукам.");
+				sb->AppendLine("• Интуиция. Такой человек хотя и не обладает глубокими познаниями в жизни, на уровне интуиции, разбирается в её законах и принципах.");
+				sb->AppendLine("• Удача. Людей с этой энергией, можно назвать любимцами Фортуны. Они редко поддаются унынию, а если не получается справиться с проблемой, они, недолго думая, найдут, как её обойти.");
+				this->nameOfArcana->Text = "22 аркан - Шут";
+				this->description->Text = sb->ToString();
+	}
 }
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
 };
 }
