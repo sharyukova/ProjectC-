@@ -48,21 +48,34 @@ namespace попытканепытка {
         {
             this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
             this->SuspendLayout();
+            // 
+            // richTextBox1
+            // 
+            this->richTextBox1->BackColor = System::Drawing::Color::LavenderBlush;
             this->richTextBox1->Dock = System::Windows::Forms::DockStyle::Fill;
-            this->richTextBox1->ReadOnly = true;
-            this->richTextBox1->Cursor = Cursors::Hand;
+            this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Arial", 21.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(204)));
+            this->richTextBox1->Location = System::Drawing::Point(0, 0);
             this->richTextBox1->Name = L"richTextBox1";
-            this->richTextBox1->LinkClicked += gcnew LinkClickedEventHandler(this, &LinkMessageBox::richTextBox1_LinkClicked);
+            this->richTextBox1->ReadOnly = true;
+            this->richTextBox1->Size = System::Drawing::Size(478, 304);
+            this->richTextBox1->TabIndex = 0;
+            this->richTextBox1->Text = L"";
             // 
             // LinkMessageBox
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->ClientSize = System::Drawing::Size(300, 150);
+            this->BackColor = System::Drawing::Color::IndianRed;
+            this->ClientSize = System::Drawing::Size(478, 304);
             this->Controls->Add(this->richTextBox1);
+            this->ForeColor = System::Drawing::Color::LavenderBlush;
+            this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
             this->Name = L"LinkMessageBox";
+            this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
             this->Text = L"Информация";
             this->ResumeLayout(false);
+
         }
 #pragma endregion
 
@@ -74,6 +87,6 @@ namespace попытканепытка {
             {
                 System::Diagnostics::Process::Start(e->LinkText);
             }
-        }
+        } 
     };
 }
