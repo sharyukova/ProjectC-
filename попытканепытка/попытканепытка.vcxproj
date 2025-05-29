@@ -125,6 +125,7 @@
     <ClCompile Include="CardOfDay.cpp" />
     <ClCompile Include="FirstMenu.cpp" />
     <ClCompile Include="Horoscope.cpp" />
+    <ClCompile Include="LinkMessageBox.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="sqlite3.c">
@@ -140,6 +141,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Horoscope.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LinkMessageBox.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MatrixOfFate.h">
@@ -163,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Horoscope.resx">
       <DependentUpon>Horoscope.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkMessageBox.resx">
+      <DependentUpon>LinkMessageBox.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MatrixOfFate.resx">
       <DependentUpon>MatrixOfFate.h</DependentUpon>
