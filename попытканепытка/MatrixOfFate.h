@@ -1,5 +1,6 @@
 #pragma once
-#include <Person.h>
+#include "Person.h"
+#include "Relationship.h"
 namespace попытканепытка {
 
 	using namespace System;
@@ -43,6 +44,7 @@ namespace попытканепытка {
 	protected:
 	private: 
 		Person^ person1 = nullptr;
+		Relationship^ relationship = nullptr;
 	private: System::Windows::Forms::Button^ previous5;
 	private:
 		/// <summary>
@@ -112,6 +114,7 @@ namespace попытканепытка {
 			this->relation->TabIndex = 7;
 			this->relation->Text = L"ћатрица совместимости";
 			this->relation->UseVisualStyleBackColor = true;
+			this->relation->Click += gcnew System::EventHandler(this, &MatrixOfFate::relation_Click);
 			// 
 			// person
 			// 
@@ -183,6 +186,18 @@ private: System::Void previous5_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
+}
+private: System::Void relation_Click(System::Object^ sender, System::EventArgs^ e) {
+	relationship = gcnew Relationship();
+	relationship->Opacity = 0;
+	relationship->Show();
+	for (double opacity = 0; opacity <= 1; opacity += 0.1)
+	{
+		relationship->Opacity = opacity;
+		Application::DoEvents();
+		Threading::Thread::Sleep(15);
+	}
+	this->Hide();
 }
 };
 }

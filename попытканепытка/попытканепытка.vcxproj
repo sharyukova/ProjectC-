@@ -128,6 +128,7 @@
     <ClCompile Include="LinkMessageBox.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Relationship.cpp" />
     <ClCompile Include="sqlite3.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
     </ClCompile>
@@ -155,6 +156,9 @@
     <ClInclude Include="Person.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Relationship.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="sqlite3.h" />
     <ClInclude Include="TarotClass.h" />
   </ItemGroup>
@@ -179,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Person.resx">
       <DependentUpon>Person.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relationship.resx">
+      <DependentUpon>Relationship.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
