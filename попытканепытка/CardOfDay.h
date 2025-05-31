@@ -258,9 +258,6 @@ namespace попытканепытка {
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->card))->BeginInit();
                this->SuspendLayout();
-               // 
-               // card1
-               // 
                this->card1->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card1.BackgroundImage")));
                this->card1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -272,9 +269,6 @@ namespace попытканепытка {
                this->card1->TabIndex = 0;
                this->card1->TabStop = false;
                this->card1->Click += gcnew System::EventHandler(this, &CardOfDay::card1_Click);
-               // 
-               // yourname
-               // 
                this->yourname->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->yourname->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(236)),
                    static_cast<System::Int32>(static_cast<System::Byte>(236)));
@@ -287,9 +281,6 @@ namespace попытканепытка {
                this->yourname->Size = System::Drawing::Size(728, 43);
                this->yourname->TabIndex = 1;
                this->yourname->Text = L"Введите имя";
-               // 
-               // znakzodiaka
-               // 
                this->znakzodiaka->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->znakzodiaka->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(236)),
                    static_cast<System::Int32>(static_cast<System::Byte>(236)));
@@ -301,9 +292,6 @@ namespace попытканепытка {
                this->znakzodiaka->Size = System::Drawing::Size(730, 44);
                this->znakzodiaka->TabIndex = 2;
                this->znakzodiaka->Text = L"Введите знак зодиака";
-               // 
-               // pictureBox2
-               // 
                this->pictureBox2->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
                this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -316,9 +304,6 @@ namespace попытканепытка {
                this->pictureBox2->TabIndex = 3;
                this->pictureBox2->TabStop = false;
                this->pictureBox2->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox3
-               // 
                this->pictureBox3->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
                this->pictureBox3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -331,9 +316,6 @@ namespace попытканепытка {
                this->pictureBox3->TabIndex = 4;
                this->pictureBox3->TabStop = false;
                this->pictureBox3->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox4
-               // 
                this->pictureBox4->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.BackgroundImage")));
                this->pictureBox4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -346,9 +328,6 @@ namespace попытканепытка {
                this->pictureBox4->TabIndex = 5;
                this->pictureBox4->TabStop = false;
                this->pictureBox4->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox5
-               // 
                this->pictureBox5->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.BackgroundImage")));
                this->pictureBox5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -361,9 +340,6 @@ namespace попытканепытка {
                this->pictureBox5->TabIndex = 5;
                this->pictureBox5->TabStop = false;
                this->pictureBox5->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox6
-               // 
                this->pictureBox6->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.BackgroundImage")));
                this->pictureBox6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -376,9 +352,6 @@ namespace попытканепытка {
                this->pictureBox6->TabIndex = 11;
                this->pictureBox6->TabStop = false;
                this->pictureBox6->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox7
-               // 
                this->pictureBox7->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.BackgroundImage")));
                this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -391,9 +364,6 @@ namespace попытканепытка {
                this->pictureBox7->TabIndex = 9;
                this->pictureBox7->TabStop = false;
                this->pictureBox7->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox8
-               // 
                this->pictureBox8->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox8->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.BackgroundImage")));
                this->pictureBox8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -406,9 +376,6 @@ namespace попытканепытка {
                this->pictureBox8->TabIndex = 10;
                this->pictureBox8->TabStop = false;
                this->pictureBox8->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox9
-               // 
                this->pictureBox9->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.BackgroundImage")));
                this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -421,9 +388,6 @@ namespace попытканепытка {
                this->pictureBox9->TabIndex = 6;
                this->pictureBox9->TabStop = false;
                this->pictureBox9->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox10
-               // 
                this->pictureBox10->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox10->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox10.BackgroundImage")));
                this->pictureBox10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -436,9 +400,6 @@ namespace попытканепытка {
                this->pictureBox10->TabIndex = 8;
                this->pictureBox10->TabStop = false;
                this->pictureBox10->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox11
-               // 
                this->pictureBox11->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox11->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox11.BackgroundImage")));
                this->pictureBox11->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -451,9 +412,6 @@ namespace попытканепытка {
                this->pictureBox11->TabIndex = 7;
                this->pictureBox11->TabStop = false;
                this->pictureBox11->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox12
-               // 
                this->pictureBox12->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox12->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox12.BackgroundImage")));
                this->pictureBox12->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -466,9 +424,6 @@ namespace попытканепытка {
                this->pictureBox12->TabIndex = 21;
                this->pictureBox12->TabStop = false;
                this->pictureBox12->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox13
-               // 
                this->pictureBox13->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox13->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox13.BackgroundImage")));
                this->pictureBox13->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -481,9 +436,6 @@ namespace попытканепытка {
                this->pictureBox13->TabIndex = 19;
                this->pictureBox13->TabStop = false;
                this->pictureBox13->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox14
-               // 
                this->pictureBox14->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox14->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox14.BackgroundImage")));
                this->pictureBox14->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -496,9 +448,6 @@ namespace попытканепытка {
                this->pictureBox14->TabIndex = 20;
                this->pictureBox14->TabStop = false;
                this->pictureBox14->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox15
-               // 
                this->pictureBox15->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox15->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox15.BackgroundImage")));
                this->pictureBox15->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -511,9 +460,6 @@ namespace попытканепытка {
                this->pictureBox15->TabIndex = 18;
                this->pictureBox15->TabStop = false;
                this->pictureBox15->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox16
-               // 
                this->pictureBox16->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox16->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox16.BackgroundImage")));
                this->pictureBox16->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -526,9 +472,6 @@ namespace попытканепытка {
                this->pictureBox16->TabIndex = 17;
                this->pictureBox16->TabStop = false;
                this->pictureBox16->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox17
-               // 
                this->pictureBox17->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox17->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox17.BackgroundImage")));
                this->pictureBox17->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -541,9 +484,6 @@ namespace попытканепытка {
                this->pictureBox17->TabIndex = 16;
                this->pictureBox17->TabStop = false;
                this->pictureBox17->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox18
-               // 
                this->pictureBox18->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox18->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox18.BackgroundImage")));
                this->pictureBox18->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -556,9 +496,6 @@ namespace попытканепытка {
                this->pictureBox18->TabIndex = 14;
                this->pictureBox18->TabStop = false;
                this->pictureBox18->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox19
-               // 
                this->pictureBox19->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox19->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox19.BackgroundImage")));
                this->pictureBox19->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -571,9 +508,6 @@ namespace попытканепытка {
                this->pictureBox19->TabIndex = 15;
                this->pictureBox19->TabStop = false;
                this->pictureBox19->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox20
-               // 
                this->pictureBox20->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox20->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox20.BackgroundImage")));
                this->pictureBox20->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -586,9 +520,6 @@ namespace попытканепытка {
                this->pictureBox20->TabIndex = 13;
                this->pictureBox20->TabStop = false;
                this->pictureBox20->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox21
-               // 
                this->pictureBox21->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox21->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox21.BackgroundImage")));
                this->pictureBox21->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -601,9 +532,6 @@ namespace попытканепытка {
                this->pictureBox21->TabIndex = 12;
                this->pictureBox21->TabStop = false;
                this->pictureBox21->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox22
-               // 
                this->pictureBox22->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox22->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox22.BackgroundImage")));
                this->pictureBox22->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -616,9 +544,6 @@ namespace попытканепытка {
                this->pictureBox22->TabIndex = 31;
                this->pictureBox22->TabStop = false;
                this->pictureBox22->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox23
-               // 
                this->pictureBox23->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox23->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox23.BackgroundImage")));
                this->pictureBox23->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -631,9 +556,6 @@ namespace попытканепытка {
                this->pictureBox23->TabIndex = 29;
                this->pictureBox23->TabStop = false;
                this->pictureBox23->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox24
-               // 
                this->pictureBox24->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox24->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox24.BackgroundImage")));
                this->pictureBox24->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -646,9 +568,6 @@ namespace попытканепытка {
                this->pictureBox24->TabIndex = 30;
                this->pictureBox24->TabStop = false;
                this->pictureBox24->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox25
-               // 
                this->pictureBox25->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox25->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox25.BackgroundImage")));
                this->pictureBox25->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -661,9 +580,6 @@ namespace попытканепытка {
                this->pictureBox25->TabIndex = 28;
                this->pictureBox25->TabStop = false;
                this->pictureBox25->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox26
-               // 
                this->pictureBox26->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox26->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox26.BackgroundImage")));
                this->pictureBox26->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -676,9 +592,6 @@ namespace попытканепытка {
                this->pictureBox26->TabIndex = 27;
                this->pictureBox26->TabStop = false;
                this->pictureBox26->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox27
-               // 
                this->pictureBox27->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox27->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox27.BackgroundImage")));
                this->pictureBox27->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -691,9 +604,6 @@ namespace попытканепытка {
                this->pictureBox27->TabIndex = 26;
                this->pictureBox27->TabStop = false;
                this->pictureBox27->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox28
-               // 
                this->pictureBox28->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox28->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox28.BackgroundImage")));
                this->pictureBox28->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -706,9 +616,6 @@ namespace попытканепытка {
                this->pictureBox28->TabIndex = 24;
                this->pictureBox28->TabStop = false;
                this->pictureBox28->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox29
-               // 
                this->pictureBox29->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox29->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox29.BackgroundImage")));
                this->pictureBox29->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -721,9 +628,6 @@ namespace попытканепытка {
                this->pictureBox29->TabIndex = 25;
                this->pictureBox29->TabStop = false;
                this->pictureBox29->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox30
-               // 
                this->pictureBox30->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox30->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox30.BackgroundImage")));
                this->pictureBox30->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -736,9 +640,6 @@ namespace попытканепытка {
                this->pictureBox30->TabIndex = 23;
                this->pictureBox30->TabStop = false;
                this->pictureBox30->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // pictureBox31
-               // 
                this->pictureBox31->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox31->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox31.BackgroundImage")));
                this->pictureBox31->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -751,9 +652,6 @@ namespace попытканепытка {
                this->pictureBox31->TabIndex = 22;
                this->pictureBox31->TabStop = false;
                this->pictureBox31->Click += gcnew System::EventHandler(this, &CardOfDay::PictureBox_Click);
-               // 
-               // exit
-               // 
                this->exit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
                this->exit->BackColor = System::Drawing::Color::Transparent;
                this->exit->Cursor = System::Windows::Forms::Cursors::Hand;
@@ -770,9 +668,6 @@ namespace попытканепытка {
                this->exit->Text = L"Х";
                this->exit->UseVisualStyleBackColor = false;
                this->exit->Click += gcnew System::EventHandler(this, &CardOfDay::exit_Click);
-               // 
-               // previous1
-               // 
                this->previous1->BackColor = System::Drawing::Color::Transparent;
                this->previous1->Cursor = System::Windows::Forms::Cursors::Hand;
                this->previous1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -786,9 +681,6 @@ namespace попытканепытка {
                this->previous1->Text = L"<";
                this->previous1->UseVisualStyleBackColor = false;
                this->previous1->Click += gcnew System::EventHandler(this, &CardOfDay::previous1_Click);
-               // 
-               // card2
-               // 
                this->card2->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card2.BackgroundImage")));
                this->card2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -800,9 +692,6 @@ namespace попытканепытка {
                this->card2->TabIndex = 34;
                this->card2->TabStop = false;
                this->card2->Click += gcnew System::EventHandler(this, &CardOfDay::card2_Click);
-               // 
-               // card3
-               // 
                this->card3->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card3.BackgroundImage")));
                this->card3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -814,9 +703,6 @@ namespace попытканепытка {
                this->card3->TabIndex = 35;
                this->card3->TabStop = false;
                this->card3->Click += gcnew System::EventHandler(this, &CardOfDay::card3_Click);
-               // 
-               // card4
-               // 
                this->card4->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card4.BackgroundImage")));
                this->card4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -828,9 +714,6 @@ namespace попытканепытка {
                this->card4->TabIndex = 36;
                this->card4->TabStop = false;
                this->card4->Click += gcnew System::EventHandler(this, &CardOfDay::card4_Click);
-               // 
-               // card5
-               // 
                this->card5->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card5.BackgroundImage")));
                this->card5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -842,9 +725,6 @@ namespace попытканепытка {
                this->card5->TabIndex = 37;
                this->card5->TabStop = false;
                this->card5->Click += gcnew System::EventHandler(this, &CardOfDay::card5_Click);
-               // 
-               // card6
-               // 
                this->card6->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card6.BackgroundImage")));
                this->card6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -856,9 +736,6 @@ namespace попытканепытка {
                this->card6->TabIndex = 38;
                this->card6->TabStop = false;
                this->card6->Click += gcnew System::EventHandler(this, &CardOfDay::card6_Click);
-               // 
-               // pictureBox1
-               // 
                this->pictureBox1->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
                this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -870,9 +747,6 @@ namespace попытканепытка {
                this->pictureBox1->TabIndex = 39;
                this->pictureBox1->TabStop = false;
                this->pictureBox1->Click += gcnew System::EventHandler(this, &CardOfDay::pictureBox1_Click);
-               // 
-               // textBox1
-               // 
                this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
                    static_cast<System::Int32>(static_cast<System::Byte>(64)));
@@ -885,9 +759,6 @@ namespace попытканепытка {
                this->textBox1->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
                this->textBox1->Size = System::Drawing::Size(964, 682);
                this->textBox1->TabIndex = 40;
-               // 
-               // card
-               // 
                this->card->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->card->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"card.BackgroundImage")));
                this->card->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
@@ -899,9 +770,6 @@ namespace попытканепытка {
                this->card->TabIndex = 41;
                this->card->TabStop = false;
                this->card->Click += gcnew System::EventHandler(this, &CardOfDay::сard_Click);
-               // 
-               // name
-               // 
                this->name->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->name->AutoSize = true;
                this->name->BackColor = System::Drawing::Color::Transparent;
@@ -913,9 +781,6 @@ namespace попытканепытка {
                this->name->Size = System::Drawing::Size(356, 75);
                this->name->TabIndex = 43;
                this->name->Text = L"Название:";
-               // 
-               // cardOfEnd
-               // 
                this->cardOfEnd->Anchor = System::Windows::Forms::AnchorStyles::Top;
                this->cardOfEnd->AutoSize = true;
                this->cardOfEnd->BackColor = System::Drawing::Color::Transparent;
@@ -927,9 +792,6 @@ namespace попытканепытка {
                this->cardOfEnd->Size = System::Drawing::Size(464, 75);
                this->cardOfEnd->TabIndex = 44;
                this->cardOfEnd->Text = L"____________";
-               // 
-               // CardOfDay
-               // 
                this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
                this->AutoScroll = true;
                this->AutoScrollMargin = System::Drawing::Size(10, 10);
@@ -1040,9 +902,10 @@ namespace попытканепытка {
         }
         else if (this->pictureBox1->Tag == "1") {
             if (card != nullptr && this->pictureBox1->Image != nullptr) {
-                LoadTarotCardData(this->pictureBox1, cardOfEnd, textBox1);
-                card->Image = this->card4->Image;
+                card->Image = this->pictureBox1->Image;
                 card->SizeMode = PictureBoxSizeMode::Zoom;
+                if (cardOfEnd != nullptr) cardOfEnd->Text = currentCardName;
+                if (textBox1 != nullptr) textBox1->Text = currentCardDescription;
             }
         }
 
@@ -1066,9 +929,17 @@ namespace попытканепытка {
             const unsigned char* description = sqlite3_column_text(stmt, 2);
             const unsigned char* imagePath = sqlite3_column_text(stmt, 3);
 
-            String^ nameStr = (name != NULL) ? gcnew String((const char*)name) : String::Empty;
-            String^ descStr = (description != NULL) ? gcnew String((const char*)description) : String::Empty;
-            String^ imageStr = (imagePath != NULL) ? gcnew String((const char*)imagePath) : String::Empty;
+            String^ nameStr = (name != NULL) ?
+                gcnew String((const char*)name, 0, sqlite3_column_bytes(stmt, 1), System::Text::Encoding::UTF8) :
+                String::Empty;
+
+            String^ descStr = (description != NULL) ?
+                gcnew String((const char*)description, 0, sqlite3_column_bytes(stmt, 2), System::Text::Encoding::UTF8) :
+                String::Empty;
+
+            String^ imageStr = (imagePath != NULL) ?
+                gcnew String((const char*)imagePath) :
+                String::Empty;
 
             cards->Add(gcnew System::Tuple<int, String^, String^, String^>(id, nameStr, descStr, imageStr));
         }
@@ -1076,60 +947,70 @@ namespace попытканепытка {
         sqlite3_finalize(stmt);
         return cards;
     }
-   public: void LoadTarotCardData(PictureBox^ pictureBox, Label^ nameLabel, TextBox^ descriptionBox)
-   {
-       String^ appDir = Application::StartupPath;
-       String^ dbName = "test.db";
-       String^ dbPath = Path::Combine(appDir, dbName);
 
-       msclr::interop::marshal_context context;
-       std::wstring widePath = context.marshal_as<std::wstring>(dbPath);
-       std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-       std::string utf8Path = converter.to_bytes(widePath);
+public: String^ currentCardName;
+public: String^ currentCardDescription;
 
-       sqlite3* db;
-       int rc = sqlite3_open_v2(utf8Path.c_str(), &db, SQLITE_OPEN_READWRITE, nullptr);
+public: void LoadTarotCardData(PictureBox^ pictureBox, Label^ nameLabel, TextBox^ descriptionBox)
+{
+    String^ appDir = Application::StartupPath;
+    String^ dbName = "test.db";
+    String^ dbPath = Path::Combine(appDir, dbName);
 
-       if (rc != SQLITE_OK) {
-           String^ errorMsg = gcnew String(sqlite3_errmsg(db));
-           MessageBox::Show("Ошибка открытия БД:\n" + errorMsg +
-               "\nПуть: " + dbPath,
-               "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
-           if (db) sqlite3_close(db);
-           return;
-       }
+    msclr::interop::marshal_context context;
+    std::wstring widePath = context.marshal_as<std::wstring>(dbPath);
+    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+    std::string utf8Path = converter.to_bytes(widePath);
 
-       auto cards = GetAllTarotCards(db);
+    sqlite3* db;
+    int rc = sqlite3_open_v2(utf8Path.c_str(), &db, SQLITE_OPEN_READWRITE, nullptr);
 
-       if (cards->Count == 0) {
-           MessageBox::Show("В БД не найдено ни одной карты!");
-           sqlite3_close(db);
-           return;
-       }
+    if (rc != SQLITE_OK) {
+        String^ errorMsg = gcnew String(sqlite3_errmsg(db));
+        MessageBox::Show("Ошибка открытия БД:\n" + errorMsg +
+            "\nПуть: " + dbPath,
+            "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+        if (db) sqlite3_close(db);
+        return;
+    }
 
-       Random^ random = gcnew Random();
-       int randomIndex = random->Next(0, cards->Count);
-       auto selectedCard = cards[randomIndex];
+    auto cards = GetAllTarotCards(db);
 
-       int id = selectedCard->Item1;
-       String^ name = selectedCard->Item2;
-       String^ description = selectedCard->Item3;
-       String^ imageRelativePath = selectedCard->Item4;
+    if (cards->Count == 0) {
+        MessageBox::Show("В БД не найдено ни одной карты!");
+        sqlite3_close(db);
+        return;
+    }
 
-       String^ imageFullPath = Path::Combine(appDir, imageRelativePath);
+    Random^ random = gcnew Random();
+    int randomIndex = random->Next(0, cards->Count);
+    auto selectedCard = cards[randomIndex];
 
-       if (pictureBox != nullptr && File::Exists(imageFullPath)) {
-           pictureBox->Image = Image::FromFile(imageFullPath);
-           pictureBox->SizeMode = PictureBoxSizeMode::Zoom;
-       }
-       if (nameLabel != nullptr) {
-           nameLabel->Text = name;
-       }
-       if (descriptionBox != nullptr) {
-           descriptionBox->Text = description;
-       }
-       sqlite3_close(db);
-   }
+    currentCardName = selectedCard->Item2;
+    currentCardDescription = selectedCard->Item3;
+
+    String^ imageRelativePath = selectedCard->Item4;
+    String^ imageFullPath = Path::Combine(appDir, imageRelativePath);
+
+    if (pictureBox != nullptr && File::Exists(imageFullPath)) {
+        try {
+            pictureBox->Image = Image::FromFile(imageFullPath);
+            pictureBox->SizeMode = PictureBoxSizeMode::Zoom;
+        }
+        catch (Exception^ e) {
+            MessageBox::Show("Ошибка загрузки изображения: " + e->Message);
+        }
+    }
+
+    if (nameLabel != nullptr) {
+        nameLabel->Text = currentCardName;
+    }
+    if (descriptionBox != nullptr) {
+        descriptionBox->Text = currentCardDescription;
+    }
+
+    sqlite3_close(db);
+}
 
     private: System::Void previous1_Click(System::Object^ sender, System::EventArgs^ e) {
         this->Hide();
@@ -1146,9 +1027,8 @@ namespace попытканепытка {
             if (card != nullptr && this->card6->Image != nullptr) {
                 card->Image = this->card6->Image;
                 card->SizeMode = PictureBoxSizeMode::Zoom;
-                LoadTarotCardData(nullptr, cardOfEnd, textBox1);
-
-                this->card6->Tag = "1"; 
+                if (cardOfEnd != nullptr) cardOfEnd->Text = currentCardName;
+                if (textBox1 != nullptr) textBox1->Text = currentCardDescription;
             }
         }
     }
@@ -1160,9 +1040,12 @@ namespace попытканепытка {
         else if (this->card4->Tag->ToString()!="1" && this->card4->Tag->ToString() != nullptr)
         {
             if (card != nullptr && this->card4->Image != nullptr) {
-                LoadTarotCardData(nullptr, cardOfEnd, textBox1);
+                
                 card->Image = this->card4->Image;
                 card->SizeMode = PictureBoxSizeMode::Zoom;
+
+                if (cardOfEnd != nullptr) cardOfEnd->Text = currentCardName;
+                if (textBox1 != nullptr) textBox1->Text = currentCardDescription;
             }
         }
     }
@@ -1173,22 +1056,24 @@ namespace попытканепытка {
         }
         else if (this->card5->Tag->ToString() != "1" && this->card5->Tag->ToString() != nullptr) {
             if (card != nullptr && this->card5->Image != nullptr) {
-                LoadTarotCardData(nullptr, cardOfEnd, textBox1);
                 card->Image = this->card5->Image;
                 card->SizeMode = PictureBoxSizeMode::Zoom;
+                if (cardOfEnd != nullptr) cardOfEnd->Text = currentCardName;
+                if (textBox1 != nullptr) textBox1->Text = currentCardDescription;
             }
         }
     }
     private: System::Void card2_Click(System::Object^ sender, System::EventArgs^ e) {
-        if (this->card2->Tag->ToString() == "1") {
+        if (this->card2->Tag == nullptr || this->card2->Tag->ToString() == "1") {
             LoadTarotCardData(this->card2, nullptr, nullptr);
             this->card2->Tag = "2";
         }
         else if (this->card2->Tag->ToString() != "1" && this->card2->Tag->ToString() != nullptr) {
             if (card != nullptr && this->card2->Image != nullptr) {
-                LoadTarotCardData(nullptr, cardOfEnd, textBox1);
                 card->Image = this->card2->Image;
                 card->SizeMode = PictureBoxSizeMode::Zoom;
+                if (cardOfEnd != nullptr) cardOfEnd->Text = currentCardName;
+                if (textBox1 != nullptr) textBox1->Text = currentCardDescription;
             }
         }
     }
@@ -1199,9 +1084,10 @@ namespace попытканепытка {
         }
         else if (this->card3->Tag->ToString() != "1" && this->card3->Tag->ToString() != nullptr) {
             if (card != nullptr && this->card3->Image != nullptr) {
-                LoadTarotCardData(nullptr, cardOfEnd, textBox1);
                 card->Image = this->card3->Image;
                 card->SizeMode = PictureBoxSizeMode::Zoom;
+                if (cardOfEnd != nullptr) cardOfEnd->Text = currentCardName;
+                if (textBox1 != nullptr) textBox1->Text = currentCardDescription;
             }
         }
     }
@@ -1212,62 +1098,13 @@ namespace попытканепытка {
         }
         else if (this->card1->Tag->ToString() != "1" && this->card1->Tag->ToString() != nullptr) {
             if (card != nullptr && this->card1->Image != nullptr) {
-                LoadTarotCardData(nullptr, cardOfEnd, textBox1);
                 card->Image = this->card1->Image;
                 card->SizeMode = PictureBoxSizeMode::Zoom;
-
+                if (cardOfEnd != nullptr) cardOfEnd->Text = currentCardName;
+                if (textBox1 != nullptr) textBox1->Text = currentCardDescription;
             }
         }
     }
-    /*private: System::Void card6_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-        if (card6->BackgroundImage != nullptr)
-        {
-            this->card->BackgroundImage = gcnew System::Drawing::Bitmap(card6->BackgroundImage);
-            this->card->BackgroundImageLayout = ImageLayout::Zoom;
-        }
-    }
-    private: System::Void card4_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-        if (card4->BackgroundImage != nullptr)
-        {
-            this->card->BackgroundImage = gcnew System::Drawing::Bitmap(card4->BackgroundImage);
-            this->card->BackgroundImageLayout = ImageLayout::Zoom;
-        }
-    }
-    private: System::Void card5_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-        if (card6->BackgroundImage != nullptr)
-        {
-            this->card->BackgroundImage = gcnew System::Drawing::Bitmap(card5->BackgroundImage);
-            this->card->BackgroundImageLayout = ImageLayout::Zoom;
-        }
-    }
-    private: System::Void card1_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-        if (card1->BackgroundImage != nullptr)
-        {
-            this->card->BackgroundImage = gcnew System::Drawing::Bitmap(card1->BackgroundImage);
-            this->card->BackgroundImageLayout = ImageLayout::Zoom;
-        }
-    }
-    private: System::Void card2_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-        if (card2->BackgroundImage != nullptr)
-        {
-            this->card->BackgroundImage = gcnew System::Drawing::Bitmap(card2->BackgroundImage);
-            this->card->BackgroundImageLayout = ImageLayout::Zoom;
-        }
-    }
-    private: System::Void card3_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-        if (card3->BackgroundImage != nullptr)
-        {
-            this->card->BackgroundImage = gcnew System::Drawing::Bitmap(card3->BackgroundImage);
-            this->card->BackgroundImageLayout = ImageLayout::Zoom;
-        }
-    }
-    private: System::Void pictureBox1_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-        if (pictureBox1->BackgroundImage != nullptr)
-        {
-            this->card->BackgroundImage = gcnew System::Drawing::Bitmap(pictureBox1->BackgroundImage);
-            this->card->BackgroundImageLayout = ImageLayout::Zoom;
-        }
-    }*/
     private: System::Void сard_Click(System::Object^ sender, System::EventArgs^ e) {
 
     }

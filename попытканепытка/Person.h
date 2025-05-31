@@ -49,7 +49,8 @@ namespace попытканепытка {
 
 
 	private: System::Windows::Forms::Button^ zoneOfComfort;
-	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ soul;
+
 	private: System::Windows::Forms::Label^ enter;
 	private: System::Windows::Forms::Label^ nameOfArcana;
 
@@ -91,7 +92,7 @@ namespace попытканепытка {
 			this->personalityMinus = (gcnew System::Windows::Forms::Button());
 			this->personalityPlus = (gcnew System::Windows::Forms::Button());
 			this->zoneOfComfort = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->soul = (gcnew System::Windows::Forms::Button());
 			this->enter = (gcnew System::Windows::Forms::Label());
 			this->nameOfArcana = (gcnew System::Windows::Forms::Label());
 			this->exit = (gcnew System::Windows::Forms::Button());
@@ -271,21 +272,21 @@ namespace попытканепытка {
 			this->zoneOfComfort->UseVisualStyleBackColor = false;
 			this->zoneOfComfort->Click += gcnew System::EventHandler(this, &Person::zoneOfComfort_Click);
 			// 
-			// button2
+			// soul
 			// 
-			this->button2->BackColor = System::Drawing::Color::Transparent;
-			this->button2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->soul->BackColor = System::Drawing::Color::Transparent;
+			this->soul->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->soul->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->soul->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->button2->Location = System::Drawing::Point(1032, 212);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(194, 92);
-			this->button2->TabIndex = 11;
-			this->button2->Text = L"Главная проработка души";
-			this->button2->UseVisualStyleBackColor = false;
-			this->button2->Click += gcnew System::EventHandler(this, &Person::button2_Click);
+			this->soul->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->soul->Location = System::Drawing::Point(1032, 212);
+			this->soul->Name = L"soul";
+			this->soul->Size = System::Drawing::Size(194, 92);
+			this->soul->TabIndex = 11;
+			this->soul->Text = L"Главная проработка души";
+			this->soul->UseVisualStyleBackColor = false;
+			this->soul->Click += gcnew System::EventHandler(this, &Person::button2_Click);
 			// 
 			// enter
 			// 
@@ -392,7 +393,7 @@ namespace попытканепытка {
 			this->Controls->Add(this->exit);
 			this->Controls->Add(this->nameOfArcana);
 			this->Controls->Add(this->enter);
-			this->Controls->Add(this->button2);
+			this->Controls->Add(this->soul);
 			this->Controls->Add(this->zoneOfComfort);
 			this->Controls->Add(this->personalityPlus);
 			this->Controls->Add(this->personalityMinus);

@@ -527,7 +527,7 @@ namespace попытканепытка {
 				sum += tempDay % 10;
 				tempDay /= 10;
 			}
-			if (sum >= 22) {
+			if (sum >= 23) {
 				int newSum = 0;
 				int tempSum = sum;
 				while (tempSum > 0) {
@@ -547,7 +547,7 @@ namespace попытканепытка {
 				sumDay1 += tempDay % 10;
 				tempDay /= 10;
 			}
-			if (sumDay1 >= 22) {
+			if (sumDay1 >= 23) {
 				int newSum = 0;
 				int tempSum = sumDay1;
 				while (tempSum > 0) {
@@ -567,7 +567,7 @@ namespace попытканепытка {
 				sumDay2 += tempDay % 10;
 				tempDay /= 10;
 			}
-			if (sumDay2 >= 22) {
+			if (sumDay2 >= 23) {
 				int newSum = 0;
 				int tempSum = sumDay2;
 				while (tempSum > 0) {
@@ -587,10 +587,10 @@ namespace попытканепытка {
 		else {
 			int tempMonth = month;
 			while (tempMonth > 0) {
-				sum += tempMonth % 10;
+				sum2 += tempMonth % 10;
 				tempMonth /= 10;
 			}
-			if (sum2 >= 22) {
+			if (sum2 >= 23) {
 				int newSum = 0;
 				int tempSum = sum2;
 				while (tempSum > 0) {
@@ -610,7 +610,7 @@ namespace попытканепытка {
 				sumMonth1 += tempMonth % 10;
 				tempMonth /= 10;
 			}
-			if (sumMonth1 >= 22) {
+			if (sumMonth1 >= 23) {
 				int newSum = 0;
 				int tempSum = sumMonth1;
 				while (tempSum > 0) {
@@ -630,7 +630,7 @@ namespace попытканепытка {
 				sumMonth2 += tempMonth % 10;
 				tempMonth /= 10;
 			}
-			if (sumMonth2 >= 22) {
+			if (sumMonth2 >= 23) {
 				int newSum = 0;
 				int tempSum = sumMonth2;
 				while (tempSum > 0) {
