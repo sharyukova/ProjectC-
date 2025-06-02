@@ -69,6 +69,8 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Label^ A;
 	private: System::Windows::Forms::PictureBox^ matrixOfRelation2;
 	private: System::Windows::Forms::Button^ button6;
+	private: System::Windows::Forms::Button^ exit;
+	private: System::Windows::Forms::Button^ previous1;
 
 
 	private:
@@ -109,6 +111,8 @@ namespace попытканепытка {
 			this->A = (gcnew System::Windows::Forms::Label());
 			this->matrixOfRelation2 = (gcnew System::Windows::Forms::PictureBox());
 			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->exit = (gcnew System::Windows::Forms::Button());
+			this->previous1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->matrixOfPerson))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->matrixOfRelation2))->BeginInit();
 			this->SuspendLayout();
@@ -463,6 +467,41 @@ namespace попытканепытка {
 			this->button6->UseVisualStyleBackColor = false;
 			this->button6->Click += gcnew System::EventHandler(this, &Relationship::button6_Click);
 			// 
+			// exit
+			// 
+			this->exit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->exit->BackColor = System::Drawing::Color::Transparent;
+			this->exit->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->exit->FlatAppearance->BorderSize = 0;
+			this->exit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->exit->ForeColor = System::Drawing::Color::White;
+			this->exit->Location = System::Drawing::Point(1873, 11);
+			this->exit->Margin = System::Windows::Forms::Padding(2);
+			this->exit->Name = L"exit";
+			this->exit->Size = System::Drawing::Size(56, 56);
+			this->exit->TabIndex = 49;
+			this->exit->Text = L"Х";
+			this->exit->UseVisualStyleBackColor = false;
+			this->exit->Click += gcnew System::EventHandler(this, &Relationship::exit_Click);
+			// 
+			// previous1
+			// 
+			this->previous1->BackColor = System::Drawing::Color::Transparent;
+			this->previous1->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->previous1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->previous1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->previous1->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->previous1->Location = System::Drawing::Point(-1, -9);
+			this->previous1->Name = L"previous1";
+			this->previous1->Size = System::Drawing::Size(124, 76);
+			this->previous1->TabIndex = 50;
+			this->previous1->Text = L"<";
+			this->previous1->UseVisualStyleBackColor = false;
+			this->previous1->Click += gcnew System::EventHandler(this, &Relationship::previous1_Click);
+			// 
 			// Relationship
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -470,6 +509,8 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1940, 1100);
+			this->Controls->Add(this->previous1);
+			this->Controls->Add(this->exit);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->E);
 			this->Controls->Add(this->D);
@@ -968,5 +1009,11 @@ namespace попытканепытка {
 		this->D->Text = sum7.ToString();
 		this->E->Text = result12.ToString();
 	}
+private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
+}
+private: System::Void previous1_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Hide();
+}
 };
 }

@@ -53,7 +53,7 @@ namespace попытканепытка {
             // 
             this->richTextBox1->BackColor = System::Drawing::Color::LavenderBlush;
             this->richTextBox1->Dock = System::Windows::Forms::DockStyle::Fill;
-            this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Arial", 21.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Arial", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
             this->richTextBox1->Location = System::Drawing::Point(0, 0);
             this->richTextBox1->Name = L"richTextBox1";
