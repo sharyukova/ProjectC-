@@ -187,6 +187,7 @@ namespace попытканепытка {
 			this->horoscope->TabIndex = 7;
 			this->horoscope->Text = L"Гороскоп";
 			this->horoscope->UseVisualStyleBackColor = true;
+			this->horoscope->Click += gcnew System::EventHandler(this, &FirstMenu::horoscope_Click);
 			// 
 			// previous
 			// 
