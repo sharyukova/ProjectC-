@@ -46,6 +46,7 @@ namespace попытканепытка {
 #pragma region Windows Form Designer generated code
         void InitializeComponent(void)
         {
+            System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LinkMessageBox::typeid));
             this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
             this->SuspendLayout();
             // 
@@ -71,9 +72,10 @@ namespace попытканепытка {
             this->Controls->Add(this->richTextBox1);
             this->ForeColor = System::Drawing::Color::LavenderBlush;
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+            this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
             this->Name = L"LinkMessageBox";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-            this->Text = L"Информация";
+            this->Text = L"Хотите больше характеристик\?";
             this->ResumeLayout(false);
 
         }
