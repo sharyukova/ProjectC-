@@ -2,6 +2,7 @@
 #include "CardOfDay.h"
 #include "MatrixOfFate.h"
 #include "Horoscope.h"
+#include "NatalChart.h"
 //
 namespace попытканепытка {
 	ref class MyForm;  
@@ -235,6 +236,7 @@ namespace попытканепытка {
 		CardOfDay^ cardOfDay = nullptr;
 		MatrixOfFate^ matrixOfFate = nullptr;
 		Horoscope^ horoscope1 = nullptr;
+		NatalChart^ chartForm = nullptr;
 
 	private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
@@ -264,7 +266,16 @@ namespace попытканепытка {
 		this->Hide();
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+		chartForm = gcnew NatalChart();
+		chartForm->Opacity = 0;
+		chartForm->Show();
+		for (double opacity = 0; opacity <= 1; opacity += 0.1)
+		{
+			chartForm->Opacity = opacity;
+			Application::DoEvents();
+			Threading::Thread::Sleep(15);
+		}
+		this->Hide();
 	}
 
 	private: System::Void horoscope_Click(System::Object^ sender, System::EventArgs^ e) {

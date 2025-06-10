@@ -79,12 +79,12 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\source\repos\попытканепытка\попытканепытка;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\user\source\c++\Project-c;D:\source\repos\попытканепытка\попытканепытка;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link />
     <Link>
-      <AdditionalDependencies>D:\source\repos\попытканепытка\sqlite3.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\source\repos\попытканепытка;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\Users\user\source\c++\Project-c\sqlite3.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\user\source\c++\Project-c;D:\source\repos\попытканепытка;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -127,6 +127,7 @@
     <ClCompile Include="Horoscope.cpp" />
     <ClCompile Include="LinkMessageBox.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="NatalChart.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Relationship.cpp" />
     <ClCompile Include="sqlite3.c">
@@ -151,6 +152,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="NatalChart.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Person.h">
@@ -180,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NatalChart.resx">
+      <DependentUpon>NatalChart.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Person.resx">
       <DependentUpon>Person.h</DependentUpon>
