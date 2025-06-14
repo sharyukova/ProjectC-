@@ -1,14 +1,14 @@
-#pragma once
+п»ї#pragma once
 #include "CardOfDay.h"
 #include "MatrixOfFate.h"
 #include "Horoscope.h"
 #include "NatalChart.h"
 //
-namespace попытканепытка {
+namespace РїРѕРїС‹С‚РєР°РЅРµРїС‹С‚РєР° {
 	ref class MyForm;  
 }
 
-namespace попытканепытка {
+namespace РїРѕРїС‹С‚РєР°РЅРµРїС‹С‚РєР° {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -18,7 +18,7 @@ namespace попытканепытка {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для FirstMenu
+	/// РЎРІРѕРґРєР° РґР»СЏ FirstMenu
 	/// </summary>
 	public ref class FirstMenu : public System::Windows::Forms::Form
 	{
@@ -106,7 +106,7 @@ namespace попытканепытка {
 			this->exit->Name = L"exit";
 			this->exit->Size = System::Drawing::Size(56, 56);
 			this->exit->TabIndex = 2;
-			this->exit->Text = L"Х";
+			this->exit->Text = L"РҐ";
 			this->exit->UseVisualStyleBackColor = false;
 			this->exit->Click += gcnew System::EventHandler(this, &FirstMenu::exit_Click);
 			// 
@@ -122,54 +122,56 @@ namespace попытканепытка {
 			this->menu1->Name = L"menu1";
 			this->menu1->Size = System::Drawing::Size(712, 103);
 			this->menu1->TabIndex = 3;
-			this->menu1->Text = L"Выберите услугу";
+			this->menu1->Text = L"Р’С‹Р±РµСЂРёС‚Рµ СѓСЃР»СѓРіСѓ";
 			// 
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
-			this->button1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button1->BackColor = System::Drawing::Color::RosyBrown;
 			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
 			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 29, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button1->ForeColor = System::Drawing::Color::WhiteSmoke;
 			this->button1->Location = System::Drawing::Point(279, 249);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(407, 312);
+			this->button1->Size = System::Drawing::Size(284.2, 218.4);
 			this->button1->TabIndex = 4;
-			this->button1->Text = L"Расклад на таро";
+			this->button1->Text = L"Р Р°СЃРєР»Р°Рґ РЅР° С‚Р°СЂРѕ";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &FirstMenu::button1_Click);
 			// 
 			// button2
 			// 
 			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
-			this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
+			this->button2->BackColor = System::Drawing::Color::RosyBrown;
+			//this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
 			this->button2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 29, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->ForeColor = System::Drawing::SystemColors::ControlLight;
+			this->button2->ForeColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->button2->Location = System::Drawing::Point(867, 249);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(406, 312);
+			this->button2->Size = System::Drawing::Size(284.2, 218.4);
 			this->button2->TabIndex = 5;
-			this->button2->Text = L"Матрица судьбы";
+			this->button2->Text = L"РњР°С‚СЂРёС†Р° СЃСѓРґСЊР±С‹";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &FirstMenu::button2_Click);
 			// 
 			// button3
 			// 
 			this->button3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
+			this->button3->BackColor = System::Drawing::Color::RosyBrown;
 			this->button3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.BackgroundImage")));
 			this->button3->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button3->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 29, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button3->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->button3->ForeColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->button3->Location = System::Drawing::Point(279, 628);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(406, 312);
+			this->button3->Size = System::Drawing::Size(284.2, 218.4);
 			this->button3->TabIndex = 6;
-			this->button3->Text = L"Нумерология";
+			this->button3->Text = L"РќР°С‚Р°Р»СЊРЅР°СЏ РєР°СЂС‚Р°";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &FirstMenu::button3_Click);
 			// 
@@ -177,16 +179,17 @@ namespace попытканепытка {
 			// 
 			this->horoscope->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
 			this->horoscope->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->horoscope->BackColor = System::Drawing::Color::RosyBrown;
 			this->horoscope->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"horoscope.BackgroundImage")));
 			this->horoscope->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->horoscope->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->horoscope->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 29, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->horoscope->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->horoscope->ForeColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->horoscope->Location = System::Drawing::Point(867, 628);
 			this->horoscope->Name = L"horoscope";
-			this->horoscope->Size = System::Drawing::Size(406, 312);
+			this->horoscope->Size = System::Drawing::Size(284.2, 218.4);
 			this->horoscope->TabIndex = 7;
-			this->horoscope->Text = L"Гороскоп";
+			this->horoscope->Text = L"Р“РѕСЂРѕСЃРєРѕРї";
 			this->horoscope->UseVisualStyleBackColor = true;
 			this->horoscope->Click += gcnew System::EventHandler(this, &FirstMenu::horoscope_Click);
 			// 
@@ -227,6 +230,7 @@ namespace попытканепытка {
 			this->Load += gcnew System::EventHandler(this, &FirstMenu::FirstMenu_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 
 		}
 	#pragma endregion

@@ -1,7 +1,10 @@
 #pragma once
 #include <string>
+
+
 using namespace System::Collections::Generic;
 using namespace System::Net;
+using namespace System::Drawing;
 
 namespace попытканепытка {
 
@@ -42,9 +45,14 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::DateTimePicker^ datePckr_horoscope;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Button^ btnGetHoroscope;
+	private: System::Windows::Forms::Button^ todaysHorBtn;
+
 	private: System::Windows::Forms::TextBox^ txtHoroscope;
 	private: System::Windows::Forms::Button^ button1;
+
+	private: System::Windows::Forms::Button^ tomorrwHorBtn;
+
+
 
 	protected:
 
@@ -167,22 +175,134 @@ namespace попытканепытка {
 			}
 		}
 
+		String^ GetTomHoroscopeFromWeb(String^ zodiacSign)
+		{
+			try
+			{
+				WebClient^ client = gcnew WebClient();
+				client->Encoding = System::Text::Encoding::UTF8;
+				String^ url = "https://horo.mail.ru/prediction/" + zodiacSign->ToLower() + "/tomorrow/";
+				String^ html = client->DownloadString(url);
+
+
+
+				int startPos = html->IndexOf("class=\"b6a5d4949c e45a4c1552\"><div><p>") + 38;
+				if (startPos > 0)
+				{
+					int endPos = html->IndexOf("</p></div></div></main><div class=\"b1b7b75f6a\">", startPos);
+					if (endPos > startPos)
+					{
+						String^ description = html->Substring(startPos, endPos - startPos);
+
+						description = System::Text::RegularExpressions::Regex::Replace(
+							description,
+							"<[^>]*>",
+							"");
+
+						description = System::Text::RegularExpressions::Regex::Replace(
+							description,
+							"&[^;]+;",
+							" ");
+
+						description = System::Text::RegularExpressions::Regex::Replace(
+							description,
+							"\\s+",
+							" ");
+
+						description = description->Trim();
+						description += "\r\n\r\nИсточник: " + url;
+						return description;
+					}
+				}
+				return "Не удалось получить описание. Попробуйте позже.\r\nИсточник: " + url;
+			}
+			catch (Exception^ ex)
+			{
+				return "Ошибка при получении гороскопа: " + ex->Message;
+			}
+		}
+
+		String^ GetYestHoroscopeFromWeb(String^ zodiacSign)
+		{
+			try
+			{
+				WebClient^ client = gcnew WebClient();
+				client->Encoding = System::Text::Encoding::UTF8;
+				String^ url = "https://horo.mail.ru/prediction/" + zodiacSign->ToLower() + "/today/";
+				String^ html = client->DownloadString(url);
+
+
+
+				int startPos = html->IndexOf("class=\"b6a5d4949c e45a4c1552\"><div><p>") + 38;
+				if (startPos > 0)
+				{
+					int endPos = html->IndexOf("</p></div></div></main><div class=\"b1b7b75f6a\">", startPos);
+					if (endPos > startPos)
+					{
+						String^ description = html->Substring(startPos, endPos - startPos);
+
+						description = System::Text::RegularExpressions::Regex::Replace(
+							description,
+							"<[^>]*>",
+							"");
+
+						description = System::Text::RegularExpressions::Regex::Replace(
+							description,
+							"&[^;]+;",
+							" ");
+
+						description = System::Text::RegularExpressions::Regex::Replace(
+							description,
+							"\\s+",
+							" ");
+
+						description = description->Trim();
+						description += "\r\n\r\nИсточник: " + url;
+						return description;
+					}
+				}
+				return "Не удалось получить описание. Попробуйте позже.\r\nИсточник: " + url;
+			}
+			catch (Exception^ ex)
+			{
+				return "Ошибка при получении гороскопа: " + ex->Message;
+			}
+		}
+
 		/// <summary>
 		/// Требуемый метод для поддержки конструктора — не изменяйте 
 		/// содержимое этого метода с помощью редактора кода.
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::Button^ yestHorBtn;
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Horoscope::typeid));
 			this->exit = (gcnew System::Windows::Forms::Button());
 			this->previous3 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->datePckr_horoscope = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->btnGetHoroscope = (gcnew System::Windows::Forms::Button());
+			this->todaysHorBtn = (gcnew System::Windows::Forms::Button());
 			this->txtHoroscope = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->tomorrwHorBtn = (gcnew System::Windows::Forms::Button());
+			yestHorBtn = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
+			// 
+			// yestHorBtn
+			// 
+			yestHorBtn->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			yestHorBtn->BackColor = System::Drawing::Color::SaddleBrown;
+			yestHorBtn->Font = (gcnew System::Drawing::Font(L"Bookman Old Style", 16));
+			yestHorBtn->ForeColor = System::Drawing::SystemColors::InactiveBorder;
+			yestHorBtn->Location = System::Drawing::Point(851, 390);
+			yestHorBtn->Margin = System::Windows::Forms::Padding(5);
+			yestHorBtn->Name = L"yestHorBtn";
+			yestHorBtn->Size = System::Drawing::Size(168, 56);
+			yestHorBtn->TabIndex = 52;
+			yestHorBtn->Text = L"На вчера";
+			yestHorBtn->UseVisualStyleBackColor = false;
+			yestHorBtn->Click += gcnew System::EventHandler(this, &Horoscope::yestHorBtn_Click);
 			// 
 			// exit
 			// 
@@ -225,12 +345,12 @@ namespace попытканепытка {
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->label1->AutoSize = true;
 			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Soledago", 60));
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 60));
 			this->label1->ForeColor = System::Drawing::Color::LavenderBlush;
 			this->label1->Location = System::Drawing::Point(527, 35);
 			this->label1->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(413, 103);
+			this->label1->Size = System::Drawing::Size(485, 113);
 			this->label1->TabIndex = 35;
 			this->label1->Text = L"Гороскоп";
 			// 
@@ -246,7 +366,7 @@ namespace попытканепытка {
 			this->datePckr_horoscope->Location = System::Drawing::Point(561, 317);
 			this->datePckr_horoscope->Margin = System::Windows::Forms::Padding(5);
 			this->datePckr_horoscope->Name = L"datePckr_horoscope";
-			this->datePckr_horoscope->Size = System::Drawing::Size(334, 31);
+			this->datePckr_horoscope->Size = System::Drawing::Size(334, 37);
 			this->datePckr_horoscope->TabIndex = 36;
 			// 
 			// label2
@@ -260,24 +380,23 @@ namespace попытканепытка {
 			this->label2->Location = System::Drawing::Point(498, 253);
 			this->label2->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(481, 32);
+			this->label2->Size = System::Drawing::Size(602, 41);
 			this->label2->TabIndex = 37;
 			this->label2->Text = L"Выберите дату вашего рождения:";
 			// 
-			// btnGetHoroscope
+			// todaysHorBtn
 			// 
-			this->btnGetHoroscope->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->btnGetHoroscope->BackColor = System::Drawing::Color::LavenderBlush;
-			this->btnGetHoroscope->Font = (gcnew System::Drawing::Font(L"Bookman Old Style", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->btnGetHoroscope->Location = System::Drawing::Point(630, 376);
-			this->btnGetHoroscope->Margin = System::Windows::Forms::Padding(5);
-			this->btnGetHoroscope->Name = L"btnGetHoroscope";
-			this->btnGetHoroscope->Size = System::Drawing::Size(189, 65);
-			this->btnGetHoroscope->TabIndex = 38;
-			this->btnGetHoroscope->Text = L"Получить гороскоп";
-			this->btnGetHoroscope->UseVisualStyleBackColor = false;
-			this->btnGetHoroscope->Click += gcnew System::EventHandler(this, &Horoscope::btnGetHoroscope_Click);
+			this->todaysHorBtn->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->todaysHorBtn->BackColor = System::Drawing::Color::LavenderBlush;
+			this->todaysHorBtn->Font = (gcnew System::Drawing::Font(L"Bookman Old Style", 16));
+			this->todaysHorBtn->Location = System::Drawing::Point(629, 422);
+			this->todaysHorBtn->Margin = System::Windows::Forms::Padding(5);
+			this->todaysHorBtn->Name = L"todaysHorBtn";
+			this->todaysHorBtn->Size = System::Drawing::Size(180, 60);
+			this->todaysHorBtn->TabIndex = 38;
+			this->todaysHorBtn->Text = L"На сегодня";
+			this->todaysHorBtn->UseVisualStyleBackColor = false;
+			this->todaysHorBtn->Click += gcnew System::EventHandler(this, &Horoscope::btnGetHoroscope_Click);
 			// 
 			// txtHoroscope
 			// 
@@ -292,6 +411,7 @@ namespace попытканепытка {
 			this->txtHoroscope->Multiline = true;
 			this->txtHoroscope->Name = L"txtHoroscope";
 			this->txtHoroscope->ReadOnly = true;
+			this->txtHoroscope->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->txtHoroscope->Size = System::Drawing::Size(567, 551);
 			this->txtHoroscope->TabIndex = 39;
 			// 
@@ -302,7 +422,7 @@ namespace попытканепытка {
 			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button1->FlatAppearance->BorderSize = 0;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button1->ForeColor = System::Drawing::Color::White;
 			this->button1->Location = System::Drawing::Point(1359, 6);
@@ -314,16 +434,33 @@ namespace попытканепытка {
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &Horoscope::button1_Click);
 			// 
+			// tomorrwHorBtn
+			// 
+			this->tomorrwHorBtn->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->tomorrwHorBtn->BackColor = System::Drawing::Color::SaddleBrown;
+			this->tomorrwHorBtn->Font = (gcnew System::Drawing::Font(L"Bookman Old Style", 16));
+			this->tomorrwHorBtn->ForeColor = System::Drawing::Color::WhiteSmoke;
+			this->tomorrwHorBtn->Location = System::Drawing::Point(410, 390);
+			this->tomorrwHorBtn->Margin = System::Windows::Forms::Padding(5);
+			this->tomorrwHorBtn->Name = L"tomorrwHorBtn";
+			this->tomorrwHorBtn->Size = System::Drawing::Size(168, 56);
+			this->tomorrwHorBtn->TabIndex = 53;
+			this->tomorrwHorBtn->Text = L"На завтра";
+			this->tomorrwHorBtn->UseVisualStyleBackColor = false;
+			this->tomorrwHorBtn->Click += gcnew System::EventHandler(this, &Horoscope::tomorrwHorBtn_Click);
+			// 
 			// Horoscope
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(10, 22);
+			this->AutoScaleDimensions = System::Drawing::SizeF(14, 29);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1444, 981);
+			this->Controls->Add(this->tomorrwHorBtn);
+			this->Controls->Add(yestHorBtn);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->txtHoroscope);
-			this->Controls->Add(this->btnGetHoroscope);
+			this->Controls->Add(this->todaysHorBtn);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->datePckr_horoscope);
 			this->Controls->Add(this->label1);
@@ -340,10 +477,13 @@ namespace попытканепытка {
 
 		}
 #pragma endregion
+		
+
 	private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
 	}
 	private: System::Void previous3_Click(System::Object^ sender, System::EventArgs^ e) {
+		
 		this->Close();
 	}
 	private: System::Void btnGetHoroscope_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -355,7 +495,7 @@ namespace попытканепытка {
 
 		if (selectedDate > today)
 		{
-			txtHoroscope->Text = "Дата рождения некорректна. Вы ещё не родились. Попробуйте снова";
+			txtHoroscope->Text = "Дата рождения некорректна. Попробуйте снова";
 			return;
 		}
 		txtHoroscope->Text = "Ваш знак зодиака: " + GetSignFromWeb(zodiacSignStr) + "\r\n\r\n";
@@ -365,6 +505,40 @@ namespace попытканепытка {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
+	}
+
+	private: System::Void yestHorBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		DateTime selectedDate = datePckr_horoscope->Value;
+		DateTime today = DateTime::Today;
+
+		std::string zodiacSign = GetZodiacSign(selectedDate);
+		String^ zodiacSignStr = gcnew String(zodiacSign.c_str());
+
+		if (selectedDate > today)
+		{
+			txtHoroscope->Text = "Дата рождения некорректна. Попробуйте снова";
+			return;
+		}
+		txtHoroscope->Text = "Ваш знак зодиака: " + GetSignFromWeb(zodiacSignStr) + "\r\n\r\n";
+		txtHoroscope->Text += "Гороскоп на вчера:\r\n";
+		txtHoroscope->Text += GetYestHoroscopeFromWeb(zodiacSignStr);
+	}
+
+	private: System::Void tomorrwHorBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		DateTime selectedDate = datePckr_horoscope->Value;
+		DateTime today = DateTime::Today;
+
+		std::string zodiacSign = GetZodiacSign(selectedDate);
+		String^ zodiacSignStr = gcnew String(zodiacSign.c_str());
+
+		if (selectedDate > today)
+		{
+			txtHoroscope->Text = "Дата рождения некорректна. Попробуйте снова";
+			return;
+		}
+		txtHoroscope->Text = "Ваш знак зодиака: " + GetSignFromWeb(zodiacSignStr) + "\r\n\r\n";
+		txtHoroscope->Text += "Гороскоп на завтра:\r\n";
+		txtHoroscope->Text += GetTomHoroscopeFromWeb(zodiacSignStr);
 	}
 };
 }

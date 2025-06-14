@@ -1,21 +1,32 @@
 #pragma once
+
+#include <Windows.h>
+#include <msclr/marshal.h>
 #include <string>
+
+#include <windows.h>
+#include <msclr/marshal_cppstd.h>
+
+
+
+
 using namespace System::Collections::Generic;
-using namespace System::Net;
-using namespace System::Text;
+
+
 
 namespace попытканепытка {
-
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Net;
+	using namespace System::IO;
+	using namespace System::Text;
+	using namespace System::Text::RegularExpressions;
 
-	/// <summary>
-	/// Сводка для NatalChart
-	/// </summary>
+	
 	public ref class NatalChart : public System::Windows::Forms::Form
 	{
 	public:
@@ -25,6 +36,7 @@ namespace попытканепытка {
 			//
 			//TODO: добавьте код конструктора
 			//
+			
 		}
 
 	protected:
@@ -38,6 +50,7 @@ namespace попытканепытка {
 				delete components;
 			}
 		}
+	
 	private: System::Windows::Forms::Button^ getChartBtn;
 	protected:
 
@@ -46,7 +59,8 @@ namespace попытканепытка {
 
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Panel^ inputPanel;
+
 	private: System::Windows::Forms::CheckBox^ timeChckBx;
 
 	private: System::Windows::Forms::Label^ label5;
@@ -54,22 +68,29 @@ namespace попытканепытка {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::DateTimePicker^ dtOfBirthPker;
-	private: System::Windows::Forms::ComboBox^ minuteСmbx;
 
+	private: System::Windows::Forms::ComboBox^ minuteСmbx;
 	private: System::Windows::Forms::ComboBox^ hourСmbx;
 
-
 	private: System::Windows::Forms::TextBox^ fullnameTxtbx;
-
-
-
-
 	private: System::Windows::Forms::Button^ closeBtn;
 	private: System::Windows::Forms::ComboBox^ plcOfBirthCmbx;
-
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::ComboBox^ coordintsCmbx;
+
+	private: System::Windows::Forms::ComboBox^ timezoneCmbx;
+	private: System::Windows::Forms::Label^ label8;
+	
 	private: System::Windows::Forms::TextBox^ txtResults;
+	private: System::Windows::Forms::Panel^ outputPanel;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ linkLabel;
+	private: System::Windows::Forms::Button^ newBtn;
+	private: System::Windows::Forms::Button^ previousBtn;
+
+
+
+
 
 
 
@@ -82,46 +103,6 @@ namespace попытканепытка {
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/*String^ GetNatChartFromWeb(String^ fullname, String^, String^, String^)
-		{
-			try
-			{
-				WebClient^ client = gcnew WebClient();
-				client->Encoding = System::Text::Encoding::UTF8;
-				String^ url = "https://horo.mail.ru/prediction/" + zodiacSign->ToLower() + "/today/";
-
-				String^ html = client->DownloadString(url);
-
-				int startPos_s = html->IndexOf("class=\"c30ebf5669 b56f552a61 c62c92d686\">") + 61;
-				if (startPos_s > 0)
-				{
-					int endPos_s = html->IndexOf("</h1></div></div><div class=\"be019c475d\"><div class=\"ab9727ec4f\"><div data-qa=\"MoreListTooltip\"", startPos_s);
-					if (endPos_s > startPos_s)
-					{
-						String^ sign = html->Substring(startPos_s, endPos_s - startPos_s);
-
-						///Удаляем HTML-теги
-						sign = System::Text::RegularExpressions::Regex::Replace(
-							sign,
-							"<[^>]*>",
-							"");
-						sign = System::Text::RegularExpressions::Regex::Replace(
-							sign,
-							"\\s+",
-							" ");
-
-						sign = sign->Trim();
-						return sign;
-					}
-				}
-				return "Не удалось получить описание. Попробуйте позже.\r\nИсточник: " + url;
-			}
-			catch (Exception^ ex)
-			{
-				return "Ошибка при получении гороскопа: " + ex->Message;
-			}
-		}*/
-
 
 		/// <summary>
 		/// Требуемый метод для поддержки конструктора — не изменяйте 
@@ -133,7 +114,9 @@ namespace попытканепытка {
 			this->getChartBtn = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->inputPanel = (gcnew System::Windows::Forms::Panel());
+			this->timezoneCmbx = (gcnew System::Windows::Forms::ComboBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->coordintsCmbx = (gcnew System::Windows::Forms::ComboBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->plcOfBirthCmbx = (gcnew System::Windows::Forms::ComboBox());
@@ -146,18 +129,24 @@ namespace попытканепытка {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->closeBtn = (gcnew System::Windows::Forms::Button());
+			this->outputPanel = (gcnew System::Windows::Forms::Panel());
+			this->linkLabel = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->txtResults = (gcnew System::Windows::Forms::TextBox());
-			this->panel1->SuspendLayout();
+			this->closeBtn = (gcnew System::Windows::Forms::Button());
+			this->newBtn = (gcnew System::Windows::Forms::Button());
+			this->previousBtn = (gcnew System::Windows::Forms::Button());
+			this->inputPanel->SuspendLayout();
+			this->outputPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// getChartBtn
 			// 
-			this->getChartBtn->Location = System::Drawing::Point(679, 861);
+			this->getChartBtn->Location = System::Drawing::Point(950, 908);
 			this->getChartBtn->Name = L"getChartBtn";
 			this->getChartBtn->Size = System::Drawing::Size(200, 40);
 			this->getChartBtn->TabIndex = 0;
-			this->getChartBtn->Text = L"Нажми меня";
+			this->getChartBtn->Text = L"Получить";
 			this->getChartBtn->Click += gcnew System::EventHandler(this, &NatalChart::getChartBtn_Click);
 			// 
 			// label1
@@ -167,7 +156,7 @@ namespace попытканепытка {
 			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 50));
 			this->label1->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->label1->Location = System::Drawing::Point(492, 185);
+			this->label1->Location = System::Drawing::Point(454, 175);
 			this->label1->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(708, 95);
@@ -182,39 +171,75 @@ namespace попытканепытка {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label2->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->label2->Location = System::Drawing::Point(91, 22);
+			this->label2->Location = System::Drawing::Point(40, 22);
 			this->label2->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(141, 33);
 			this->label2->TabIndex = 37;
 			this->label2->Text = L"Ваше ФИО";
 			// 
-			// panel1
+			// inputPanel
 			// 
-			this->panel1->BackColor = System::Drawing::Color::Transparent;
-			this->panel1->Controls->Add(this->coordintsCmbx);
-			this->panel1->Controls->Add(this->label7);
-			this->panel1->Controls->Add(this->plcOfBirthCmbx);
-			this->panel1->Controls->Add(this->minuteСmbx);
-			this->panel1->Controls->Add(this->hourСmbx);
-			this->panel1->Controls->Add(this->fullnameTxtbx);
-			this->panel1->Controls->Add(this->dtOfBirthPker);
-			this->panel1->Controls->Add(this->label6);
-			this->panel1->Controls->Add(this->timeChckBx);
-			this->panel1->Controls->Add(this->label5);
-			this->panel1->Controls->Add(this->label4);
-			this->panel1->Controls->Add(this->label3);
-			this->panel1->Controls->Add(this->label2);
-			this->panel1->Location = System::Drawing::Point(529, 348);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(836, 483);
-			this->panel1->TabIndex = 38;
+			this->inputPanel->BackColor = System::Drawing::Color::Transparent;
+			this->inputPanel->Controls->Add(this->timezoneCmbx);
+			this->inputPanel->Controls->Add(this->label8);
+			this->inputPanel->Controls->Add(this->coordintsCmbx);
+			this->inputPanel->Controls->Add(this->label7);
+			this->inputPanel->Controls->Add(this->plcOfBirthCmbx);
+			this->inputPanel->Controls->Add(this->minuteСmbx);
+			this->inputPanel->Controls->Add(this->hourСmbx);
+			this->inputPanel->Controls->Add(this->fullnameTxtbx);
+			this->inputPanel->Controls->Add(this->dtOfBirthPker);
+			this->inputPanel->Controls->Add(this->label6);
+			this->inputPanel->Controls->Add(this->timeChckBx);
+			this->inputPanel->Controls->Add(this->label5);
+			this->inputPanel->Controls->Add(this->label4);
+			this->inputPanel->Controls->Add(this->label3);
+			this->inputPanel->Controls->Add(this->label2);
+			this->inputPanel->Location = System::Drawing::Point(255, 300);
+			this->inputPanel->Name = L"inputPanel";
+			this->inputPanel->Size = System::Drawing::Size(734, 540);
+			this->inputPanel->TabIndex = 38;
+			// 
+			// timezoneCmbx
+			// 
+			this->timezoneCmbx->DropDownStyle = System::Windows::Forms::ComboBoxStyle::Simple;
+			this->timezoneCmbx->Enabled = false;
+			this->timezoneCmbx->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->timezoneCmbx->FormattingEnabled = true;
+			this->timezoneCmbx->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"4", L"4", L"4", L"6" });
+			this->timezoneCmbx->Location = System::Drawing::Point(357, 487);
+			this->timezoneCmbx->Name = L"timezoneCmbx";
+			this->timezoneCmbx->Size = System::Drawing::Size(161, 28);
+			this->timezoneCmbx->TabIndex = 51;
+			this->timezoneCmbx->Text = L"4";
+			// 
+			// label8
+			// 
+			this->label8->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->label8->AutoSize = true;
+			this->label8->BackColor = System::Drawing::Color::Transparent;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label8->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->label8->Location = System::Drawing::Point(40, 480);
+			this->label8->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(175, 33);
+			this->label8->TabIndex = 50;
+			this->label8->Text = L"Часовой пояс";
 			// 
 			// coordintsCmbx
 			// 
+			this->coordintsCmbx->Enabled = false;
 			this->coordintsCmbx->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->coordintsCmbx->FormattingEnabled = true;
+			this->coordintsCmbx->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"55.78874,49.12214", L"55.75222,37.61556",
+					L"59.93863,30.31413", L"56.8519,60.6122"
+			});
 			this->coordintsCmbx->Location = System::Drawing::Point(483, 432);
 			this->coordintsCmbx->Name = L"coordintsCmbx";
 			this->coordintsCmbx->Size = System::Drawing::Size(161, 28);
@@ -229,7 +254,7 @@ namespace попытканепытка {
 			this->label7->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label7->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->label7->Location = System::Drawing::Point(91, 425);
+			this->label7->Location = System::Drawing::Point(40, 425);
 			this->label7->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(285, 33);
@@ -242,14 +267,15 @@ namespace попытканепытка {
 			this->plcOfBirthCmbx->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->plcOfBirthCmbx->FormattingEnabled = true;
-			this->plcOfBirthCmbx->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
+			this->plcOfBirthCmbx->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
 				L"Казань, Татарстан, Россия", L"Москва, Россия",
-					L"Санкт-Петербург, Россия"
+					L"Санкт-Петербург, Россия", L"Екатеринбург, Свердловская Область, Россия"
 			});
 			this->plcOfBirthCmbx->Location = System::Drawing::Point(379, 272);
 			this->plcOfBirthCmbx->Name = L"plcOfBirthCmbx";
 			this->plcOfBirthCmbx->Size = System::Drawing::Size(265, 28);
 			this->plcOfBirthCmbx->TabIndex = 47;
+			this->plcOfBirthCmbx->SelectedIndexChanged += gcnew System::EventHandler(this, &NatalChart::plcOfBirthCmbx_SelectedIndexChanged);
 			// 
 			// minuteСmbx
 			// 
@@ -268,6 +294,7 @@ namespace попытканепытка {
 			this->minuteСmbx->Name = L"minuteСmbx";
 			this->minuteСmbx->Size = System::Drawing::Size(95, 28);
 			this->minuteСmbx->TabIndex = 46;
+			this->minuteСmbx->SelectedValueChanged += gcnew System::EventHandler(this, &NatalChart::minuteСmbx_SelectedValueChanged);
 			// 
 			// hourСmbx
 			// 
@@ -283,6 +310,7 @@ namespace попытканепытка {
 			this->hourСmbx->Name = L"hourСmbx";
 			this->hourСmbx->Size = System::Drawing::Size(95, 28);
 			this->hourСmbx->TabIndex = 45;
+			this->hourСmbx->SelectedIndexChanged += gcnew System::EventHandler(this, &NatalChart::hourСmbx_SelectedIndexChanged);
 			// 
 			// fullnameTxtbx
 			// 
@@ -291,6 +319,7 @@ namespace попытканепытка {
 			this->fullnameTxtbx->Name = L"fullnameTxtbx";
 			this->fullnameTxtbx->Size = System::Drawing::Size(368, 24);
 			this->fullnameTxtbx->TabIndex = 44;
+			this->fullnameTxtbx->TextChanged += gcnew System::EventHandler(this, &NatalChart::fullnameTxtbx_TextChanged);
 			// 
 			// dtOfBirthPker
 			// 
@@ -307,7 +336,7 @@ namespace попытканепытка {
 			this->label6->BackColor = System::Drawing::Color::Transparent;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 11.5F));
 			this->label6->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->label6->Location = System::Drawing::Point(92, 323);
+			this->label6->Location = System::Drawing::Point(41, 323);
 			this->label6->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(587, 81);
@@ -319,6 +348,7 @@ namespace попытканепытка {
 			// timeChckBx
 			// 
 			this->timeChckBx->AutoSize = true;
+			this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
 			this->timeChckBx->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 10.8F));
 			this->timeChckBx->ForeColor = System::Drawing::Color::LavenderBlush;
 			this->timeChckBx->Location = System::Drawing::Point(71, 201);
@@ -337,7 +367,7 @@ namespace попытканепытка {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label5->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->label5->Location = System::Drawing::Point(91, 272);
+			this->label5->Location = System::Drawing::Point(40, 272);
 			this->label5->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(213, 33);
@@ -352,7 +382,7 @@ namespace попытканепытка {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label4->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->label4->Location = System::Drawing::Point(91, 138);
+			this->label4->Location = System::Drawing::Point(40, 138);
 			this->label4->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(299, 33);
@@ -367,12 +397,65 @@ namespace попытканепытка {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label3->ForeColor = System::Drawing::Color::LavenderBlush;
-			this->label3->Location = System::Drawing::Point(91, 77);
+			this->label3->Location = System::Drawing::Point(40, 77);
 			this->label3->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(194, 33);
 			this->label3->TabIndex = 38;
 			this->label3->Text = L"Дата рождения";
+			// 
+			// outputPanel
+			// 
+			this->outputPanel->BackColor = System::Drawing::Color::Transparent;
+			this->outputPanel->Controls->Add(this->linkLabel);
+			this->outputPanel->Controls->Add(this->label9);
+			this->outputPanel->Controls->Add(this->txtResults);
+			this->outputPanel->Location = System::Drawing::Point(1014, 300);
+			this->outputPanel->Name = L"outputPanel";
+			this->outputPanel->Size = System::Drawing::Size(795, 540);
+			this->outputPanel->TabIndex = 57;
+			this->outputPanel->Visible = false;
+			// 
+			// linkLabel
+			// 
+			this->linkLabel->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->linkLabel->AutoSize = true;
+			this->linkLabel->BackColor = System::Drawing::Color::Transparent;
+			this->linkLabel->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 20));
+			this->linkLabel->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->linkLabel->Location = System::Drawing::Point(174, 438);
+			this->linkLabel->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->linkLabel->Name = L"linkLabel";
+			this->linkLabel->Size = System::Drawing::Size(456, 46);
+			this->linkLabel->TabIndex = 58;
+			this->linkLabel->Text = L"Перейти к натальной карте";
+			this->linkLabel->Click += gcnew System::EventHandler(this, &NatalChart::LinkLabel_Click);
+			this->linkLabel->MouseEnter += gcnew System::EventHandler(this, &NatalChart::LinkLabel_MouseEnter);
+			this->linkLabel->MouseLeave += gcnew System::EventHandler(this, &NatalChart::LinkLabel_MouseLeave);
+			// 
+			// label9
+			// 
+			this->label9->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->label9->AutoSize = true;
+			this->label9->BackColor = System::Drawing::Color::Transparent;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 20));
+			this->label9->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->label9->Location = System::Drawing::Point(313, 69);
+			this->label9->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(172, 46);
+			this->label9->TabIndex = 57;
+			this->label9->Text = L"Результат";
+			// 
+			// txtResults
+			// 
+			this->txtResults->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->txtResults->Location = System::Drawing::Point(130, 148);
+			this->txtResults->Multiline = true;
+			this->txtResults->Name = L"txtResults";
+			this->txtResults->Size = System::Drawing::Size(564, 256);
+			this->txtResults->TabIndex = 53;
 			// 
 			// closeBtn
 			// 
@@ -393,14 +476,34 @@ namespace попытканепытка {
 			this->closeBtn->UseVisualStyleBackColor = false;
 			this->closeBtn->Click += gcnew System::EventHandler(this, &NatalChart::closeBtn_Click);
 			// 
-			// txtResults
+			// newBtn
 			// 
-			this->txtResults->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.8F));
-			this->txtResults->Location = System::Drawing::Point(143, 305);
-			this->txtResults->Multiline = true;
-			this->txtResults->Name = L"txtResults";
-			this->txtResults->Size = System::Drawing::Size(358, 256);
-			this->txtResults->TabIndex = 53;
+			this->newBtn->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->newBtn->Location = System::Drawing::Point(32, 467);
+			this->newBtn->Name = L"newBtn";
+			this->newBtn->Size = System::Drawing::Size(173, 188);
+			this->newBtn->TabIndex = 53;
+			this->newBtn->Text = L"Новая натальная карта";
+			this->newBtn->UseVisualStyleBackColor = true;
+			this->newBtn->Click += gcnew System::EventHandler(this, &NatalChart::newBtn_Click);
+			// 
+			// previousBtn
+			// 
+			this->previousBtn->BackColor = System::Drawing::Color::Transparent;
+			this->previousBtn->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->previousBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->previousBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->previousBtn->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->previousBtn->Location = System::Drawing::Point(32, 25);
+			this->previousBtn->Margin = System::Windows::Forms::Padding(7);
+			this->previousBtn->Name = L"previousBtn";
+			this->previousBtn->Size = System::Drawing::Size(119, 85);
+			this->previousBtn->TabIndex = 58;
+			this->previousBtn->Text = L"<";
+			this->previousBtn->UseVisualStyleBackColor = false;
+			this->previousBtn->Click += gcnew System::EventHandler(this, &NatalChart::previous3_Click);
 			// 
 			// NatalChart
 			// 
@@ -409,40 +512,42 @@ namespace попытканепытка {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1426, 934);
-			this->Controls->Add(this->txtResults);
+			this->Controls->Add(this->previousBtn);
+			this->Controls->Add(this->outputPanel);
+			this->Controls->Add(this->newBtn);
 			this->Controls->Add(this->closeBtn);
-			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->inputPanel);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->getChartBtn);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"NatalChart";
 			this->Text = L"NatalChart";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
-			this->panel1->ResumeLayout(false);
-			this->panel1->PerformLayout();
+			this->inputPanel->ResumeLayout(false);
+			this->inputPanel->PerformLayout();
+			this->outputPanel->ResumeLayout(false);
+			this->outputPanel->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 
-		// Метод для генерации URL натальной карты
+		
 		String^ GenerateNatalChartUrl()
 		{
 			// Кодирование имени для URL
 			String^ encodedName = Uri::EscapeDataString(fullnameTxtbx->Text);
 
-			// Получение даты рождения
+			
 			DateTime birthDate = dtOfBirthPker->Value;
 			String^ day = birthDate.Day.ToString();
 			String^ month = birthDate.Month.ToString();
 			String^ year = birthDate.Year.ToString();
 
-			// Обработка времени рождения
 			String^ hour = timeChckBx->Checked ? String::Empty : hourСmbx->SelectedItem->ToString();
 			String^ minute = timeChckBx->Checked ? String::Empty : minuteСmbx->SelectedItem->ToString();
 
-			// Кодирование места рождения
 			String^ place = Uri::EscapeDataString(plcOfBirthCmbx->Text);
 
 			// Получение координат
@@ -454,6 +559,8 @@ namespace попытканепытка {
 
 			String^ lat = coords[0]->Trim();
 			String^ lon = coords[1]->Trim();
+
+			String^ timezn = timezoneCmbx->Text;
 
 			// Формирование URL
 			StringBuilder^ urlBuilder = gcnew StringBuilder();
@@ -486,56 +593,247 @@ namespace попытканепытка {
 			urlBuilder->Append(lat);
 			urlBuilder->Append("&zp_long_decimal=");
 			urlBuilder->Append(lon);
-			urlBuilder->Append("&zp_offset_geo=3");
+			urlBuilder->Append("&zp_offset_geo=");
+			urlBuilder->Append(timezn);
 			urlBuilder->Append("&action=zp_birthreport");
 
 			return urlBuilder->ToString();
 		}
+
+
+		String^ GetInfoFromWeb(String^ url)
+		{
+			try
+			{
+				WebClient^ client = gcnew WebClient();
+				client->Encoding = System::Text::Encoding::UTF8;
+				String^ html = client->DownloadString(url);
+				int startPos = html->IndexOf("<caption class=\"zp-report-caption\">");
+
+				if (startPos > 0)
+				{
+					int endPos = html->IndexOf("</td></tr></table><img loading=\"lazy\" src=\"", startPos);
+					if (endPos > startPos)
+					{
+						String^ description = html->Substring(startPos, endPos - startPos);
+
+						description = System::Text::RegularExpressions::Regex::Replace(
+							description,
+							"<[^>]*>",
+							"");
+
+						description = description->Replace("&#176;", "°")
+							->Replace("&#039;", "'");
+
+						description = System::Text::RegularExpressions::Regex::Replace(
+							description,
+							"\\s+",
+							" ");
+
+						description = description->Trim();
+						description += "\r\n\r\nИсточник: " + url;
+						return description;
+					}
+				}
+				return "Не удалось получить описание. Попробуйте позже.\r\nИсточник: " + url;
+			}
+			catch (Exception^ ex)
+			{
+				return "Ошибка при получении данных: " + ex->Message;
+			}
+		}
+
+		void ValidateCheckBox()
+		{
+			if ((!timeChckBx->Checked) && ((hourСmbx->SelectedIndex <= 0) || (minuteСmbx->SelectedIndex <= 0)))
+			{
+				timeChckBx->BackColor = Color::LightPink;
+				hourСmbx->BackColor = Color::LightPink;
+				minuteСmbx->BackColor = Color::LightPink;
+				throw gcnew Exception("Если не знаете точное время, отметьте галочкой 'Не знаю время'");
+			}
+			timeChckBx->BackColor = SystemColors::Window;
+			hourСmbx->BackColor = SystemColors::Window;
+			minuteСmbx->BackColor = SystemColors::Window;
+		}
+
+		void ValidateTextBox()
+		{
+			if (String::IsNullOrWhiteSpace(fullnameTxtbx->Text))
+			{
+				fullnameTxtbx->BackColor = Color::LightPink;
+				throw gcnew Exception("Поле ФИО не может быть пустым!");
+			}
+
+			if (!Regex::IsMatch(fullnameTxtbx->Text, "^[\\p{L} ]+$"))
+			{
+				fullnameTxtbx->BackColor = Color::LightPink;
+				throw gcnew Exception("ФИО должно содержать только буквы и пробелы!");
+			}
+
+			if (fullnameTxtbx->Text->Length < 3)
+			{
+				fullnameTxtbx->BackColor = Color::LightPink;
+				throw gcnew Exception("ФИО должно содержать минимум 3 символа!");
+			}
+
+			fullnameTxtbx->BackColor = SystemColors::Window;
+		}
+
 	
 	private: System::Void closeBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		if (Application::OpenForms->Count > 0)
+		{
+			for each (Form ^ form in Application::OpenForms)
+			{
+				form->Close();
+			}
+		}
 		Application::Exit();
+
 	}
-private: System::Void timeChckBx_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	hourСmbx->Enabled = !timeChckBx->Checked;
-	minuteСmbx->Enabled = !timeChckBx->Checked;
+	
+	private: System::Void timeChckBx_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		hourСmbx->Enabled = !timeChckBx->Checked;
+		minuteСmbx->Enabled = !timeChckBx->Checked;
+	}
+	
+	private: System::Void getChartBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		try
+		{
+			timeChckBx->BackColor = Color::LavenderBlush;
+			hourСmbx->BackColor = Color::LavenderBlush;
+			minuteСmbx->BackColor = Color::LavenderBlush;
+			fullnameTxtbx->BackColor = Color::LavenderBlush;
+			this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
+			txtResults->Text = "";
+	;
+			ValidateCheckBox();
+			ValidateTextBox();
+
+			DateTime selectedDate = dtOfBirthPker->Value;
+			DateTime today = DateTime::Today;
+
+			dtOfBirthPker->Value = today;
+
+			if (selectedDate > today)
+			{
+				outputPanel->Visible = true;
+				txtResults->Text = "Дата рождения некорректна. Вы ещё не родились. Попробуйте снова";
+				return;
+			}
+
+
+			// Генерация URL с помощью отдельного метода
+			String^ url = GenerateNatalChartUrl();
+			
+			txtResults->Text += GetInfoFromWeb(url);
+			linkLabel->Text = "Перейти к натальной карте";
+			linkLabel->Tag = url;
+			outputPanel->Visible = true;
+			inputPanel->Visible = false;
+
+			// Формирование информации для вывода
+			StringBuilder^ infoBuilder = gcnew StringBuilder();
+			infoBuilder->AppendLine("=== Сгенерированный URL ===");
+			infoBuilder->AppendLine(url);
+			infoBuilder->AppendLine();
+			infoBuilder->AppendLine("=== Параметры запроса ===");
+			infoBuilder->AppendLine("ФИО: " + fullnameTxtbx->Text);
+			infoBuilder->AppendLine("Дата рождения: " + dtOfBirthPker->Value.ToShortDateString());
+
+			if (timeChckBx->Checked)
+			{
+				infoBuilder->AppendLine("Время рождения: неизвестно");
+			}
+			else
+			{
+				infoBuilder->AppendLine(String::Format("Время рождения: {0}:{1}",
+					hourСmbx->SelectedItem, minuteСmbx->SelectedItem));
+			}
+
+			infoBuilder->AppendLine("Место рождения: " + plcOfBirthCmbx->Text);
+			infoBuilder->AppendLine("Координаты: " + coordintsCmbx->Text);
+
+			txtResults->Text += "\n" + infoBuilder->ToString();
+		}
+
+		catch (Exception^ ex)
+		{
+			txtResults->Text = "Ошибка: " + ex->Message;
+			MessageBox::Show("Ошибка при формировании URL: " + ex->Message,
+				"Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+	}
+		   private:
+			   System::Void LinkLabel_Click(System::Object^ sender, System::EventArgs^ e)
+			   {
+				   try
+				   {
+					   String^ url = linkLabel->Tag->ToString();;
+
+					   // Открываем ссылку в браузере по умолчанию
+					   System::Diagnostics::Process::Start(url);
+				   }
+				   catch (Exception^ ex)
+				   {
+					   MessageBox::Show("Не удалось открыть ссылку: " + ex->Message,
+						   "Ошибка",
+						   MessageBoxButtons::OK,
+						   MessageBoxIcon::Error);
+				   }
+			   }
+
+			   System::Void LinkLabel_MouseEnter(System::Object^ sender, System::EventArgs^ e)
+			   {
+				   this->linkLabel->ForeColor = System::Drawing::Color::Red;
+			   }
+
+			   System::Void LinkLabel_MouseLeave(System::Object^ sender, System::EventArgs^ e)
+			   {
+				   this->linkLabel->ForeColor = System::Drawing::Color::Blue;
+			   }
+	private: System::Void newBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		fullnameTxtbx->Text = "";
+
+		inputPanel->Visible = true;
+		outputPanel->Visible = false;
+
+		this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
+	}
+	
+	private: System::Void plcOfBirthCmbx_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		coordintsCmbx->SelectedIndex = plcOfBirthCmbx->SelectedIndex;
+		timezoneCmbx->SelectedIndex = plcOfBirthCmbx->SelectedIndex;
+	}
+	
+	private: System::Void previous3_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+private: System::Void fullnameTxtbx_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	timeChckBx->BackColor = Color::LavenderBlush;
+	hourСmbx->BackColor = Color::LavenderBlush;
+	minuteСmbx->BackColor = Color::LavenderBlush;
+	fullnameTxtbx->BackColor = Color::LavenderBlush;
+	this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
+
 }
-private: System::Void getChartBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	try
-	{
-		// Генерация URL с помощью отдельного метода
-		String^ url = GenerateNatalChartUrl();
+private: System::Void hourСmbx_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	timeChckBx->BackColor = Color::LavenderBlush;
+	hourСmbx->BackColor = Color::LavenderBlush;
+	minuteСmbx->BackColor = Color::LavenderBlush;
+	fullnameTxtbx->BackColor = Color::LavenderBlush;
+	this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
 
-		// Формирование информации для вывода
-		StringBuilder^ infoBuilder = gcnew StringBuilder();
-		infoBuilder->AppendLine("=== Сгенерированный URL ===");
-		infoBuilder->AppendLine(url);
-		infoBuilder->AppendLine();
-		infoBuilder->AppendLine("=== Параметры запроса ===");
-		infoBuilder->AppendLine("ФИО: " + fullnameTxtbx->Text);
-		infoBuilder->AppendLine("Дата рождения: " + dtOfBirthPker->Value.ToShortDateString());
+}
+private: System::Void minuteСmbx_SelectedValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	timeChckBx->BackColor = Color::LavenderBlush;
+	hourСmbx->BackColor = Color::LavenderBlush;
+	minuteСmbx->BackColor = Color::LavenderBlush;
+	fullnameTxtbx->BackColor = Color::LavenderBlush;
+	this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
 
-		if (timeChckBx->Checked)
-		{
-			infoBuilder->AppendLine("Время рождения: неизвестно");
-		}
-		else
-		{
-			infoBuilder->AppendLine(String::Format("Время рождения: {0}:{1}",
-				hourСmbx->SelectedItem, minuteСmbx->SelectedItem));
-		}
-
-		infoBuilder->AppendLine("Место рождения: " + plcOfBirthCmbx->Text);
-		infoBuilder->AppendLine("Координаты: " + coordintsCmbx->Text);
-
-		// Вывод информации в TextBox
-		txtResults->Text = infoBuilder->ToString();
-	}
-	catch (Exception^ ex)
-	{
-		txtResults->Text = "Ошибка: " + ex->Message;
-		MessageBox::Show("Ошибка при формировании URL: " + ex->Message,
-			"Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
-	}
 }
 };
 }

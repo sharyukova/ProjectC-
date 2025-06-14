@@ -94,17 +94,16 @@ namespace попытканепытка {
             // 
             this->start->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->start->BackColor = System::Drawing::Color::Transparent;
-            this->start->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"start.BackgroundImage")));
             this->start->Cursor = System::Windows::Forms::Cursors::Hand;
             this->start->FlatAppearance->BorderSize = 0;
             this->start->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->start->Font = (gcnew System::Drawing::Font(L"Soledago", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->start->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
             this->start->ForeColor = System::Drawing::SystemColors::ControlLight;
-            this->start->Location = System::Drawing::Point(587, 589);
-            this->start->Margin = System::Windows::Forms::Padding(2);
+            this->start->Location = System::Drawing::Point(534, 641);
+            this->start->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
             this->start->Name = L"start";
-            this->start->Size = System::Drawing::Size(273, 87);
+            this->start->Size = System::Drawing::Size(364, 107);
             this->start->TabIndex = 0;
             this->start->Text = L"МЕНЮ";
             this->start->TextImageRelation = System::Windows::Forms::TextImageRelation::TextAboveImage;
@@ -118,41 +117,38 @@ namespace попытканепытка {
             this->exit->Cursor = System::Windows::Forms::Cursors::Hand;
             this->exit->FlatAppearance->BorderSize = 0;
             this->exit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->exit->Font = (gcnew System::Drawing::Font(L"Soledago", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            this->exit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
             this->exit->ForeColor = System::Drawing::Color::White;
-            this->exit->Location = System::Drawing::Point(1348, 11);
-            this->exit->Margin = System::Windows::Forms::Padding(2);
+            this->exit->Location = System::Drawing::Point(1298, 14);
+            this->exit->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
             this->exit->Name = L"exit";
-            this->exit->Size = System::Drawing::Size(85, 80);
+            this->exit->Size = System::Drawing::Size(113, 98);
             this->exit->TabIndex = 3;
             this->exit->Text = L"Х";
             this->exit->UseVisualStyleBackColor = false;
             this->exit->Click += gcnew System::EventHandler(this, &MyForm::exit_Click);
             // 
-            // pictureBox1
-            // 
-            // 
             // MyForm
             // 
-            this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+            this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
             this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-            this->ClientSize = System::Drawing::Size(1444, 981);
+            this->ClientSize = System::Drawing::Size(1426, 934);
             this->Controls->Add(this->exit);
             this->Controls->Add(this->start);
             this->DoubleBuffered = true;
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-            this->Margin = System::Windows::Forms::Padding(2);
+            this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
             this->Name = L"MyForm";
             this->Text = L"MyForm";
             this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
             this->ResumeLayout(false);
-            this->PerformLayout();
 
         }
 #pragma endregion
+
     private: System::Void start_Click(System::Object^ sender, System::EventArgs^ e) {
         firstMenu = gcnew FirstMenu();
         firstMenu->Opacity = 0;  
