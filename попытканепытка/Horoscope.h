@@ -228,7 +228,7 @@ namespace попытканепытка {
 			{
 				WebClient^ client = gcnew WebClient();
 				client->Encoding = System::Text::Encoding::UTF8;
-				String^ url = "https://horo.mail.ru/prediction/" + zodiacSign->ToLower() + "/today/";
+				String^ url = "https://horo.mail.ru/prediction/" + zodiacSign->ToLower() + "/yesterday/";
 				String^ html = client->DownloadString(url);
 
 
@@ -504,6 +504,14 @@ namespace попытканепытка {
 		
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		//Application::Exit();
+		if (Application::OpenForms->Count > 0)
+		{
+			for each (Form ^ form in Application::OpenForms)
+			{
+				form->Close();
+			}
+		}
 		Application::Exit();
 	}
 

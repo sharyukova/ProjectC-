@@ -164,5 +164,9 @@ namespace попытканепытка {
     private: System::Void exit_Click(System::Object^ sender, System::EventArgs^ e) {
         Application::Exit();
     }
+
+    
+
     }; 
+
 }

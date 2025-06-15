@@ -271,6 +271,8 @@ namespace попытканепытка {
 				L"Казань, Татарстан, Россия", L"Москва, Россия",
 					L"Санкт-Петербург, Россия", L"Екатеринбург, Свердловская Область, Россия"
 			});
+			this->plcOfBirthCmbx->SelectedIndex = 0;
+			//this->plcOfBirthCmbx->SelectedIndex = 0;
 			this->plcOfBirthCmbx->Location = System::Drawing::Point(379, 272);
 			this->plcOfBirthCmbx->Name = L"plcOfBirthCmbx";
 			this->plcOfBirthCmbx->Size = System::Drawing::Size(265, 28);
@@ -282,19 +284,31 @@ namespace попытканепытка {
 			this->minuteСmbx->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->minuteСmbx->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
+			this->minuteСmbx->Text = "Минуты";
+			this->minuteСmbx->Items->Add(L"Минуты");
+			this->minuteСmbx->Items->Add(L"00");
 			this->minuteСmbx->FormattingEnabled = true;
-			this->minuteСmbx->Items->AddRange(gcnew cli::array< System::Object^  >(62) {
+			for (int i = 1; i < 61; i++)
+			{
+				
+				String^ minute = i.ToString("D2"); // "D2" форматирует число с ведущим нулем
+				this->minuteСmbx->Items->Add(minute);
+			}
+
+			/*this->minuteСmbx->Items->AddRange(gcnew cli::array< System::Object^  >(62) {
 				L"Минуты", L"00", L"01", L"02", L"03", L"04",
 					L"05", L"06", L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22",
 					L"23", L"24", L"25", L"26", L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40",
 					L"41", L"42", L"43", L"44", L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58",
 					L"59", L"60"
-			});
+			});*/
+			
 			this->minuteСmbx->Location = System::Drawing::Point(549, 143);
 			this->minuteСmbx->Name = L"minuteСmbx";
 			this->minuteСmbx->Size = System::Drawing::Size(95, 28);
 			this->minuteСmbx->TabIndex = 46;
-			this->minuteСmbx->SelectedValueChanged += gcnew System::EventHandler(this, &NatalChart::minuteСmbx_SelectedValueChanged);
+			this->minuteСmbx->SelectedValueChanged += gcnew System::EventHandler(this, &NatalChart::minuteСmbx_SelectedIndexChanged);
+			
 			// 
 			// hourСmbx
 			// 
@@ -302,10 +316,19 @@ namespace попытканепытка {
 			this->hourСmbx->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->hourСmbx->FormattingEnabled = true;
-			this->hourСmbx->Items->AddRange(gcnew cli::array< System::Object^  >(25) {
+			this->hourСmbx->Items->Add(L"Часы");
+			this->hourСmbx->Items->Add(L"00");
+			for (int i = 1; i < 24; i++)
+			{
+
+				String^ hour = i.ToString("D2"); // "D2" форматирует число с ведущим нулем
+				this->hourСmbx->Items->Add(hour);
+			}
+
+			/*this->hourСmbx->Items->AddRange(gcnew cli::array< System::Object^  >(25) {
 				L"Часы", L"00", L"01", L"02", L"03", L"04", L"05",
 					L"06", L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23"
-			});
+			});*/
 			this->hourСmbx->Location = System::Drawing::Point(423, 145);
 			this->hourСmbx->Name = L"hourСmbx";
 			this->hourСmbx->Size = System::Drawing::Size(95, 28);
@@ -414,7 +437,6 @@ namespace попытканепытка {
 			this->outputPanel->Name = L"outputPanel";
 			this->outputPanel->Size = System::Drawing::Size(795, 540);
 			this->outputPanel->TabIndex = 57;
-			this->outputPanel->Visible = false;
 			// 
 			// linkLabel
 			// 
@@ -454,6 +476,8 @@ namespace попытканепытка {
 			this->txtResults->Location = System::Drawing::Point(130, 148);
 			this->txtResults->Multiline = true;
 			this->txtResults->Name = L"txtResults";
+			this->txtResults->ReadOnly = true;
+			this->txtResults->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->txtResults->Size = System::Drawing::Size(564, 256);
 			this->txtResults->TabIndex = 53;
 			// 
@@ -695,6 +719,8 @@ namespace попытканепытка {
 	}
 	
 	private: System::Void timeChckBx_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		timeChckBx->BackColor = System::Drawing::Color::Transparent;
+
 		hourСmbx->Enabled = !timeChckBx->Checked;
 		minuteСmbx->Enabled = !timeChckBx->Checked;
 	}
@@ -702,11 +728,11 @@ namespace попытканепытка {
 	private: System::Void getChartBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		try
 		{
+			timeChckBx->BackColor = System::Drawing::Color::Transparent;
 			timeChckBx->BackColor = Color::LavenderBlush;
 			hourСmbx->BackColor = Color::LavenderBlush;
 			minuteСmbx->BackColor = Color::LavenderBlush;
 			fullnameTxtbx->BackColor = Color::LavenderBlush;
-			this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
 			txtResults->Text = "";
 	;
 			ValidateCheckBox();
@@ -715,7 +741,7 @@ namespace попытканепытка {
 			DateTime selectedDate = dtOfBirthPker->Value;
 			DateTime today = DateTime::Today;
 
-			dtOfBirthPker->Value = today;
+			//dtOfBirthPker->Value = today;
 
 			if (selectedDate > today)
 			{
@@ -731,8 +757,7 @@ namespace попытканепытка {
 			txtResults->Text += GetInfoFromWeb(url);
 			linkLabel->Text = "Перейти к натальной карте";
 			linkLabel->Tag = url;
-			outputPanel->Visible = true;
-			inputPanel->Visible = false;
+			
 
 			// Формирование информации для вывода
 			StringBuilder^ infoBuilder = gcnew StringBuilder();
@@ -798,7 +823,7 @@ namespace попытканепытка {
 		fullnameTxtbx->Text = "";
 
 		inputPanel->Visible = true;
-		outputPanel->Visible = false;
+		outputPanel->Visible = true;
 
 		this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
 	}
@@ -825,15 +850,24 @@ private: System::Void hourСmbx_SelectedIndexChanged(System::Object^ sender, Syst
 	minuteСmbx->BackColor = Color::LavenderBlush;
 	fullnameTxtbx->BackColor = Color::LavenderBlush;
 	this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
+	if (this->hourСmbx->SelectedItem != nullptr && this->hourСmbx->SelectedItem->ToString() == L"Часы") {
+		this->hourСmbx->SelectedIndex = -1;
+		MessageBox::Show(L"Этот элемент недоступен.");
+	}
 
 }
-private: System::Void minuteСmbx_SelectedValueChanged(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void minuteСmbx_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	timeChckBx->BackColor = Color::LavenderBlush;
 	hourСmbx->BackColor = Color::LavenderBlush;
 	minuteСmbx->BackColor = Color::LavenderBlush;
 	fullnameTxtbx->BackColor = Color::LavenderBlush;
 	this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
+	if (this->minuteСmbx->SelectedItem != nullptr && this->minuteСmbx->SelectedItem->ToString() == L"Минуты") {
+		this->minuteСmbx->SelectedIndex = -1;
+		MessageBox::Show(L"Этот элемент недоступен.");
+	}
 
 }
+
 };
 }
