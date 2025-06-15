@@ -87,6 +87,8 @@ namespace ïîïûòêàíåïûòêà {
 	private: System::Windows::Forms::Label^ linkLabel;
 	private: System::Windows::Forms::Button^ newBtn;
 	private: System::Windows::Forms::Button^ previousBtn;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::Label^ label10;
 
 
 
@@ -136,6 +138,8 @@ namespace ïîïûòêàíåïûòêà {
 			this->closeBtn = (gcnew System::Windows::Forms::Button());
 			this->newBtn = (gcnew System::Windows::Forms::Button());
 			this->previousBtn = (gcnew System::Windows::Forms::Button());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->inputPanel->SuspendLayout();
 			this->outputPanel->SuspendLayout();
 			this->SuspendLayout();
@@ -181,6 +185,8 @@ namespace ïîïûòêàíåïûòêà {
 			// inputPanel
 			// 
 			this->inputPanel->BackColor = System::Drawing::Color::Transparent;
+			this->inputPanel->Controls->Add(this->label11);
+			this->inputPanel->Controls->Add(this->label10);
 			this->inputPanel->Controls->Add(this->timezoneCmbx);
 			this->inputPanel->Controls->Add(this->label8);
 			this->inputPanel->Controls->Add(this->coordintsCmbx);
@@ -271,8 +277,6 @@ namespace ïîïûòêàíåïûòêà {
 				L"Êàçàíü, Òàòàðñòàí, Ðîññèÿ", L"Ìîñêâà, Ðîññèÿ",
 					L"Ñàíêò-Ïåòåðáóðã, Ðîññèÿ", L"Åêàòåðèíáóðã, Ñâåðäëîâñêàÿ Îáëàñòü, Ðîññèÿ"
 			});
-			this->plcOfBirthCmbx->SelectedIndex = 0;
-			//this->plcOfBirthCmbx->SelectedIndex = 0;
 			this->plcOfBirthCmbx->Location = System::Drawing::Point(379, 272);
 			this->plcOfBirthCmbx->Name = L"plcOfBirthCmbx";
 			this->plcOfBirthCmbx->Size = System::Drawing::Size(265, 28);
@@ -284,13 +288,11 @@ namespace ïîïûòêàíåïûòêà {
 			this->minuteÑmbx->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->minuteÑmbx->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->minuteÑmbx->Text = "Ìèíóòû";
-			this->minuteÑmbx->Items->Add(L"Ìèíóòû");
-			this->minuteÑmbx->Items->Add(L"00");
 			this->minuteÑmbx->FormattingEnabled = true;
-			for (int i = 1; i < 61; i++)
+			this->minuteÑmbx->Items->Add(L"00");
+			for (int i = 1; i < 60; i++)
 			{
-				
+
 				String^ minute = i.ToString("D2"); // "D2" ôîðìàòèðóåò ÷èñëî ñ âåäóùèì íóëåì
 				this->minuteÑmbx->Items->Add(minute);
 			}
@@ -302,13 +304,12 @@ namespace ïîïûòêàíåïûòêà {
 					L"41", L"42", L"43", L"44", L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58",
 					L"59", L"60"
 			});*/
-			
-			this->minuteÑmbx->Location = System::Drawing::Point(549, 143);
+
+			this->minuteÑmbx->Location = System::Drawing::Point(636, 145);
 			this->minuteÑmbx->Name = L"minuteÑmbx";
-			this->minuteÑmbx->Size = System::Drawing::Size(95, 28);
+			this->minuteÑmbx->Size = System::Drawing::Size(90, 28);
 			this->minuteÑmbx->TabIndex = 46;
 			this->minuteÑmbx->SelectedValueChanged += gcnew System::EventHandler(this, &NatalChart::minuteÑmbx_SelectedIndexChanged);
-			
 			// 
 			// hourÑmbx
 			// 
@@ -316,7 +317,6 @@ namespace ïîïûòêàíåïûòêà {
 			this->hourÑmbx->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->hourÑmbx->FormattingEnabled = true;
-			this->hourÑmbx->Items->Add(L"×àñû");
 			this->hourÑmbx->Items->Add(L"00");
 			for (int i = 1; i < 24; i++)
 			{
@@ -329,9 +329,10 @@ namespace ïîïûòêàíåïûòêà {
 				L"×àñû", L"00", L"01", L"02", L"03", L"04", L"05",
 					L"06", L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23"
 			});*/
+
 			this->hourÑmbx->Location = System::Drawing::Point(423, 145);
 			this->hourÑmbx->Name = L"hourÑmbx";
-			this->hourÑmbx->Size = System::Drawing::Size(95, 28);
+			this->hourÑmbx->Size = System::Drawing::Size(90, 28);
 			this->hourÑmbx->TabIndex = 45;
 			this->hourÑmbx->SelectedIndexChanged += gcnew System::EventHandler(this, &NatalChart::hourÑmbx_SelectedIndexChanged);
 			// 
@@ -529,6 +530,36 @@ namespace ïîïûòêàíåïûòêà {
 			this->previousBtn->UseVisualStyleBackColor = false;
 			this->previousBtn->Click += gcnew System::EventHandler(this, &NatalChart::previous3_Click);
 			// 
+			// label10
+			// 
+			this->label10->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->label10->AutoSize = true;
+			this->label10->BackColor = System::Drawing::Color::Transparent;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label10->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->label10->Location = System::Drawing::Point(353, 145);
+			this->label10->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(53, 24);
+			this->label10->TabIndex = 52;
+			this->label10->Text = L"×àñû";
+			// 
+			// label11
+			// 
+			this->label11->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->label11->AutoSize = true;
+			this->label11->BackColor = System::Drawing::Color::Transparent;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label11->ForeColor = System::Drawing::Color::LavenderBlush;
+			this->label11->Location = System::Drawing::Point(547, 145);
+			this->label11->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(81, 24);
+			this->label11->TabIndex = 53;
+			this->label11->Text = L"Ìèíóòû";
+			// 
 			// NatalChart
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -562,16 +593,12 @@ namespace ïîïûòêàíåïûòêà {
 		{
 			// Êîäèðîâàíèå èìåíè äëÿ URL
 			String^ encodedName = Uri::EscapeDataString(fullnameTxtbx->Text);
-
-			
 			DateTime birthDate = dtOfBirthPker->Value;
 			String^ day = birthDate.Day.ToString();
 			String^ month = birthDate.Month.ToString();
 			String^ year = birthDate.Year.ToString();
-
 			String^ hour = timeChckBx->Checked ? String::Empty : hourÑmbx->SelectedItem->ToString();
 			String^ minute = timeChckBx->Checked ? String::Empty : minuteÑmbx->SelectedItem->ToString();
-
 			String^ place = Uri::EscapeDataString(plcOfBirthCmbx->Text);
 
 			// Ïîëó÷åíèå êîîðäèíàò
@@ -583,7 +610,6 @@ namespace ïîïûòêàíåïûòêà {
 
 			String^ lat = coords[0]->Trim();
 			String^ lon = coords[1]->Trim();
-
 			String^ timezn = timezoneCmbx->Text;
 
 			// Ôîðìèðîâàíèå URL
@@ -669,7 +695,7 @@ namespace ïîïûòêàíåïûòêà {
 
 		void ValidateCheckBox()
 		{
-			if ((!timeChckBx->Checked) && ((hourÑmbx->SelectedIndex <= 0) || (minuteÑmbx->SelectedIndex <= 0)))
+			if ((!timeChckBx->Checked) && ((hourÑmbx->SelectedIndex < 0) || (minuteÑmbx->SelectedIndex < 0)))
 			{
 				timeChckBx->BackColor = Color::LightPink;
 				hourÑmbx->BackColor = Color::LightPink;
@@ -741,11 +767,11 @@ namespace ïîïûòêàíåïûòêà {
 			DateTime selectedDate = dtOfBirthPker->Value;
 			DateTime today = DateTime::Today;
 
-			//dtOfBirthPker->Value = today;
+			//dtOfBirthPker->Value = today; - íåíóæíàÿ ñòðîêà
 
 			if (selectedDate > today)
 			{
-				outputPanel->Visible = true;
+				//outputPanel->Visible = true;
 				txtResults->Text = "Äàòà ðîæäåíèÿ íåêîððåêòíà. Âû åù¸ íå ðîäèëèñü. Ïîïðîáóéòå ñíîâà";
 				return;
 			}
@@ -761,10 +787,10 @@ namespace ïîïûòêàíåïûòêà {
 
 			// Ôîðìèðîâàíèå èíôîðìàöèè äëÿ âûâîäà
 			StringBuilder^ infoBuilder = gcnew StringBuilder();
-			infoBuilder->AppendLine("=== Ñãåíåðèðîâàííûé URL ===");
+			infoBuilder->AppendLine("\n=== Ñãåíåðèðîâàííûé URL ===");
 			infoBuilder->AppendLine(url);
 			infoBuilder->AppendLine();
-			infoBuilder->AppendLine("=== Ïàðàìåòðû çàïðîñà ===");
+			infoBuilder->AppendLine("\n=== Ïàðàìåòðû çàïðîñà ===\n");
 			infoBuilder->AppendLine("ÔÈÎ: " + fullnameTxtbx->Text);
 			infoBuilder->AppendLine("Äàòà ðîæäåíèÿ: " + dtOfBirthPker->Value.ToShortDateString());
 
@@ -836,38 +862,28 @@ namespace ïîïûòêàíåïûòêà {
 	private: System::Void previous3_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
-private: System::Void fullnameTxtbx_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	timeChckBx->BackColor = Color::LavenderBlush;
-	hourÑmbx->BackColor = Color::LavenderBlush;
-	minuteÑmbx->BackColor = Color::LavenderBlush;
-	fullnameTxtbx->BackColor = Color::LavenderBlush;
-	this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
+	private: System::Void fullnameTxtbx_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		timeChckBx->BackColor = Color::LavenderBlush;
+		hourÑmbx->BackColor = Color::LavenderBlush;
+		minuteÑmbx->BackColor = Color::LavenderBlush;
+		fullnameTxtbx->BackColor = Color::LavenderBlush;
+		this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
 
-}
-private: System::Void hourÑmbx_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	timeChckBx->BackColor = Color::LavenderBlush;
-	hourÑmbx->BackColor = Color::LavenderBlush;
-	minuteÑmbx->BackColor = Color::LavenderBlush;
-	fullnameTxtbx->BackColor = Color::LavenderBlush;
-	this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
-	if (this->hourÑmbx->SelectedItem != nullptr && this->hourÑmbx->SelectedItem->ToString() == L"×àñû") {
-		this->hourÑmbx->SelectedIndex = -1;
-		MessageBox::Show(L"Ýòîò ýëåìåíò íåäîñòóïåí.");
 	}
-
-}
-private: System::Void minuteÑmbx_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	timeChckBx->BackColor = Color::LavenderBlush;
-	hourÑmbx->BackColor = Color::LavenderBlush;
-	minuteÑmbx->BackColor = Color::LavenderBlush;
-	fullnameTxtbx->BackColor = Color::LavenderBlush;
-	this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
-	if (this->minuteÑmbx->SelectedItem != nullptr && this->minuteÑmbx->SelectedItem->ToString() == L"Ìèíóòû") {
-		this->minuteÑmbx->SelectedIndex = -1;
-		MessageBox::Show(L"Ýòîò ýëåìåíò íåäîñòóïåí.");
+	private: System::Void hourÑmbx_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		timeChckBx->BackColor = Color::LavenderBlush;
+		hourÑmbx->BackColor = Color::LavenderBlush;
+		minuteÑmbx->BackColor = Color::LavenderBlush;
+		fullnameTxtbx->BackColor = Color::LavenderBlush;
+		this->timeChckBx->BackColor = System::Drawing::Color::Transparent;	
 	}
-
-}
+	private: System::Void minuteÑmbx_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		timeChckBx->BackColor = Color::LavenderBlush;
+		hourÑmbx->BackColor = Color::LavenderBlush;
+		minuteÑmbx->BackColor = Color::LavenderBlush;
+		fullnameTxtbx->BackColor = Color::LavenderBlush;
+		this->timeChckBx->BackColor = System::Drawing::Color::Transparent;
+	}
 
 };
 }
